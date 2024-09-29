@@ -1,35 +1,28 @@
-const tracks = [
-  { id: 'track-0fawe123',
-    name: 'frontend development',
-    courseIds : [
-      'course-0fasbn',
-      'course-03f5ds',
-      'course-0l975v',
-      'course-b613dx',
-      'course-c4k24j',
-    ]
+const tracksList = [
+  {
+    id: 'frontend-001',
+    title: 'Frontend Track',
+    courseIds: [
+      'frontend-intro',
+      'html-114',
+      'css-114',
+      'js-114',
+      'routing-114',
+      'formvalidation-114',
+    ],
   },
-
-
-  { id: 'track-l31uf32',
-    name: 'backed development',
-    courseIds : [
-      'course-zdafe4',
-      'course-03f5ds',
-      'course-25632s',
-      'course-bhthdx',
-      'course-c4124j',
-    ]
+  {
+    id: 'backend-001',
+    title: 'Backend Track',
+    courseIds: [
+      'backend-intro',
+      'node-114',
+      'express-114',
+      'mongo-114',
+      'sql-114',
+      'api-114',
+    ],
   },
-]
+];
 
-
-
-
-
-
-
-
-
-
-export default tracks;
+export default tracksList;
