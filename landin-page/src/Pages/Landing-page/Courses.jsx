@@ -51,11 +51,11 @@ const tracks = [
 ];
 
 function Courses() {
-  // Initialize AOS
+ 
   React.useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration
-      once: false,    // Animation will trigger every time the component scrolls into view
+      duration: 1000, 
+      once: false,    
     });
   }, []);
 
@@ -70,7 +70,7 @@ function Courses() {
           {courses.map((course, index) => (
             <div
               key={index}
-              data-aos="fade-up"  // Entrance animation with AOS
+              data-aos="fade-up"  
               className="course-card bg-white rounded-lg shadow-lg shadow-[#DEB041] p-6 text-center text-[#0f0f0f] cursor-pointer overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <div className="mb-4 flex justify-center">{course.icon}</div>

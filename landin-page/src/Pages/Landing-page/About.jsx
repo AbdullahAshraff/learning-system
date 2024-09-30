@@ -2,6 +2,9 @@ import React from 'react';
 import { FaUsers, FaBullseye, FaHandsHelping } from 'react-icons/fa';
 import { MdWhatshot } from 'react-icons/md';
 
+
+import {team} from '../../assets'
+
 const About = () => {
   return (
     <section className="bg-gray-50 py-20" id='about'>
@@ -105,7 +108,7 @@ const About = () => {
             {/* team image */}
             <div data-aos="fade-up" data-aos-duration="1000" className="  transition-transform transform hover:scale-105 duration-300">
               <img
-                src="images/team.png" 
+                src={team}
                 className="w-full h-80 object-cover"
               />
             </div>

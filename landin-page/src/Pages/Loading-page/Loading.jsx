@@ -1,8 +1,7 @@
 
 import React, { useEffect } from 'react';
-import '../loading.css'
+import './loading.css'
 import { useNavigate } from 'react-router-dom';
-
 
 
 function Loading(){
