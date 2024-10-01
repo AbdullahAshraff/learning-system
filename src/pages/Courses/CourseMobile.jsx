@@ -2,19 +2,22 @@
 import React, { useState } from "react";
 import { AcademicCapIcon,ChevronDownIcon } from "@heroicons/react/24/solid";
 import {  Navigate } from 'react-router-dom';
+// import { useCourseAndLessonParams } from '../../constants/learn.js'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import { welcomeVideos, htmlVideos, cssVideos, jsVideos, routingVideo, formvalidationVideos } from '../../constants/Data/mobileappData.js';
-import useVideoCourse from "../../constants/useMobile.js";
+import { welcomeMobile,kotlinVideos,swiftVideos,firebaseVideos,gitVideos,testVideo} from '../../constants/Data/courses.js';
+import useVideoCourse from "../../constants/useCourses.js";
 import CoursesNavbar from "../../components/Coursesnavbar.jsx";
 import VideoPlayer from "../../components/Videocourse.jsx";
 function CourseMobile() {
   const {
     videoUrl,notFound,username,videoIndex,currentCourse,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenRouting,isOpenForm,isOpenRedux,watchedVideos,
     watchedHtml,watchedCss,watchedJs,watchedRouting,watchedForm,watchedRedux,isMenuExpanded,isCourseCompleted,toggleCertificateMenu,markVideoAsWatched,
-    handleMarkAsComplete,handlePrevVideo,handleNextVideo,getCurrentVideos,handleVideoClick,setIsOpenWelcome,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
-    setIsOpenRouting,setIsOpenForm,
+    handlePrevVideo,handleNextVideo,getCurrentVideos,handleVideoClick,setIsOpenWelcome,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
+    setIsOpenRouting,setIsOpenForm,setIsOpenRedux,setVideoUrl,setVideoIndex,watchedMobile,watchedKotlin,watchedSwift,watchedFirebase,watchedTest,watchedGit,
+    handleMarkAsComplete
   } = useVideoCourse();
+
   if (notFound) {
     return <Navigate to="/404" />; // Assuming you have a route for 404
   }
@@ -40,13 +43,13 @@ function CourseMobile() {
                 </button>
                 {isOpenWelcome && (
                     <ul className="mt-2 space-y-1 pl-8">
-                        {welcomeVideos.map((video,index) => (
+                        {welcomeMobile.map((video,index) => (
                             <li key={index} className="flex">
                               
-                                 <button onClick={event=>{ handleVideoClick("welcome", index); markVideoAsWatched("welcome", index);}} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
+                                 <button onClick={event=>{ handleVideoClick("welcomemobile", index); markVideoAsWatched("welcomemobile", index);}} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                                    {video.title}
                                  </button>
-                                 {watchedVideos[index] && (
+                                 {watchedMobile[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
@@ -65,7 +68,7 @@ function CourseMobile() {
               </button>
               {isOpenHtml && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {htmlVideos.map((video, index) => (
+                  {kotlinVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("kotlin", index);markVideoAsWatched("kotlin",index)}}
@@ -73,8 +76,8 @@ function CourseMobile() {
                       >
                         {video.title}
                       </button>
-                      {watchedHtml[index] && (
-                                  <span className="text-blue-500 flex items-center">
+                      {watchedKotlin[index] && (
+                                  <span className="text-customBronze flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
                       )}
@@ -92,7 +95,7 @@ function CourseMobile() {
               </button>
               {isOpenCss && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {cssVideos.map((video, index) => (
+                  {swiftVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("swift", index);markVideoAsWatched("swift",index)}}
@@ -100,8 +103,8 @@ function CourseMobile() {
                       >
                         {video.title}
                       </button>
-                      {watchedCss[index] && (
-                                  <span className="text-blue-500 flex items-center">
+                      {watchedSwift[index] && (
+                                  <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
                       )}
@@ -119,7 +122,7 @@ function CourseMobile() {
               </button>
               {isOpenJs && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {jsVideos.map((video, index) => (
+                  {firebaseVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event=>{ handleVideoClick("firebase", index);markVideoAsWatched("firebase",index)}}
@@ -127,8 +130,8 @@ function CourseMobile() {
                       >
                         {video.title}
                       </button>
-                      {watchedJs[index] && (
-                                  <span className="text-blue-500 flex items-center">
+                      {watchedFirebase[index] && (
+                                  <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
                       )}
@@ -146,7 +149,7 @@ function CourseMobile() {
               </button>
               {isOpenRouting && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {routingVideo.map((video, index) => (
+                  {testVideo.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("test", index);;markVideoAsWatched("test",index)}}
@@ -154,8 +157,8 @@ function CourseMobile() {
                       >
                         {video.title}
                       </button>
-                      {watchedRouting[index] && (
-                                  <span className="text-blue-500 flex items-center">
+                      {watchedTest[index] && (
+                                  <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
                                   )}
@@ -173,7 +176,7 @@ function CourseMobile() {
               </button>
               {isOpenForm && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {formvalidationVideos.map((video, index) => (
+                  {gitVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("git", index);markVideoAsWatched("git",index)}}
@@ -181,8 +184,8 @@ function CourseMobile() {
                       >
                         {video.title}
                       </button>
-                      {watchedForm[index] && (
-                                  <span className="text-blue-500 flex items-center">
+                      {watchedGit[index] && (
+                                  <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
                                   )}
@@ -222,7 +225,10 @@ function CourseMobile() {
       </div>
       {/* Main Content */}
       <div className="main flex-1 bg-gray-100 p-6 mt-16 justify-center ">
-        <h2 className="text-2xl font-bold mb-4 text-center text-customBronze pt-2 transform transition-transform duration-500 hover:scale-110 animate-fade-in">Welcome to Mobile Application Track</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center text-customBronze pt-2 transform transition-transform duration-500 hover:scale-110 animate-fade-in">   
+               Welcome to Mobile Application course
+
+        </h2>
         <VideoPlayer videoUrl={videoUrl}/>
       </div>
       

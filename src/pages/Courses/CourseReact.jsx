@@ -1,18 +1,21 @@
 import { AcademicCapIcon, ChevronDownIcon} from "@heroicons/react/24/solid";
 import {  Navigate } from 'react-router-dom';
+// import { useCourseAndLessonParams } from '../../constants/learn.js'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import { welcomeVideos, htmlVideos, cssVideos, jsVideos, routingVideo, formvalidationVideos, reduxVideos } from '../../constants/Data/reactData.js';
-import useVideoCourse from "../../constants/useReactcourse.js";
+import { welcomeReact, reactVideos, es6Videos, hooksVideos, routingVideo, formvalidationVideos, reduxVideos } from '../../constants/Data/courses.js';
+import useVideoCourse from "../../constants/useCourses.js";
 import CoursesNavbar from "../../components/Coursesnavbar.jsx";
 import VideoPlayer from "../../components/Videocourse.jsx";
 function CourseReact() {
   const {
     videoUrl,notFound,username,videoIndex,currentCourse,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenRouting,isOpenForm,isOpenRedux,watchedVideos,
-    watchedHtml,watchedCss,watchedJs,watchedRouting,watchedForm,watchedRedux,isMenuExpanded,isCourseCompleted,toggleCertificateMenu,markVideoAsWatched,
-    handleMarkAsComplete,handlePrevVideo,handleNextVideo,getCurrentVideos,handleVideoClick,setIsOpenWelcome,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
-    setIsOpenRouting,setIsOpenForm,setIsOpenRedux,
+    watchedHtml,watchedCss,watchedJs,isCourseCompleted,toggleCertificateMenu,markVideoAsWatched,
+    handlePrevVideo,handleNextVideo,getCurrentVideos,handleVideoClick,setIsOpenWelcome,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
+    setIsOpenRouting,setIsOpenForm,setIsOpenRedux,setVideoUrl,setVideoIndex,watchedMobile,watchedKotlin,watchedSwift,watchedFirebase,watchedTest,watchedGit,
+    handleMarkAsComplete,watchedfront,watchedes6,watchedReact, watchedHooks, watchedRouting, watchedForm, watchedRedux,isMenuExpanded,
   } = useVideoCourse();
+
   if (notFound) {
     return <Navigate to="/404" />; // Assuming you have a route for 404
   }
@@ -37,13 +40,12 @@ function CourseReact() {
                 </button>
                 {isOpenWelcome && (
                     <ul className="mt-2 space-y-1 pl-8">
-                        {welcomeVideos.map((video,index) => (
+                        {welcomeReact.map((video,index) => (
                             <li key={index} className="flex">
-                              
-                                 <button onClick={event=>{ handleVideoClick("welcome", index); markVideoAsWatched("welcome", index);}} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
+                                 <button onClick={event=>{ handleVideoClick("welcomereact", index); markVideoAsWatched("welcomereact", index);}} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                                    {video.title}
                                  </button>
-                                 {watchedVideos[index] && (
+                                 {watchedfront[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -58,14 +60,14 @@ function CourseReact() {
               </button>
               {isOpenHtml && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {htmlVideos.map((video, index) => (
+                  {es6Videos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("es6", index);markVideoAsWatched("es6",index)}}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedHtml[index] && (
+                      {watchedes6[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -80,14 +82,14 @@ function CourseReact() {
               </button>
               {isOpenCss && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {cssVideos.map((video, index) => (
+                  {reactVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("react", index);markVideoAsWatched("react",index)}}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded" >
                         {video.title}
                       </button>
-                      {watchedCss[index] && (
+                      {watchedReact[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -102,14 +104,14 @@ function CourseReact() {
               </button>
               {isOpenJs && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {jsVideos.map((video, index) => (
+                  {hooksVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event=>{ handleVideoClick("hooks", index);markVideoAsWatched("hooks",index)}}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedJs[index] && (
+                      {watchedHooks[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -213,7 +215,9 @@ function CourseReact() {
       </div>
       {/* Main Content */}
       <div className="main flex-1 bg-gray-0 p-6 mt-16 justify-center ">
-        <h2 className="text-2xl font-bold mb-4 text-center  text-customBronze pt-2 transform transition-transform duration-500 hover:scale-110 animate-fade-in">Welcome to our course</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center  text-customBronze pt-2 transform transition-transform duration-500 hover:scale-110 animate-fade-in">
+        Welcome In Advanced Frontend Track
+        </h2>
         <VideoPlayer videoUrl={videoUrl}/>
       </div>
     </div>

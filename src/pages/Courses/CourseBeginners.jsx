@@ -1,18 +1,23 @@
 import { AcademicCapIcon, ChevronDownIcon} from "@heroicons/react/24/solid";
 import {  Navigate } from 'react-router-dom';
+// import { useCourseAndLessonParams } from '../../constants/learn.js'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import { welcomeVideos, htmlVideos, cssVideos, jsVideos, routingVideo, formvalidationVideos, reduxVideos } from '../../constants/Data/beginercourseData.js';
-import useVideoCourse from "../../constants/useBeginercourse.js";
+import { welcomeBeginner, progVideos, codeVideos, proglangVideos, pythonVideos, problemsVideos, careerVideos } from '../../constants/Data/courses.js';
+import useVideoCourse from "../../constants/useCourses.js";
 import CoursesNavbar from "../../components/Coursesnavbar.jsx";
 import VideoPlayer from "../../components/Videocourse.jsx";
 function CourseBeginners() {
   const {
-    videoUrl,notFound,username,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenRouting,isOpenForm,isOpenRedux,watchedVideos,
-    watchedHtml,watchedCss,watchedJs,watchedRouting,watchedForm,watchedRedux,isMenuExpanded,toggleCertificateMenu,markVideoAsWatched,
-    handlePrevVideo,handleNextVideo,handleVideoClick,setIsOpenWelcome,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
-    setIsOpenRouting,setIsOpenForm,setIsOpenRedux,
+    videoUrl,notFound,username,videoIndex,currentCourse,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenRouting,isOpenForm,isOpenRedux,watchedVideos,
+    watchedHtml,watchedCss,watchedJs,isCourseCompleted,toggleCertificateMenu,markVideoAsWatched,
+    handlePrevVideo,handleNextVideo,getCurrentVideos,handleVideoClick,setIsOpenWelcome,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
+    setIsOpenRouting,setIsOpenForm,setIsOpenRedux,setVideoUrl,setVideoIndex,watchedMobile,watchedKotlin,watchedSwift,watchedFirebase,watchedTest,watchedGit,
+    handleMarkAsComplete,watchedfront,watchedes6,watchedReact, watchedHooks, watchedRouting, watchedForm, watchedRedux,watchedBAck,watchedauth,
+    watcheddeploy,watchedexpress,watchedmongo,watchednodejs,watchedBeginner,watchedprog,watchedcode,watchedproglang,watchedpython,watchedcareer,watchedproblem,watchedJava,watchedjavacourse,watchedjavads,watchedjavaoop,
+    watchedjavaprj,watchednode,isMenuExpanded
   } = useVideoCourse();
+
   if (notFound) {
     return <Navigate to="/404" />; // Assuming you have a route for 404
   }
@@ -37,13 +42,12 @@ function CourseBeginners() {
                 </button>
                 {isOpenWelcome && (
                     <ul className="mt-2 space-y-1 pl-8">
-                        {welcomeVideos.map((video,index) => (
+                        {welcomeBeginner.map((video,index) => (
                             <li key={index} className="flex">
-                              
-                                 <button onClick={event=>{ handleVideoClick("welcome", index); markVideoAsWatched("welcome", index);}} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
+                                 <button onClick={event=>{ handleVideoClick("welcomebeginner", index); markVideoAsWatched("welcomebeginner", index);}} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                                    {video.title}
                                  </button>
-                                 {watchedVideos[index] && (
+                                 {watchedBeginner[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -58,14 +62,14 @@ function CourseBeginners() {
               </button>
               {isOpenHtml && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {htmlVideos.map((video, index) => (
+                  {progVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("programming", index);markVideoAsWatched("programming",index)}}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedHtml[index] && (
+                      {watchedprog[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -80,14 +84,14 @@ function CourseBeginners() {
               </button>
               {isOpenCss && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {cssVideos.map((video, index) => (
+                  {codeVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("coding", index);markVideoAsWatched("coding",index)}}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded" >
                         {video.title}
                       </button>
-                      {watchedCss[index] && (
+                      {watchedcode[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -102,14 +106,14 @@ function CourseBeginners() {
               </button>
               {isOpenJs && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {jsVideos.map((video, index) => (
+                  {proglangVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event=>{ handleVideoClick("proglang", index);markVideoAsWatched("proglang",index)}}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedJs[index] && (
+                      {watchedproglang[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -124,14 +128,14 @@ function CourseBeginners() {
               </button>
               {isOpenRouting && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {routingVideo.map((video, index) => (
+                  {pythonVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("python", index);;markVideoAsWatched("python",index)}}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedRouting[index] && (
+                      {watchedpython[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -146,14 +150,14 @@ function CourseBeginners() {
               </button>
               {isOpenForm && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {formvalidationVideos.map((video, index) => (
+                  {problemsVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("problems", index);markVideoAsWatched("problems",index)}}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedForm[index] && (
+                      {watchedproblem[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -168,14 +172,14 @@ function CourseBeginners() {
               </button>
               {isOpenRedux && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {reduxVideos.map((video, index) => (
+                  {careerVideos.map((video, index) => (
                     <li key={index} className="flex">
                       <button
                         onClick={event =>{ handleVideoClick("career", index);markVideoAsWatched("career",index)}}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedRedux[index] && (
+                      {watchedcareer[index] && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -212,7 +216,9 @@ function CourseBeginners() {
       </div>
       {/* Main Content */}
       <div className="main flex-1 bg-gray-100 p-6 mt-16 justify-center ">
-        <h2 className="text-2xl font-bold mb-4 text-center text-customBronze pt-2 transform transition-transform duration-500 hover:scale-110 animate-fade-in">Welcome to our course, Wish you success</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center text-customBronze pt-2 transform transition-transform duration-500 hover:scale-110 animate-fade-in">
+        Welcome to our course. Have a nice time!
+        </h2>
         <VideoPlayer videoUrl={videoUrl}/>
       </div>   
     </div>

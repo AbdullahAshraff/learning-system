@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserIcon, ChevronLeftIcon, ChevronRightIcon, HomeIcon } from "@heroicons/react/24/solid";
-import useVideoCourse from '../constants/useFrontCourse';
+import useVideoCourse from '../constants/useCourses';
 
 const CoursesNavbar = ({ handlePrevVideo, handleNextVideo }) => {
   const username = "Arwa Zakria";

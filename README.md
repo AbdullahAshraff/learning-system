@@ -47,8 +47,8 @@ These are the routes of the website. Feel free to add routes as you need
 
 #### Learn Page
 
-- `learn/track/?courseId=abc-001&lessonId=abc-001-001` 
--`like-->` `learn/frontend/?courseId=html-001&lessonId=html-001-003`
+- `learn/?courseId=abc-001&lessonId=abc-001-001` 
+
 
 
 #### Error Pages

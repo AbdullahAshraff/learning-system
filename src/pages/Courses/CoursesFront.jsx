@@ -1,12 +1,13 @@
 //frontend course
 import { AcademicCapIcon,  ChevronDownIcon,} from "@heroicons/react/24/solid";
 import {  Navigate } from 'react-router-dom';
+import learn  from "../../constants/learn.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import { welcomeVideos,htmlVideos,cssVideos, jsVideos,getCurrentVideos } from '../../constants/Data/frontendData.js'; // Import the course data
+import { welcomeVideos,htmlVideos,cssVideos, jsVideos,getCurrentVideos } from '../../constants/Data/courses.js'; // Import the course data
 import CoursesNavbar from "../../components/Coursesnavbar.jsx";
 import VideoPlayer from './../../components/Videocourse';
-import useVideoCourse from "../../constants/useFrontCourse.js";
+import useVideoCourse from "../../constants/useCourses.js";
 function CoursesFront() {
   const {
     videoUrl,notFound,username,videoIndex,currentCourse,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenRouting,isOpenForm,isOpenRedux,watchedVideos,
@@ -167,7 +168,9 @@ function CoursesFront() {
       </div>
       {/* Main Content */}
       <div className="main flex-1 bg-gray-100 p-6 mt-16 justify-center ">
-        <h2 className="text-2xl font-bold mb-4 text-center  text-customBronze pt-2 transform transition-transform duration-500 hover:scale-110 animate-fade-in">Welcome to the Frontend Track</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center  text-customBronze pt-2 transform transition-transform duration-500 hover:scale-110 animate-fade-in">
+        Welcome in fron-end
+        </h2>
         <VideoPlayer videoUrl={videoUrl}/>
       </div>
     </div>
