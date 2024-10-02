@@ -1,3 +1,3 @@
-import ProfileSettings from './Page';
+import Page from './Page';
 
-export { ProfileSettings };
+export { Page as ProfileSettings };
