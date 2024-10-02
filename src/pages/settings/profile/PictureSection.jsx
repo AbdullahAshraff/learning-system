@@ -1,7 +1,11 @@
 import Avatar from '@mui/material/Avatar';
 import EditButton from './EditButton';
+import { useContext } from 'react';
+import { UserContext } from '../../../contexts/UserContext';
 
 const PictureSection = ({ user }) => {
+  const { profilePic } = useContext(UserContext);
+
   return (
     <>
       <div className="flex flex-row flex-wrap gap-5">
@@ -9,7 +13,7 @@ const PictureSection = ({ user }) => {
           <div className="h-[130px] w-[130px] md:h-[200px] md:w-[200px] rounded-full">
             <Avatar
               alt={`${user.name} profile picture`}
-              src={user.picture}
+              src={profilePic}
               sx={{ width: '100%', height: '100%' }}
             />
           </div>

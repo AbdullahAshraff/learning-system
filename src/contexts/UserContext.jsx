@@ -15,7 +15,6 @@ function getUserInfo(){
           voluptate enim labore laboriosam ipsa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti assumenda rerum reiciendis quia vero reprehenderit, nostrum, velit
           ea exercitationem quibusdam esse? Itaque, fugit sapiente esse
           voluptate enim labore laboriosam ipsa.`,
-    picture: profilePic,
     links: {
       github: {
         username: 'abdullahashraf',
@@ -34,15 +33,18 @@ function getUserInfo(){
   return user;
 }
 
-
+function getProfilePic(){
+  return profilePic;
+}
 
 const UserContext = createContext();
 
 function UserProvider({ children }) {
   const [user, setUser] = useState(getUserInfo());
+  const [profilePic, setProfilePic] = useState(getProfilePic());
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, profilePic,setProfilePic }}>
       {children}
     </UserContext.Provider>
   );
