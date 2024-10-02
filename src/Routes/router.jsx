@@ -11,7 +11,7 @@ const routes = [
       { index: true, element: <Home /> },
       { path: 'landing', element: <Landing /> },
       { path: 'about', element: <About /> },
-      { path: 'profile', element: <Profile /> },
+      { path: 'profile/:username', element: <Profile /> },
     ],
   },
 ];

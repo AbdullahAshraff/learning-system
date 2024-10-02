@@ -4,10 +4,13 @@ import CoursesGrid from './CoursesGrid';
 import LinksChips from './LinksChips';
 import ShowMoreText from 'react-show-more-text';
 import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 
 const Page = () => {
+  const { username } = useParams();
+  console.log(username);
+  // get the user from username
   const user = {
     name: 'Abdullah Ashraf',
     username: 'abdullahashraf',
