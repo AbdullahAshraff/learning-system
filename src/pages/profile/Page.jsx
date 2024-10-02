@@ -5,6 +5,7 @@ import LinksChips from './LinksChips';
 import ShowMoreText from 'react-show-more-text';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import EditIcon from '@mui/icons-material/Edit';
 
 const Page = () => {
   const user = {
@@ -78,6 +79,7 @@ const Page = () => {
                     height: 'fit-content',
                   }}
                   variant="contained"
+                  endIcon={<EditIcon />}
                 >
                   Edit Profile
                 </Button>

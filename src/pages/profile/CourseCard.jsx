@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function CourseCard({ courseInfo, enrolledCourse }) {
   return (
@@ -15,6 +16,7 @@ function CourseCard({ courseInfo, enrolledCourse }) {
             className="!bg-indigo-700"
             style={{ textTransform: 'none', borderRadius: '10px' }}
             variant="contained"
+            endIcon={<ArrowForwardIcon />}
           >
             Go to course
           </Button>
