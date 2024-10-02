@@ -1,7 +1,4 @@
 import Avatar from '@mui/material/Avatar';
-import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
-import EditIcon from '@mui/icons-material/Edit';
 import EditButton from './EditButton';
 
 const PictureSection = ({ user }) => {
@@ -9,15 +6,17 @@ const PictureSection = ({ user }) => {
     <>
       <div className="flex flex-row flex-wrap gap-5">
         <div className="field-name no-after">
-          <Avatar
-            alt={`${user.name} profile picture`}
-            src={user.picture}
-            sx={{ height: 200, width: 200, maxWidth: '100%' }}
-          />
+          <div className="h-[130px] w-[130px] md:h-[200px] md:w-[200px] rounded-full">
+            <Avatar
+              alt={`${user.name} profile picture`}
+              src={user.picture}
+              sx={{ width: '100%', height: '100%' }}
+            />
+          </div>
         </div>
 
-        <div className="flex flex-row items-center">
-          <EditButton label="View and Edit Picture"/>
+        <div className="flex flex-row items-center ml-3">
+          <EditButton label="View and Edit Picture" />
         </div>
       </div>
     </>
