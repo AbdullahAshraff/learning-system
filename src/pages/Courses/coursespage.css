@@ -6,6 +6,7 @@
 }
 .relative{
 text-align: center;
+position: relative;
 }
 .main{
     /* height: 130vh; */
@@ -25,7 +26,6 @@ text-align: center;
   top: 20px; 
   left: 20px; 
 }
-
 .animate-fade-in {
   opacity: 1;
   animation: fade-in 0.5s ease-in-out forwards;
@@ -75,9 +75,9 @@ text-align: center;
       margin-bottom: 0.5rem; 
       width: 100%; 
     }
-    .main{
+    /* .main{
         height: 140vh;
-    }
+    } */
   
     h2 {
       font-size: 2rem; 
@@ -92,6 +92,22 @@ text-align: center;
     .sidebar{
       transform: translateY(260px);
     }
+    .absolute .logoimg{
+      transform: translateX(0);
+      transform: translateY(30px);
+    }
+    .relative iframe{
+      height:55vh;
+      width: 80%;
+      margin-left: 2rem;
+      margin-top: 4rem;
+  }
+  .relative{
+  /* text-align: left; */
+  font-size: 18px;
+  }
+
+  
   }
   
   @media (max-width: 640px) {
@@ -102,5 +118,22 @@ text-align: center;
       font-size: 1.5rem; 
       text-align: center; 
     }
-    
+    .relative iframe{
+      height:45vh;
+      width: 70%;
+      margin-left: 2rem;
+      margin-top: 3rem;
+  }
+  .relative{
+    /* text-align: left; */
+    font-size: 16px;
+    }
+    .absolute .logoimg{
+      transform: translateX(-50px);
+      transform: translateY(30px);
+    }
+    .logo {
+      top: 20px; 
+      left: 60px; 
+    }
   }

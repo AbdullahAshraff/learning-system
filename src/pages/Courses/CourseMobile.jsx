@@ -1,26 +1,43 @@
-//frontend course
-import React, { useState } from "react";
-import { AcademicCapIcon,ChevronDownIcon } from "@heroicons/react/24/solid";
-import {  Navigate } from 'react-router-dom';
-// import { useCourseAndLessonParams } from '../../constants/learn.js'; 
+import { AcademicCapIcon, ChevronDownIcon} from "@heroicons/react/24/solid";
+import {  Navigate,useSearchParams } from 'react-router-dom';
+import { useState,useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import { welcomeMobile,kotlinVideos,swiftVideos,firebaseVideos,gitVideos,testVideo} from '../../constants/Data/courses.js';
-import useVideoCourse from "../../constants/useCourses.js";
-import CoursesNavbar from "../../components/Coursesnavbar.jsx";
-import VideoPlayer from "../../components/Videocourse.jsx";
+import coursesList from "../../constants/courses.js";
+import useVideoCourse from "../../hooks/useCourses.js";
+import CoursesNavbar from "../../components/Learnnavbar.jsx";
+import VideoPlayer from "../../components/Learnbvideoplayer.jsx";
+import courses from './../../../learning-system/src/constants/courses';
 function CourseMobile() {
-  const {
-    videoUrl,notFound,username,videoIndex,currentCourse,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenRouting,isOpenForm,isOpenRedux,watchedVideos,
-    watchedHtml,watchedCss,watchedJs,watchedRouting,watchedForm,watchedRedux,isMenuExpanded,isCourseCompleted,toggleCertificateMenu,markVideoAsWatched,
-    handlePrevVideo,handleNextVideo,getCurrentVideos,handleVideoClick,setIsOpenWelcome,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
-    setIsOpenRouting,setIsOpenForm,setIsOpenRedux,setVideoUrl,setVideoIndex,watchedMobile,watchedKotlin,watchedSwift,watchedFirebase,watchedTest,watchedGit,
-    handleMarkAsComplete
-  } = useVideoCourse();
-
-  if (notFound) {
-    return <Navigate to="/404" />; // Assuming you have a route for 404
-  }
+  const [URLSearchParams, setURLsearch] = useSearchParams();
+    const courseId = URLSearchParams.get('courseId');
+    const lessonId = URLSearchParams.get('lessonId');
+    const {videoUrl,notFound, videoIndex,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenForm,isOpenRedux,isOpenRouting,watchedVideos,handleVideoClick, // Return this new function
+      handleVideoChange,handlePrevVideo,handleNextVideo,markVideoAsWatched,setIsOpenWelcome,setVideoUrl,setVideoIndex,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
+      setIsOpenRedux,setIsOpenRouting,setIsOpenForm,setIsMenuExpanded, isMenuExpanded,toggleCertificateMenu,setNotFound
+    } = useVideoCourse(courseId, lessonId);
+    useEffect(() => {
+      const courses = coursesList.find(course => course.id === courseId);
+      if (courses) {
+        const lesson = courses.lessons.find(lesson => lesson.lessonId === lessonId); 
+        if (lesson) {
+          setVideoUrl(lesson.url);
+          setVideoIndex(courses.lessons.indexOf(lesson));
+        } else if (!lesson || courses){
+          setNotFound(true); // Lesson not found
+        }
+      } else {
+        setNotFound(true); // Course not found
+      }
+    }, [courseId, lessonId]);
+    const username = 'Arwa';
+    const onLessonSelect = (course, index) => {
+        handleVideoClick(course, index);
+        markVideoAsWatched(course, index);
+        URLSearchParams.set('courseId', course.id);
+        URLSearchParams.set('lessonId', course.lessons[index].lessonId);
+        setURLsearch(URLSearchParams); // Update the URL search params
+    };
   return (
     <div className="flex header-course ">
       {/* Top Navbar next,prev,user */}
@@ -43,13 +60,12 @@ function CourseMobile() {
                 </button>
                 {isOpenWelcome && (
                     <ul className="mt-2 space-y-1 pl-8">
-                        {welcomeMobile.map((video,index) => (
-                            <li key={index} className="flex">
-                              
-                                 <button onClick={event=>{ handleVideoClick("welcomemobile", index); markVideoAsWatched("welcomemobile", index);}} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
+                        {coursesList[11].lessons.map((video,index) => (
+                            <li key={video.lessonId} className="flex">            
+                                 <button onClick={()=> onLessonSelect(coursesList[11], index)} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                                    {video.title}
                                  </button>
-                                 {watchedMobile[index] && (
+                                 {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
@@ -68,15 +84,15 @@ function CourseMobile() {
               </button>
               {isOpenHtml && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {kotlinVideos.map((video, index) => (
-                    <li key={index} className="flex">
+                  {coursesList[12].lessons.map((video, index) => (
+                    <li key={video.lessonId} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("kotlin", index);markVideoAsWatched("kotlin",index)}}
+                        onClick={() => onLessonSelect(coursesList[12], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded"
                       >
                         {video.title}
                       </button>
-                      {watchedKotlin[index] && (
+                      {watchedVideos.includes(index) && (
                                   <span className="text-customBronze flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
@@ -95,15 +111,15 @@ function CourseMobile() {
               </button>
               {isOpenCss && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {swiftVideos.map((video, index) => (
-                    <li key={index} className="flex">
+                  {coursesList[13].lessons.map((video, index) => (
+                    <li key={video.lessonId} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("swift", index);markVideoAsWatched("swift",index)}}
+                        onClick={() => onLessonSelect(coursesList[13], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded"
                       >
                         {video.title}
                       </button>
-                      {watchedSwift[index] && (
+                      {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
@@ -122,15 +138,15 @@ function CourseMobile() {
               </button>
               {isOpenJs && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {firebaseVideos.map((video, index) => (
-                    <li key={index} className="flex">
+                  {coursesList[14].lessons.map((video, index) => (
+                    <li key={video.lessonId} className="flex">
                       <button
-                        onClick={event=>{ handleVideoClick("firebase", index);markVideoAsWatched("firebase",index)}}
+                        onClick={() => onLessonSelect(coursesList[14], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded"
                       >
                         {video.title}
                       </button>
-                      {watchedFirebase[index] && (
+                      {watchedVideos.includes(index) &&(
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
@@ -149,15 +165,15 @@ function CourseMobile() {
               </button>
               {isOpenRouting && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {testVideo.map((video, index) => (
-                    <li key={index} className="flex">
+                  {coursesList[15].lessons.map((video, index) => (
+                    <li key={video.lessonId} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("test", index);;markVideoAsWatched("test",index)}}
+                        onClick={() => onLessonSelect(coursesList[15], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded"
                       >
                         {video.title}
                       </button>
-                      {watchedTest[index] && (
+                      {watchedVideos.includes(index) &&(
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
@@ -176,15 +192,15 @@ function CourseMobile() {
               </button>
               {isOpenForm && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {gitVideos.map((video, index) => (
-                    <li key={index} className="flex">
+                  {coursesList[16].lessons.map((video, index) => (
+                    <li key={video.lessonId} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("git", index);markVideoAsWatched("git",index)}}
+                        onClick={() => onLessonSelect(coursesList[16], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded"
                       >
                         {video.title}
                       </button>
-                      {watchedGit[index] && (
+                      {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>
@@ -227,7 +243,6 @@ function CourseMobile() {
       <div className="main flex-1 bg-gray-100 p-6 mt-16 justify-center ">
         <h2 className="text-2xl font-bold mb-4 text-center text-customBronze pt-2 transform transition-transform duration-500 hover:scale-110 animate-fade-in">   
                Welcome to Mobile Application course
-
         </h2>
         <VideoPlayer videoUrl={videoUrl}/>
       </div>

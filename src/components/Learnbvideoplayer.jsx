@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '/landin-page/images/nlogo.png';
+import logo from '../assets/nlogo.png';
 
 const VideoPlayer = ({ videoUrl }) => {
   return (

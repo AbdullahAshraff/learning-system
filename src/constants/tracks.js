@@ -48,6 +48,7 @@ export const tracksList = [
         'proglang-001',
         'python-001',
         'career-001',
+        'problems-001',
       ],
     },
     {

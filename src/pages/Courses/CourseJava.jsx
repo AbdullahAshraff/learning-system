@@ -1,26 +1,48 @@
 import { AcademicCapIcon, ChevronDownIcon} from "@heroicons/react/24/solid";
-import {  Navigate } from 'react-router-dom';
-// import { useCourseAndLessonParams } from '../../constants/learn.js'; 
+import {  Navigate,useSearchParams } from 'react-router-dom';
+import { useState,useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import { welcomeJava, javaVideos, javaoopVideos, javadsVideos, javaprjVideo} from '../../constants/Data/courses.js';
-import useVideoCourse from "../../constants/useCourses.js";
-import CoursesNavbar from "../../components/Coursesnavbar.jsx";
-import VideoPlayer from "../../components/Videocourse.jsx";
+import coursesList from "../../constants/courses.js";
+import useVideoCourse from "../../hooks/useCourses.js";
+import CoursesNavbar from "../../components/Learnnavbar.jsx";
+import VideoPlayer from "../../components/Learnbvideoplayer.jsx";
+import courses from './../../../learning-system/src/constants/courses';
 function CourseJava() {
-  const {
-    videoUrl,notFound,username,videoIndex,currentCourse,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenRouting,isOpenForm,isOpenRedux,watchedVideos,
-    watchedHtml,watchedCss,watchedJs,isCourseCompleted,toggleCertificateMenu,markVideoAsWatched,
-    handlePrevVideo,handleNextVideo,getCurrentVideos,handleVideoClick,setIsOpenWelcome,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
-    setIsOpenRouting,setIsOpenForm,setIsOpenRedux,setVideoUrl,setVideoIndex,watchedMobile,watchedKotlin,watchedSwift,watchedFirebase,watchedTest,watchedGit,
-    handleMarkAsComplete,watchedfront,watchedes6,watchedReact, watchedHooks, watchedRouting, watchedForm, watchedRedux,watchedBAck,watchedauth,
-    watcheddeploy,watchedexpress,watchedmongo,watchednodejs,watchedBeginner,watchedprog,watchedcode,watchedproglang,watchedpython,watchedcareer,watchedproblem,watchedJava,watchedjavacourse,watchedjavads,watchedjavaoop,
-    watchedjavaprj,isMenuExpanded
-  } = useVideoCourse();
+  const [URLSearchParams, setURLsearch] = useSearchParams();
+    const [isNotFound, setIsNotFound] = useState(false);
+    const courseId = URLSearchParams.get('courseId');
+    const lessonId = URLSearchParams.get('lessonId');
+    const {videoUrl,notFound, videoIndex,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenForm,isOpenRedux,isOpenRouting,watchedVideos,handleVideoClick, // Return this new function
+      handleVideoChange,handlePrevVideo,handleNextVideo,markVideoAsWatched,setIsOpenWelcome,setVideoUrl,setVideoIndex,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
+      setIsOpenRedux,setIsOpenRouting,setIsOpenForm,setIsMenuExpanded, isMenuExpanded,toggleCertificateMenu,
+    } = useVideoCourse(courseId, lessonId);
+    useEffect(() => {
+      const courses = coursesList.find(course => course.id === courseId);
+      if (courses) {
+        const lesson = courses.lessons.find(lesson => lesson.lessonId === lessonId); 
+        if (lesson) {
+          setVideoUrl(lesson.url);
+          setVideoIndex(courses.lessons.indexOf(lesson));
+        } else {
+          setIsNotFound(true); // Lesson not found
+        }
+      } else {
+        setIsNotFound(true); // Course not found
+      }
+    }, [courseId, lessonId]);
 
-  if (notFound) {
-    return <Navigate to="/404" />; // Assuming you have a route for 404
+  if (isNotFound) {
+      return <Navigate to="/404" />;
   }
+    const username = 'Arwa';
+    const onLessonSelect = (course, index) => {
+        handleVideoClick(course, index);
+        markVideoAsWatched(course, index);
+        URLSearchParams.set('courseId', course.id);
+        URLSearchParams.set('lessonId', course.lessons[index].lessonId);
+        setURLsearch(URLSearchParams); // Update the URL search params
+    };
   return (
     <div className="flex header-course ">
       {/* Top Navbar next,prev,user */}
@@ -42,12 +64,12 @@ function CourseJava() {
                 </button>
                 {isOpenWelcome && (
                     <ul className="mt-2 space-y-1 pl-8">
-                        {welcomeJava.map((video,index) => (
-                            <li key={index} className="flex">
-                                 <button onClick={event=>{ handleVideoClick("welcomejava", index); markVideoAsWatched("welcomejava", index);}} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
+                        {coursesList[17].lessons.map((video,index) => (
+                            <li key={video.lessonId} className="flex">
+                                 <button onClick={() => onLessonSelect(coursesList[17], index)} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                                    {video.title}
                                  </button>
-                                 {watchedJava[index] && (
+                                 {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />
                                   </span>)}
@@ -62,14 +84,14 @@ function CourseJava() {
               </button>
               {isOpenHtml && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {javaVideos.map((video, index) => (
-                    <li key={index} className="flex">
+                  {coursesList[18].lessons.map((video, index) => (
+                    <li key={video.lessonId} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("java", index);markVideoAsWatched("java",index)}}
+                        onClick={() => onLessonSelect(coursesList[18], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedjavacourse[index] && (
+                      {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -84,14 +106,14 @@ function CourseJava() {
               </button>
               {isOpenCss && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {javaoopVideos.map((video, index) => (
-                    <li key={index} className="flex">
+                  {coursesList[19].lessons.map((video, index) => (
+                    <li key={video.lessonId} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("javaoop", index);markVideoAsWatched("javaoop",index)}}
+                        onClick={() => onLessonSelect(coursesList[19], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedjavaoop[index] && (
+                      {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />
                                   </span>)}
@@ -106,14 +128,14 @@ function CourseJava() {
               </button>
               {isOpenJs && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {javadsVideos.map((video, index) => (
-                    <li key={index} className="flex">
+                  {coursesList[20].lessons.map((video, index) => (
+                    <li key={video.lessonId} className="flex">
                       <button
-                        onClick={event=>{ handleVideoClick("javads", index);markVideoAsWatched("javads",index)}}
+                        onClick={() => onLessonSelect(coursesList[20], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded" >
                         {video.title}
                       </button>
-                      {watchedjavads[index] && (
+                      {watchedVideos.includes(index) &&(
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />
                                   </span>)}
@@ -128,14 +150,14 @@ function CourseJava() {
               </button>
               {isOpenRouting && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {javaprjVideo.map((video, index) => (
-                    <li key={index} className="flex">
+                  {coursesList[21].lessons.map((video, index) => (
+                    <li key={video.lessonId} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("javaprj", index);;markVideoAsWatched("javaprj",index)}}
+                        onClick={() => onLessonSelect(coursesList[21], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedRouting[index] && (
+                      {watchedVideos.includes(index) &&(
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />
                                   </span> )}

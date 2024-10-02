@@ -4,7 +4,7 @@ import Home from '../pages/home';
 import About from '../pages/About';
 import NotFound from '../pages/Notfound';
 import '../pages/Courses/coursespage.css'
-import Learn from '../constants/Learn.jsx';
+import Learn from '../pages/Learn.jsx';
 
 import CoursesFront from './../pages/Courses/CoursesFront';
 import CourseBack from './../pages/Courses/CourseBack';
@@ -20,19 +20,17 @@ const routes = [
       { index: true, element: <Home /> },
       { path: 'landing', element: <Landing /> },
       { path: 'about', element: <About /> },
-       // Group all courses under /courses route
+       {path: 'learn',element: <Learn /> },
        {
-        path: 'learn',
-        element: <Learn /> ,
-        // path: 'learn',
-        // children: [
-        //   // { path: 'frontend', element: <CoursesFront /> },
-        //   // { path: 'react', element: <CourseReact /> },
-        //   // { path: 'java', element: <CourseJava /> },
-        //   // { path: 'mobile', element: <CourseMobile /> },
-        //   // { path: 'backend', element: <CourseBack /> },
-        //   // { path: 'beginner', element: <CourseBeginners /> },
-        // ],
+      //   path: 'learn',
+      //   children: [
+      //     // { path: 'frontend', element: <CoursesFront /> },
+      //     // { path: 'react', element: <CourseReact /> },
+      //     // { path: 'java', element: <CourseJava /> },
+      //     // { path: 'mobile', element: <CourseMobile /> },
+      //     // { path: 'backend', element: <CourseBack /> },
+      //     // { path: 'beginner', element: <CourseBeginners /> },
+      //   ],
       },
       // Catch-all for 404 Not Found
       { path: '*', element: <NotFound /> },

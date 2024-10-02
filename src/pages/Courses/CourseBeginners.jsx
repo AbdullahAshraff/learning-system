@@ -1,26 +1,66 @@
 import { AcademicCapIcon, ChevronDownIcon} from "@heroicons/react/24/solid";
-import {  Navigate } from 'react-router-dom';
-// import { useCourseAndLessonParams } from '../../constants/learn.js'; 
+import {  Navigate,useSearchParams } from 'react-router-dom';
+import { useState,useEffect } from "react"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import { welcomeBeginner, progVideos, codeVideos, proglangVideos, pythonVideos, problemsVideos, careerVideos } from '../../constants/Data/courses.js';
-import useVideoCourse from "../../constants/useCourses.js";
-import CoursesNavbar from "../../components/Coursesnavbar.jsx";
-import VideoPlayer from "../../components/Videocourse.jsx";
+import coursesList from "../../constants/courses.js";
+import useVideoCourse from "../../hooks/useCourses.js";
+import CoursesNavbar from "../../components/Learnnavbar.jsx";
+import VideoPlayer from "../../components/Learnbvideoplayer.jsx";
 function CourseBeginners() {
-  const {
-    videoUrl,notFound,username,videoIndex,currentCourse,isOpenWelcome,isOpenHtml,isOpenCss,isOpenJs,isOpenRouting,isOpenForm,isOpenRedux,watchedVideos,
-    watchedHtml,watchedCss,watchedJs,isCourseCompleted,toggleCertificateMenu,markVideoAsWatched,
-    handlePrevVideo,handleNextVideo,getCurrentVideos,handleVideoClick,setIsOpenWelcome,setIsOpenHtml,setIsOpenCss,setIsOpenJs,
-    setIsOpenRouting,setIsOpenForm,setIsOpenRedux,setVideoUrl,setVideoIndex,watchedMobile,watchedKotlin,watchedSwift,watchedFirebase,watchedTest,watchedGit,
-    handleMarkAsComplete,watchedfront,watchedes6,watchedReact, watchedHooks, watchedRouting, watchedForm, watchedRedux,watchedBAck,watchedauth,
-    watcheddeploy,watchedexpress,watchedmongo,watchednodejs,watchedBeginner,watchedprog,watchedcode,watchedproglang,watchedpython,watchedcareer,watchedproblem,watchedJava,watchedjavacourse,watchedjavads,watchedjavaoop,
-    watchedjavaprj,watchednode,isMenuExpanded
-  } = useVideoCourse();
+  const [URLSearchParams, setURLsearch] = useSearchParams();
+    const [isNotFound, setIsNotFound] = useState(false);
+    const courseId = URLSearchParams.get('courseId');
+    const lessonId = URLSearchParams.get('lessonId');
+    const course = coursesList.find(course => course.id === courseId);
+    const lesson = course ? course.lessons.find(lesson => lesson.lessonId === lessonId) : null;
+    const {
+      videoUrl,
+      notFound,
+      videoIndex,
+      isOpenWelcome,
+      isOpenHtml,
+      isOpenCss,
+      isOpenJs,
+      isOpenForm,
+      isOpenRedux,
+      isOpenRouting,
+      watchedVideos,
+      handleVideoClick, // Return this new function
+      handleVideoChange,
+      handlePrevVideo,
+      handleNextVideo,
+      markVideoAsWatched,
+      setIsOpenWelcome,
+      setVideoUrl,
+      setVideoIndex,
+      setIsOpenHtml,
+      setIsOpenCss,
+      setIsOpenJs,
+      setIsOpenRedux,
+      setIsOpenRouting,
+      setIsOpenForm,
+      setIsMenuExpanded,
+      isMenuExpanded,
+      toggleCertificateMenu,
+    } = useVideoCourse(courseId, lessonId);
+    useEffect(() => {
+      if (!course || !lesson) {
+          setIsNotFound(true);
+      }
+  }, [course, lesson]);
 
-  if (notFound) {
-    return <Navigate to="/404" />; // Assuming you have a route for 404
+  if (isNotFound) {
+      return <Navigate to="/404" />;
   }
+    const username = 'Arwa';
+    const onLessonSelect = (course, index) => {
+        handleVideoClick(course, index);
+        markVideoAsWatched(course, index);
+        URLSearchParams.set('courseId', course.id);
+        URLSearchParams.set('lessonId', course.lessons[index].lessonId);
+        setURLsearch(URLSearchParams); // Update the URL search params
+    };
   return (
     <div className="flex header-course ">
       {/* Top Navbar next,prev,user */}
@@ -42,12 +82,12 @@ function CourseBeginners() {
                 </button>
                 {isOpenWelcome && (
                     <ul className="mt-2 space-y-1 pl-8">
-                        {welcomeBeginner.map((video,index) => (
+                        {coursesList[29].lessons.map((video,index) => (
                             <li key={index} className="flex">
-                                 <button onClick={event=>{ handleVideoClick("welcomebeginner", index); markVideoAsWatched("welcomebeginner", index);}} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
+                                 <button onClick={() => onLessonSelect(coursesList[29], index)} className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                                    {video.title}
                                  </button>
-                                 {watchedBeginner[index] && (
+                                 {watchedVideos.includes(index) &&(
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -62,14 +102,14 @@ function CourseBeginners() {
               </button>
               {isOpenHtml && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {progVideos.map((video, index) => (
+                  {coursesList[30].lessons.map((video, index) => (
                     <li key={index} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("programming", index);markVideoAsWatched("programming",index)}}
+                        onClick={() => onLessonSelect(coursesList[30], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedprog[index] && (
+                      {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -84,14 +124,14 @@ function CourseBeginners() {
               </button>
               {isOpenCss && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {codeVideos.map((video, index) => (
+                  {coursesList[31].map((video, index) => (
                     <li key={index} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("coding", index);markVideoAsWatched("coding",index)}}
+                        onClick={() => onLessonSelect(coursesList[31], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded" >
                         {video.title}
                       </button>
-                      {watchedcode[index] && (
+                      {watchedVideos.includes(index) &&(
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -106,14 +146,14 @@ function CourseBeginners() {
               </button>
               {isOpenJs && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {proglangVideos.map((video, index) => (
+                  {coursesList[32].lessons.map((video, index) => (
                     <li key={index} className="flex">
                       <button
-                        onClick={event=>{ handleVideoClick("proglang", index);markVideoAsWatched("proglang",index)}}
+                        onClick={() => onLessonSelect(coursesList[32], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedproglang[index] && (
+                      {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -128,14 +168,14 @@ function CourseBeginners() {
               </button>
               {isOpenRouting && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {pythonVideos.map((video, index) => (
+                  {coursesList[33].lessons.map((video, index) => (
                     <li key={index} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("python", index);;markVideoAsWatched("python",index)}}
+                        onClick={ () => onLessonSelect(coursesList[33], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedpython[index] && (
+                      {watchedVideos.includes(index) &&(
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -150,14 +190,14 @@ function CourseBeginners() {
               </button>
               {isOpenForm && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {problemsVideos.map((video, index) => (
+                  {coursesList[34].lessons.map((video, index) => (
                     <li key={index} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("problems", index);markVideoAsWatched("problems",index)}}
+                        onClick={() => onLessonSelect(coursesList[34], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedproblem[index] && (
+                      {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
@@ -172,14 +212,14 @@ function CourseBeginners() {
               </button>
               {isOpenRedux && (
                 <ul className="mt-2 space-y-1 pl-8">
-                  {careerVideos.map((video, index) => (
+                  {coursesList[35].lessons.map((video, index) => (
                     <li key={index} className="flex">
                       <button
-                        onClick={event =>{ handleVideoClick("career", index);markVideoAsWatched("career",index)}}
+                        onClick={() => onLessonSelect(coursesList[35], index)}
                         className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded">
                         {video.title}
                       </button>
-                      {watchedcareer[index] && (
+                      {watchedVideos.includes(index) && (
                                   <span className="text-customGold flex items-center">
                                   <FontAwesomeIcon icon={faSquareCheck} />{/* Check icon */}
                                   </span>)}
