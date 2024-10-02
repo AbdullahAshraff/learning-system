@@ -21,6 +21,7 @@ const Page = () => {
           voluptate enim labore laboriosam ipsa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti assumenda rerum reiciendis quia vero reprehenderit, nostrum, velit
           ea exercitationem quibusdam esse? Itaque, fugit sapiente esse
           voluptate enim labore laboriosam ipsa.`,
+    picture: profilePic,
     links: [
       {
         platform: 'github',
@@ -57,7 +58,7 @@ const Page = () => {
           <div className="sided-element flex md:justify-center">
             <Avatar
               alt={`${user.name} profile picture`}
-              src={profilePic}
+              src={user.picture}
               sx={{ height: 200, width: 200 }}
             />
           </div>

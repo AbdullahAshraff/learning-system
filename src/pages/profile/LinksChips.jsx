@@ -2,6 +2,7 @@ import { Chip } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LanguageIcon from '@mui/icons-material/Language';
+import { Link } from 'react-router-dom';
 
 function LinksChips({ links }) {
   return (
@@ -19,7 +20,11 @@ function LinksChips({ links }) {
             icon = <LanguageIcon />;
             break;
         }
-        return <Chip label={link.username} key={index} icon={icon} />;
+        return (
+          <Link to={link.url} key={index} target='_blank'>
+            <Chip label={link.username} icon={icon} />{' '}
+          </Link>
+        );
       })}
     </div>
   );
