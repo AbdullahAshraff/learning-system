@@ -95,7 +95,7 @@ const About = () => {
       className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 duration-300"
     >
       <img
-        src="/team-member3.jpg" // Replace with your image path
+        src="/team-member3.jpg" 
         alt="Adel Ezzat"
         className="w-full h-56 object-cover"
       />
@@ -129,9 +129,9 @@ const About = () => {
       className="transition-transform transform hover:scale-105 duration-300"
     >
       <img
-        src={team} // Replace with your team image path
+        src={team} 
         alt="Our Team"
-        className="w-full h-56 object-cover rounded-lg shadow-lg"
+        className="w-full h-80 object-cover rounded-lg shadow-lg"
       />
     </div>
 
