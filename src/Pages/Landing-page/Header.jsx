@@ -61,7 +61,7 @@ const Header = () => {
           <ul
             className={`${
               menuOpen ? "block" : "hidden"
-            } md:flex space-x-6 text-white md:space-y-0 space-y-4 mt-10 md:mt-0 absolute md:static left-0 right-0 bg-gradient-to-r from-[#DEB041] via-[#998443] to-[#0f0f0f] p-4 md:p-0 z-50 md:bg-transparent`}
+            } md:flex space-x-6 text-white md:space-y-0 space-y-4 mt-10 md:mt-0 absolute md:static left-0 right-0 p-4 md:p-0 z-50 md:bg-transparent`}
           >
             <li>
               <a
@@ -97,6 +97,7 @@ const Header = () => {
             </li>
           </ul>
 
+
           {/* Call to Action */}
           <button className="hidden md:block bg-[#b89748] hover:bg-[#0f0f0f] text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center transition-transform transform hover:scale-105 duration-300">
             <RiAccountPinCircleFill className="text-2xl" />
@@ -122,7 +123,7 @@ const Header = () => {
 
               <a
                 href="#course"
-                className="bg-[#DEB041] hover:bg-[#d6a92e] text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-full shadow-md transition-transform transform hover:scale-105 duration-300 flex items-center"
+                className=" w-56 bg-[#DEB041] hover:bg-[#d6a92e] text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-full shadow-md transition-transform transform hover:scale-105 duration-300 flex items-center"
               >
                 Explore Courses <FaArrowRight className="ml-2 text-lg" />
               </a>
