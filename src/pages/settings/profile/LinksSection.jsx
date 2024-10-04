@@ -3,7 +3,7 @@ import EditIconButton from './EditIconButton';
 const LinksSection = ({ user }) => {
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] max-w-[800px] gap-2 md:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] max-w-[800px] gap-2 md:gap-5 items-baseline">
         <div className="field-link-name">Github</div>
         <div className="field-link-value">
           <div className="break-words max-w-full">{user.links.github.url}</div>
