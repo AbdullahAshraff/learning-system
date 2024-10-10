@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { start } from '../assets';
+// import { start } from '../assets';
 
 function Button() {
   const navigate = useNavigate();

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaBook, FaArrowRight, FaEnvelope } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaBook, FaArrowRight, FaEnvelope, FaGamepad } from "react-icons/fa";
 import { MdSchool, MdComputer, MdConnectWithoutContact } from "react-icons/md";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { RiAccountPinCircleFill } from "react-icons/ri";
@@ -95,6 +96,15 @@ const Header = () => {
                 <MdConnectWithoutContact className="mr-2 text-lg" /> Contact
               </a>
             </li>
+          {/* New Games Link */}
+          <li>
+            <Link
+              to="/games" // استخدم Link هنا
+              className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
+            >
+              <FaGamepad className="mr-2 text-lg" /> Games
+            </Link>
+          </li>
           </ul>
 
 
