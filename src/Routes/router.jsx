@@ -4,7 +4,7 @@ import Home from '../pages/home';
 import About from '../pages/About';
 import NotFound from '../pages/Notfound';
 import Learn from '../pages/learn';
-import MyTracks from '../pages/tracks_list/MyTracks';
+import MyTracks from '../pages/tracks_lists/MyTracks';
 
 const routes = [
   {

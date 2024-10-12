@@ -1,6 +1,6 @@
 import React from 'react'
-import TracksHeader from './TracksHeader'
-import TracksFooter from './TracksFooter'
+import TracksHeader from './TracksHeader.jsx'
+import TracksFooter from './TracksFooter.jsx'
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaJava, FaReact, FaLaptopCode, FaServer, FaMobileAlt } from 'react-icons/fa';
