@@ -10,7 +10,7 @@
 
 
 .divider {
-  @apply h-0 mb-5 mt-10 border-0 border-t-4 border-indigo-950 opacity-20;
+  @apply h-0 mb-5 mt-10 border-0 border-t-4 border-yellow-950 opacity-20;
 }
 
 .sided-element{
