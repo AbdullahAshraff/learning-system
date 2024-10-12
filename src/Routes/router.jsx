@@ -4,6 +4,7 @@ import Home from '../pages/home';
 import About from '../pages/About';
 import NotFound from '../pages/Notfound';
 import Learn from '../pages/learn';
+import SettingsLayout from '../pages/settings/layout/settingsLayout';
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
       { path: 'about', element: <About /> },
       { path: 'learn', element: <Learn /> },
       { path: '*', element: <NotFound /> },
+      {
+        path: 'settings',
+        element: <SettingsLayout />,
+        children: [{ index: true, element: <div>Settings</div> }],
+      },
     ],
   },
 ];
