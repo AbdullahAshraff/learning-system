@@ -47,7 +47,9 @@ These are the routes of the website. Feel free to add routes as you need
 
 #### Learn Page
 
-- `/learn/?courseId=123&lessonId=456`
+- `learn/?courseId=abc-001&lessonId=abc-001-001` 
+
+
 
 #### Error Pages
 

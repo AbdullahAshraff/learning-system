@@ -3,6 +3,8 @@ import Landing from '../pages/landing';
 import Home from '../pages/home';
 import About from '../pages/About';
 import Profile from '../pages/profile';
+import NotFound from '../pages/Notfound';
+import Learn from '../pages/learn';
 
 const routes = [
   {
@@ -12,10 +14,10 @@ const routes = [
       { path: 'landing', element: <Landing /> },
       { path: 'about', element: <About /> },
       { path: 'profile/:username', element: <Profile /> },
+      { path: 'learn', element: <Learn /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ];
-
 const router = createBrowserRouter(routes);
-
 export default router;
