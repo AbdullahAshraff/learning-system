@@ -1,9 +1,17 @@
+import frontendImage from './../assets/frontend.jpg'; // Update with the correct image path
+import reactImage from './../assets/React.jpeg';       // Update with the correct image path
+import mobileImage from './../assets/Mobile.png';     // Update with the correct image path
+// import beginnerImage from './../assets/beginner.png'; // Update with the correct image path
+import javaImage from './../assets/Java.jpeg';          // Update with the correct image path
+import backendImage from './../assets/Backend.png';  
 export const tracksList = [
   {
     //front
     id: 'frontend-001',
     title: 'Frontend Track',
     courseIds: ['welcome-001', 'html-001', 'css-001', 'js-001'],
+    image: frontendImage,
+    description: 'Master the essentials of web development by learning how to create visually appealing and interactive user interfaces using HTML, CSS, and JavaScript.',
   },
   {
     //react
@@ -18,6 +26,8 @@ export const tracksList = [
       'formvalidation-001',
       'redux-001',
     ],
+    image: reactImage,
+    description: 'Dive deep into the world of modern web development with React. Learn how to build scalable, high-performance web applications using hooks, routing, form validation, and state management with Redux.',
   },
   {
     //mobile
@@ -31,6 +41,8 @@ export const tracksList = [
       'test-001',
       'git-001',
     ],
+    image: mobileImage,
+    description: 'Build native and cross-platform mobile applications for Android and iOS. Learn key mobile technologies like Kotlin, Swift, Firebase integration, and best practices for mobile development.',
   },
   {
     //beginner
@@ -45,6 +57,8 @@ export const tracksList = [
       'career-001',
       'problems-001',
     ],
+    image: backendImage,
+    description: 'Start your programming journey here! Learn foundational programming concepts, explore different languages, and get hands-on experience solving real-world problems.',
   },
   {
     //java
@@ -57,6 +71,8 @@ export const tracksList = [
       'javads-001',
       'javaprj-001',
     ],
+    image: javaImage,
+    description: 'Gain expertise in Java, one of the most versatile programming languages. Master object-oriented programming, data structures, algorithms, and build practical Java projects.',
   },
   {
     //back
@@ -71,6 +87,8 @@ export const tracksList = [
       'auth-005',
       'deploy-001',
     ],
+    image: backendImage,
+    description: 'Learn about server-side programming and databases.',
   },
 ];
 export default tracksList;

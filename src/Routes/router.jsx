@@ -4,6 +4,7 @@ import Home from '../pages/home';
 import About from '../pages/About';
 import NotFound from '../pages/Notfound';
 import Learn from '../pages/learn';
+import MyTracks from '../pages/tracks_list/MyTracks';
 
 const routes = [
   {
@@ -13,6 +14,7 @@ const routes = [
       { path: 'landing', element: <Landing /> },
       { path: 'about', element: <About /> },
       { path: 'learn', element: <Learn /> },
+      { path: 'tracks_list', element: <MyTracks/> },
       { path: '*', element: <NotFound /> },
     ],
   },
