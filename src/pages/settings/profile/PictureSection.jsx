@@ -1,5 +1,5 @@
 import Avatar from '@mui/material/Avatar';
-import EditButton from './EditButton';
+import EditButton from '../components/buttons/EditButton';
 
 const PictureSection = ({ user }) => {
   return (
