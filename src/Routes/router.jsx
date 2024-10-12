@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Landing from '../pages/landing';
 import Home from '../pages/home';
 import About from '../pages/About';
-import {Profile} from '../pages/profile';
+import Profile from '../pages/profile';
 
 const routes = [
   {

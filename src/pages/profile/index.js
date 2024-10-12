@@ -1,2 +1,2 @@
 import Profile from './Page';
-export { Profile };
+export default Profile;
