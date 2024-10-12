@@ -5,6 +5,7 @@ import About from '../pages/About';
 import Profile from '../pages/profile';
 import NotFound from '../pages/Notfound';
 import Learn from '../pages/learn';
+import SettingsLayout from '../pages/settings/layout/settingsLayout';
 import ProfileSettings from '../pages/settings/profile';
 
 const routes = [
@@ -19,6 +20,7 @@ const routes = [
       { path: '*', element: <NotFound /> },
       {
         path: 'settings',
+        element: <SettingsLayout />,
         children: [
           { index: true, element: <div>Settings</div> },
           { path: 'profile', element: <ProfileSettings /> },
