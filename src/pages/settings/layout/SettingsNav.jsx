@@ -28,7 +28,7 @@ const SettingsNav = () => {
 
   return (
     <>
-      <div className="lg:grid hidden gap-2 bg-orange-100 p-4 pl-3 w-52 rounded-lg">
+      <div className="lg:grid hidden gap-2 bg-orange-100 p-4 pl-3 w-60 rounded-lg">
         {renderMenuItems()}
       </div>
       <div className="flex flex-row lg:hidden gap-2 bg-orange-100 p-2 pl-3 w-full rounded-lg overflow-auto">

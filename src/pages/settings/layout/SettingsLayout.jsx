@@ -5,12 +5,12 @@ const SettingsLayout = () => {
   return (
     <>
       <div
-        className="flex flex-col lg:flex-row m-4 gap-5"
+        className="flex flex-col justify-center lg:flex-row m-4 gap-5"
         style={{
           gridTemplateColumns: 'auto 3fr',
         }}
       >
-        <div className="">
+        <div>
           <SettingsNav />
         </div>
         <div>
