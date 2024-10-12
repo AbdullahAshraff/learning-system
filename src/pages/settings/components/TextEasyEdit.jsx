@@ -20,7 +20,7 @@ export default function TextEasyEdit({ text }) {
       placeholder={text}
       value={text}
       hideEditButton={false}
-      cancelOnBlur
+      // cancelOnBlur
       onSave={handleEdit}
       onCancel={() => {}}
     />

@@ -6,7 +6,7 @@ function EditButton({ label, props }) {
     <Button
       variant="outlined"
       endIcon={<EditIcon />}
-      className="!text-indigo-700 !border-indigo-700 !border-2 !rounded-full !text-sm sm:!text-base !py-1 sm:py-2"
+      className="!text-yellow-700 !border-yellow-700 !border-2 !rounded-full !text-sm sm:!text-base !py-1 sm:py-2"
       sx={{
         height: 'fit-content',
         fontSize: '16px',
