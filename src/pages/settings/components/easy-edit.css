@@ -1,0 +1,25 @@
+textarea:focus, input:focus {
+  outline: none;
+}
+textarea, input {
+  @apply rounded-md !p-2;
+  padding: 100px;
+}
+textarea {
+  @apply w-[70vw] h-[300px] md:w-[50vw] max-w-[600px];
+}
+
+.field-link-value .easy-edit-inline-wrapper {
+  width: 100%;
+}
+
+.field-link-value .easy-edit-component-wrapper {
+  flex: 1;
+  grid-template-columns: 1fr;
+}
+
+.field-link-value .easy-edit-component-wrapper input {
+  width: 100%;
+  max-width: 400px;
+  min-width: 200px;
+}
