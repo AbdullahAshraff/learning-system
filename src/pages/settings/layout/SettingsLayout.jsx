@@ -5,7 +5,7 @@ const SettingsLayout = () => {
   return (
     <>
       <div
-        className="grid  m-4 gap-5"
+        className="md:grid m-4 gap-5"
         style={{
           gridTemplateColumns: 'auto 3fr',
         }}
