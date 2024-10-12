@@ -55,7 +55,7 @@ const Page = () => {
   ];
 
   return (
-    <div className="  sm:px-8 md:px-16 px-6 sm:py-8 md:py-16 py-10 max-w-7xl mx-auto relative w-full h-full bg-yellow-50 min-h-screen text-left">
+    <div className="  sm:px-8 md:px-16 px-6 sm:py-8 md:py-16 py-10 max-w-7xl mx-auto relative w-full h-full bg-yellow-50 min-h-screen text-left" style={{textAlign:'left'}}>
       <div className="flex flex-col">
         <div className="flex flex-col md:flex-row md:gap-10">
           <div className="sided-element flex md:justify-center">
