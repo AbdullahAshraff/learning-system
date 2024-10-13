@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaBook,FaGamepad  } from "react-icons/fa";
 import { BsFillInfoCircleFill } from "react-icons/bs";

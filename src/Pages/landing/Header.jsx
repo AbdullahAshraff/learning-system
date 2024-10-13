@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { FaBook, FaArrowRight, FaEnvelope } from "react-icons/fa";
-import { MdSchool, MdComputer, MdConnectWithoutContact } from "react-icons/md";
-import { BsFillInfoCircleFill } from "react-icons/bs";
-import { RiAccountPinCircleFill } from "react-icons/ri";
-import { PiNetworkFill } from "react-icons/pi";
-import { learn, nlogo } from "../../assets";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaBook, FaArrowRight, FaEnvelope, FaGamepad } from 'react-icons/fa';
+import { MdSchool, MdComputer, MdConnectWithoutContact } from 'react-icons/md';
+import { BsFillInfoCircleFill } from 'react-icons/bs';
+import { RiAccountPinCircleFill } from 'react-icons/ri';
+import { PiNetworkFill } from 'react-icons/pi';
+import { learn, nlogo } from '../../assets';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,7 +48,11 @@ const Header = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                  d={
+                    menuOpen
+                      ? 'M6 18L18 6M6 6l12 12'
+                      : 'M4 6h16M4 12h16M4 18h16'
+                  }
                 ></path>
               </svg>
             </button>
@@ -56,7 +61,7 @@ const Header = () => {
           {/* Nav Links */}
           <ul
             className={`${
-              menuOpen ? "block" : "hidden"
+              menuOpen ? 'block' : 'hidden'
             } md:flex space-x-6 text-white md:space-y-0 space-y-4 mt-10 md:mt-0 absolute md:static left-0 right-0 p-4 md:p-0 z-50 md:bg-transparent`}
           >
             <li>
@@ -91,8 +96,16 @@ const Header = () => {
                 <MdConnectWithoutContact className="mr-2 text-lg" /> Contact
               </a>
             </li>
+            {/* New Games Link */}
+            <li>
+              <Link
+                to="/games" // استخدم Link هنا
+                className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
+              >
+                <FaGamepad className="mr-2 text-lg" /> Games
+              </Link>
+            </li>
           </ul>
-
 
           {/* Call to Action */}
           <button className="hidden md:block bg-[#b89748] hover:bg-[#0f0f0f] text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center transition-transform transform hover:scale-105 duration-300">

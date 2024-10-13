@@ -7,7 +7,7 @@ function Page() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/startpage');
+      navigate('/start');
     }, 3100);
 
     return () => clearTimeout(timer);

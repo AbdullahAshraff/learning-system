@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import NavBar from './../../components/Navbar';
-import Footer from './../Landing-page/Footer';
+import { useState } from 'react';
+import NavBar from '../../components/Navbar';
+import Footer from '../landing/Footer';
 import { learn } from "../../assets";
 
-const Games = () => {
+const Page = () => {
   const [selectedGame, setSelectedGame] = useState(null);
 
   const games = [
@@ -154,4 +154,4 @@ const GameModal = ({ game, onClose }) => (
   </div>
 );
 
-export default Games;
+export default Page;

@@ -12,7 +12,7 @@ import { learning } from '../../assets';
 function Page() {
   return (
     <div
-      id="startpage"
+      id="start"
       className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-100 to-blue-50 p-4 relative"
     >
       {/* Background Illustration (Optional) */}
@@ -21,14 +21,14 @@ function Page() {
       {/* Header Section */}
       <div className="text-center mb-8 z-10">
         <h1 className="text-6xl font-extrabold text-800 text-[#DEB041] mb-4 flex justify-center items-center gap-3 animate__animated animate__fadeInDown">
-          Let's Start{' '}
+          Let&apos;s Start{' '}
           <GiStrong
             className="text-6xl text-500 text-black animate__animated animate__tada"
             aria-label="Strong Icon"
           />
         </h1>
         <p className="text-xl text-700 text-black mb-6 font-medium animate__animated animate__fadeInUp">
-          Whether you're a beginner or already have experience, we have
+          Whether you&apos;re a beginner or already have experience, we have
           something for you!
         </p>
       </div>

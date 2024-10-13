@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Landing from '../pages/landing';
-import Startpage from '../pages/start';
+import StartPage from '../pages/start';
 import Loading from '../pages/loading';
+import GamesPage from '../pages/games-page';
 
 const routes = [
   {
@@ -10,7 +11,8 @@ const routes = [
       { index: true, element: <Landing /> },
       { path: '/landing', element: <Landing /> },
       { path: '/loading', element: <Loading /> },
-      { path: '/start', element: <Startpage /> },
+      { path: '/start', element: <StartPage /> },
+      { path: '/games', element: <GamesPage /> },
     ],
   },
 ];
