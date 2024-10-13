@@ -44,9 +44,9 @@ const tracks = [
     description: 'Develop mobile apps for Android and iOS.',
   },
   {
-    name: 'Cyber Security',
+    name: 'Beginner',
     icon: <FaShieldAlt size={50} className="text-[#DEB041]" />,
-    description: 'Understand cybersecurity principles and practices.',
+    description: 'Great place to start your running journey.',
   },
 ];
 
