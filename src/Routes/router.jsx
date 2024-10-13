@@ -7,6 +7,11 @@ import NotFound from '../pages/Notfound';
 import Learn from '../pages/learn';
 import SettingsLayout from '../pages/settings/layout/settingsLayout';
 import ProfileSettings from '../pages/settings/profile';
+import Login from '../pages/auth/Login';
+import Signup from '../pages/auth/Signup';
+import ForgotPassword from '../pages/auth/ForgotPassword';
+import ResetPassword from '../pages/auth/ResetPassword';
+import VerifyEmail from '../pages/auth/VerifyEmail';
 
 const routes = [
   {
@@ -17,6 +22,11 @@ const routes = [
       { path: 'about', element: <About /> },
       { path: 'profile/:username', element: <Profile /> },
       { path: 'learn', element: <Learn /> },
+      { path: 'login', element: <Login /> },
+      { path: 'signup', element: <Signup /> },
+      { path: 'forgot-password', element: <ForgotPassword /> },
+      { path: 'reset-password', element: <ResetPassword /> },
+      { path: 'verify', element: <VerifyEmail /> },
       { path: '*', element: <NotFound /> },
       {
         path: 'settings',
@@ -29,5 +39,6 @@ const routes = [
     ],
   },
 ];
+
 const router = createBrowserRouter(routes);
 export default router;
