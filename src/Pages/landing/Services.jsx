@@ -1,5 +1,9 @@
-import React from 'react';
-import { FaChartLine, FaBookOpen, FaRegClock, FaUserGraduate } from 'react-icons/fa';
+import {
+  FaChartLine,
+  FaBookOpen,
+  FaRegClock,
+  FaUserGraduate,
+} from 'react-icons/fa';
 
 const servicesData = [
   {
@@ -36,9 +40,7 @@ const Services = () => {
       data-aos="fade-up"
       data-aos-duration="3000"
     >
-      <h2 className="text-4xl font-bold mb-10 text-white">
-        Our Services
-      </h2>
+      <h2 className="text-4xl font-bold mb-10 text-white">Our Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {servicesData.map((service, index) => (
           <div
