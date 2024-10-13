@@ -10,7 +10,7 @@ const routes = [
       { index: true, element: <Landing /> },
       { path: '/landing', element: <Landing /> },
       { path: '/loading', element: <Loading /> },
-      { path: '/startpage', element: <Startpage /> },
+      { path: '/start', element: <Startpage /> },
     ],
   },
 ];
