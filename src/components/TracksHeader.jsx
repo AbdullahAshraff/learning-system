@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { FaBook, FaArrowRight, FaEnvelope } from "react-icons/fa";
+import { FaBook, FaEnvelope, FaArrowRight } from "react-icons/fa";
 import { MdSchool, MdComputer, MdConnectWithoutContact } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { RiAccountPinCircleFill } from "react-icons/ri";
 import { PiNetworkFill } from "react-icons/pi";
-import logo from "./../../assets/nlogo.png";
+import logo from "./../assets/nlogo.png";
+import { Link } from "react-router-dom"; // Import Link for navigation
 
 function TracksHeader() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -13,9 +14,10 @@ function TracksHeader() {
     const handleMenuToggle = () => {
       setMenuOpen(!menuOpen);
     };
+
   return (
     <div>
-              <header className="bg-gradient-to-r from-[#DEB041] via-[#998443] to-[#0f0f0f] shadow-md">
+      <header className="bg-gradient-to-r from-[#DEB041] via-[#998443] to-[#0f0f0f] shadow-md">
         {/* Navbar */}
         <nav className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
           {/* Logo */}
@@ -60,60 +62,58 @@ function TracksHeader() {
             } md:flex space-x-6 text-white md:space-y-0 space-y-0 mt-10 md:mt-0 absolute md:static right-10 p-4 md:p-0 z-50 md:bg-transparent`}
           >
             <li>
-              <a
-                href="#course"
+              <Link
+                to="/"
                 className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
               >
                 <FaHome className="mr-2 text-lg" /> Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
               >
                 <BsFillInfoCircleFill className="mr-2 text-lg" /> About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#track"
+              <Link
+                to="/tracks_list"
                 className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
               >
                 <FaBook className="mr-2 text-lg" /> Tracks
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#services"
+              <Link
+                to="/services"
                 className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
               >
                 <PiNetworkFill className="mr-2 text-lg" /> Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#footer"
+              <Link
+                to="/contact"
                 className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
               >
                 <MdConnectWithoutContact className="mr-2 text-lg" /> Contact
-              </a>
+              </Link>
             </li>
           </ul>
 
-
           {/* Call to Action */}
-          <button className="hidden md:block bg-[#b89748] hover:bg-[#0f0f0f] text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center transition-transform transform hover:scale-105 duration-300">
+          <Link
+            to="/account"
+            className="hidden md:block bg-[#b89748] hover:bg-[#0f0f0f] text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center transition-transform transform hover:scale-105 duration-300"
+          >
             <RiAccountPinCircleFill className="text-2xl" />
-          </button>
+          </Link>
         </nav>
-        
-
-
       </header>
-      
     </div>
-  )
+  );
 }
 
-export default TracksHeader
+export default TracksHeader;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaGithub, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import logo from './../../assets/nlogo.png'
+import logo from './../assets/nlogo.png'
 function TracksFooter() {
   return (
     <div>

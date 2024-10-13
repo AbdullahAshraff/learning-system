@@ -4,6 +4,7 @@ const coursesList = [
   {
     id: 'welcome-001',
     title: 'Frontend Introduction',
+    description:"A warm welcome to the world of frontend development. Learn the basics of creating the user interface of web applications and explore why frontend development is a crucial skill.",
     lessons: [
       {
         lessonId: 'welcome-001-001',
@@ -31,6 +32,7 @@ const coursesList = [
   {
     id: 'html-001',
     title: 'HTML Course',
+    description:"Understand the building blocks of the web: HTML. Learn how to structure content with HTML elements and attributes, and build the foundation for every website.",
     lessons: [
       {
         lessonId: 'html-001-001',
@@ -58,6 +60,7 @@ const coursesList = [
   {
     id: 'css-001',
     title: 'CSS Course',
+    description:"Master the art of styling websites. Learn CSS fundamentals, including selectors, box model, flexbox, and grid, and make your websites visually stunning and responsive.",
     lessons: [
       {
         lessonId: 'css-001-001',
@@ -90,6 +93,7 @@ const coursesList = [
   {
     id: 'js-001',
     title: 'JS Course',
+    description:"Dive into JavaScript, the programming language of the web. Learn how to add interactivity to websites, manipulate the DOM, and create dynamic user experiences.",
     lessons: [
       {
         lessonId: 'js-001-001',
@@ -153,6 +157,7 @@ const coursesList = [
   {
     id: 'welcomeback-004',
     title: 'Backend Introduction',
+    description:"Introduction to server-side programming and databases. Learn about backend architecture and how the backend supports frontend applications.",
     lessons: [
       {
         lessonId: 'welcomeback-004-001',
@@ -175,6 +180,7 @@ const coursesList = [
   {
     id: 'node-001',
     title: 'Node Course',
+    description:"Learn the basics of Node.js, a powerful JavaScript runtime for building fast and scalable server-side applications.",
     lessons: [
       {
         lessonId: 'node-001-001',
@@ -192,6 +198,7 @@ const coursesList = [
   {
     id: 'nodejs-001',
     title: 'NodeJS Course',
+    description:"Dive deeper into Node.js by exploring topics like file handling, event-driven architecture, and creating REST APIs.",
     lessons: [
       {
         lessonId: 'nodejs-001-001',
@@ -219,6 +226,7 @@ const coursesList = [
   {
     id: 'express-001',
     title: 'Express Course',
+    description:"Learn Express.js, the popular Node.js framework for building web servers. Understand how to set up routing, middleware, and handle requests and responses.",
     lessons: [
       {
         lessonId: 'node-001-001',
@@ -236,6 +244,7 @@ const coursesList = [
   {
     id: 'mongo-001',
     title: 'Mongodb Course',
+    description:"Get started with MongoDB, a NoSQL database. Learn how to store, query, and manage data using MongoDB with your backend applications.",
     lessons: [
       {
         lessonId: 'mongo-001-001',
@@ -258,6 +267,7 @@ const coursesList = [
   {
     id: 'auth-001',
     title: 'Authntication Course',
+    description:"Explore different authentication methods like JWT and OAuth. Learn how to secure your backend applications with proper authentication and authorization.",
     lessons: [
       {
         lessonId: 'auth-001-001',
@@ -275,6 +285,7 @@ const coursesList = [
   {
     id: 'deploy-001',
     title: 'Deployment Course',
+    description:"Learn how to deploy your Node.js backend applications to cloud platforms like Heroku and AWS. Understand the process of scaling and maintaining applications in production.",
     lessons: [
       {
         lessonId: 'deploy-001-001',
@@ -293,6 +304,7 @@ const coursesList = [
   {
     id: 'welcomemobile-003',
     title: 'Mobile Introduction',
+    description:"Introduction to mobile app development for Android and iOS. Learn the basics of building mobile applications and the key differences between platforms.",
     lessons: [
       {
         lessonId: 'welcomemobile-003-001',
@@ -315,6 +327,7 @@ const coursesList = [
   {
     id: 'kotlin-001',
     title: 'Kotlin Course',
+    description:"Learn Kotlin, the modern programming language for Android app development. Build your first Android app and understand key Kotlin syntax and features.",
     lessons: [
       {
         lessonId: 'kotlin-001-001',
@@ -337,6 +350,7 @@ const coursesList = [
   {
     id: 'swift-001',
     title: 'Swift Course',
+    description:"Get started with Swift, the powerful programming language for iOS development. Learn the basics of building apps for iPhones and iPads.",
     lessons: [
       {
         lessonId: 'swift-001-003',
@@ -364,6 +378,7 @@ const coursesList = [
   {
     id: 'firebase-001',
     title: 'Firebase Course',
+    description:"Explore how to integrate Firebase into your mobile applications. Learn about authentication, real-time databases, and cloud functions to build powerful mobile backends.",
     lessons: [
       {
         lessonId: 'firebase-001-001',
@@ -381,6 +396,7 @@ const coursesList = [
   {
     id: 'test-001',
     title: 'Testing Course',
+    description:"Understand the importance of testing in mobile app development. Learn how to write and execute unit and integration tests to ensure app reliability and quality.",
     lessons: [
       {
         lessonId: 'test-001-002',
@@ -398,6 +414,7 @@ const coursesList = [
   {
     id: 'git-001',
     title: 'Git Course',
+    description:"Master version control using Git for mobile app development. Learn how to manage your codebase, collaborate with others, and deploy updates seamlessly.",
     lessons: [
       {
         lessonId: 'git-001-002',
@@ -416,6 +433,7 @@ const coursesList = [
   {
     id: 'welcomejava-005',
     title: 'jAVA Introduction',
+    description:"A warm introduction to Java, one of the most widely used programming languages in the world. Get to know the Java ecosystem and why it's important.",
     lessons: [
       {
         lessonId: 'welcomejava-005-001',
@@ -438,6 +456,7 @@ const coursesList = [
   {
     id: 'java-001',
     title: 'Java Course',
+    description:"Learn the basics of Java programming, including syntax, data types, control structures, and object-oriented programming.",
     lessons: [
       {
         lessonId: 'java-001-001',
@@ -455,6 +474,7 @@ const coursesList = [
   {
     id: 'javaoop-001',
     title: 'OOP Course',
+    description:"Master the principles of object-oriented programming (OOP) in Java. Learn about classes, objects, inheritance, polymorphism, and encapsulation.",
     lessons: [
       {
         lessonId: 'javaoop-001-001',
@@ -472,6 +492,7 @@ const coursesList = [
   {
     id: 'javads-001',
     title: 'DataStructure Course',
+    description:"Understand important data structures like arrays, linked lists, stacks, and queues. Learn how to implement algorithms like sorting and searching in Java.",
     lessons: [
       {
         lessonId: 'javads-001-001',
@@ -494,6 +515,7 @@ const coursesList = [
   {
     id: 'javaprj-001',
     title: 'Projects using java',
+    description:"Apply your knowledge of Java by building practical projects. Learn how to structure a Java project, work with files, and build scalable applications.",
     lessons: [
       {
         lessonId: 'javaprj-001-001',
@@ -517,6 +539,7 @@ const coursesList = [
   {
     id: 'welcomereact-002',
     title: 'React Introduction',
+    description:"An overview of React, the popular JavaScript library for building dynamic web applications. Learn the importance of React in modern web development.",
     lessons: [
       {
         lessonId: 'welcomereact-002-001',
@@ -544,6 +567,7 @@ const coursesList = [
   {
     id: 'es6-001',
     title: 'ES6 Course',
+    description:"Learn the essential ES6+ features, such as arrow functions, destructuring, and modules, to write cleaner and more efficient JavaScript for your React applications.",
     lessons: [
       {
         lessonId: 'es6-001-001',
@@ -556,6 +580,7 @@ const coursesList = [
   {
     id: 'react-001',
     title: 'React Course',
+    description:"Gain an understanding of the core concepts of React. Learn about components, JSX, state, and props, and how to build interactive user interfaces.",
     lessons: [
       {
         lessonId: 'react-001-001',
@@ -588,6 +613,7 @@ const coursesList = [
   {
     id: 'hooks-001',
     title: 'Hooks Course',
+    description:"Explore the power of React hooks like useState, useEffect, and useContext. Understand how hooks simplify state management and side-effects in functional components.",
     lessons: [
       {
         lessonId: 'hooks-001-001',
@@ -630,6 +656,7 @@ const coursesList = [
   {
     id: 'routing-001',
     title: 'Routing Course',
+    description:"Learn how to manage navigation in React apps with React Router. Build multi-page applications with client-side routing and dynamic URL parameters.",
     lessons: [
       {
         lessonId: 'routing-001-001',
@@ -652,6 +679,7 @@ const coursesList = [
   {
     id: 'formvalidation-001',
     title: 'Formvalidation Course',
+    description:"Master form handling and validation in React applications. Learn best practices for building user-friendly forms with real-time validation and error handling.",
     lessons: [
       {
         lessonId: 'formvalidation-001-001',
@@ -674,6 +702,7 @@ const coursesList = [
   {
     id: 'redux-001',
     title: 'Redux Course',
+    description:"Explore Redux, the popular state management tool for React. Learn how to manage complex application state in a scalable and predictable way.",
     lessons: [
       {
         lessonId: 'redux-001-001',
@@ -702,6 +731,7 @@ const coursesList = [
   {
     id: 'welcomebeginner-006',
     title: 'Introduction',
+    description:"A welcoming guide to start your journey into programming. Learn the fundamentals of how software works and where to begin your learning process.",
     lessons: [
       {
         lessonId: 'welcomebeginner-006-001',
@@ -729,6 +759,7 @@ const coursesList = [
   {
     id: 'programming-001',
     title: 'Programming Course',
+    description:"Learn the essential concepts of programming, including variables, loops, conditionals, and functions. Get hands-on experience with coding simple algorithms.",
     lessons: [
       {
         lessonId: 'programming-001-001',
@@ -746,7 +777,13 @@ const coursesList = [
   {
     id: 'coding-001',
     title: 'Coding Course',
+    description:"Develop good coding habits by learning best practices for writing clean and efficient code. This course will cover debugging techniques and code organization.",
     lessons: [
+      {
+        lessonId: 'proglang-001-001',
+        title: 'How I would learn to code',
+        url: 'https://youtu.be/bWq2O5RaOJ4?si=W225B7_qPvPWYVEX',
+      },
       {
         lessonId: 'coding-001-001',
         title: 'What is coding?',
@@ -759,28 +796,17 @@ const coursesList = [
       },
     ],
   },
-  //[32]
+  //[33]
   {
-    id: 'proglang-001',
-    title: 'Programing Languages',
+    id: 'python-001',
+    title: 'Python Course',
+    description:"A comprehensive introduction to Python, one of the most beginner-friendly programming languages. Learn to write simple programs and understand core Python concepts.",
     lessons: [
-      {
-        lessonId: 'proglang-001-001',
-        title: 'Which language I should learn first',
-        url: 'https://www.youtube.com/embed/poJfwre2PIs?si=MrskbGDw8qrMugA4',
-      },
       {
         lessonId: 'proglang-001-002',
         title: 'Best programming language to learn',
         url: 'https://www.youtube.com/embed/kJOqIaGwQ7Y?si=vMla5epP5kAvogHb',
       },
-    ],
-  },
-  //[33]
-  {
-    id: 'python-001',
-    title: 'Python Course',
-    lessons: [
       {
         lessonId: 'python-001-001',
         title: ' Why Python ',
@@ -802,6 +828,7 @@ const coursesList = [
   {
     id: 'career-001',
     title: 'It tracks',
+    description:"Learn about the career opportunities in the tech industry. Explore different roles, skills in demand, and how to build a successful career in software development.",
     lessons: [
       {
         lessonId: 'career-001-001',
@@ -819,11 +846,12 @@ const coursesList = [
   {
     id: 'problems-001',
     title: 'Problem Solving tracks',
+    description:"Develop problem-solving skills by tackling real-world coding challenges. Learn how to approach programming problems and write algorithms to solve them efficiently.",
     lessons: [
       {
         lessonId: 'problems-001-001',
         title: 'Problem solving guide',
-        url: 'https://www.youtube.com/embed/UFc-RPbq8kg?si=dOoxV4ceQJzwAw1s',
+        url: 'https://youtu.be/haXXcI17WM4?si=GrTHDVoJK7T8OKRi',
       },
       {
         lessonId: 'problems-001-002',

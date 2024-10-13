@@ -52,7 +52,6 @@ export const tracksList = [
       'welcomebeginner-006',
       'programming-001',
       'coding-001',
-      'proglang-001',
       'python-001',
       'career-001',
       'problems-001',
@@ -88,7 +87,7 @@ export const tracksList = [
       'deploy-001',
     ],
     image: backendImage,
-    description: 'Learn about server-side programming and databases.',
+    description: 'The Backend Track is designed to equip you with the skills needed to develop robust, efficient, and scalable server-side applications. In this track, you will dive into backend programming languages and frameworks, learning how to manage databases, handle server logic, and ensure seamless communication between the frontend and backend systems.',
   },
 ];
 export default tracksList;
