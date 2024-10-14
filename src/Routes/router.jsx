@@ -12,6 +12,8 @@ import Signup from '../pages/auth/Signup';
 import ForgotPassword from '../pages/auth/ForgotPassword';
 import ResetPassword from '../pages/auth/ResetPassword';
 import VerifyEmail from '../pages/auth/VerifyEmail';
+import TracksList from '../pages/tracks-list/Page';
+import TrackDetails from '../pages/track-details/Page';
 
 const routes = [
   {
@@ -27,6 +29,8 @@ const routes = [
       { path: 'forgot-password', element: <ForgotPassword /> },
       { path: 'reset-password', element: <ResetPassword /> },
       { path: 'verify', element: <VerifyEmail /> },
+      { path: 'tracks_list', element: <TracksList/> },
+      { path: 'track', element: <TrackDetails /> },
       { path: '*', element: <NotFound /> },
       {
         path: 'settings',
