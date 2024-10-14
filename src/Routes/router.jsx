@@ -14,6 +14,7 @@ import ResetPassword from '../pages/auth/ResetPassword';
 import VerifyEmail from '../pages/auth/VerifyEmail';
 import TracksList from '../pages/tracks-list/Page';
 import TrackDetails from '../pages/track-details/Page';
+import AccountSettings from '../pages/settings/account';
 
 const routes = [
   {
@@ -38,6 +39,7 @@ const routes = [
         children: [
           { index: true, element: <div>Settings</div> },
           { path: 'profile', element: <ProfileSettings /> },
+          { path: 'account', element: <AccountSettings /> },
         ],
       },
     ],
