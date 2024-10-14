@@ -14,9 +14,9 @@ import ResetPassword from '../pages/auth/ResetPassword';
 import VerifyEmail from '../pages/auth/VerifyEmail';
 import TracksList from '../pages/tracks-list/Page';
 import TrackDetails from '../pages/track-details/Page';
-import LoadingPage from  '../../../src/pages/loading'
-import StartPage from '../../../src/pages/start';
-import GamesPage from '../../../src/pages/games-page'
+import LoadingPage from  '../pages/loading/LoadingPage'
+import StartPage from '../pages/start/StartPage'
+import GamesPage from '../pages/games-page/Page'
 
 const routes = [
   {
