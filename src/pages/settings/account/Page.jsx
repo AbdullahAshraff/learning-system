@@ -18,6 +18,10 @@ const Page = () => {
           <div className="field-value text-lg md:text-xl font-bold flex flex-wrap items-center">
             <TextEasyEdit text={email} />
           </div>
+          <div className="field-name">Password</div>
+          <div className="field-value text-lg md:text-xl font-bold flex flex-wrap items-center">
+            <TextEasyEdit text={`********`} />
+          </div>
         </div>
       </Section>
       <Divider sx={{ marginTop: '20px', marginBottom: '20px' }} />
