@@ -14,6 +14,9 @@ import ResetPassword from '../pages/auth/ResetPassword';
 import VerifyEmail from '../pages/auth/VerifyEmail';
 import TracksList from '../pages/tracks-list/Page';
 import TrackDetails from '../pages/track-details/Page';
+import LoadingPage from  '../../../src/pages/loading'
+import StartPage from '../../../src/pages/start';
+import GamesPage from '../../../src/pages/games-page'
 
 const routes = [
   {
@@ -32,6 +35,9 @@ const routes = [
       { path: 'tracks_list', element: <TracksList/> },
       { path: 'track', element: <TrackDetails /> },
       { path: '*', element: <NotFound /> },
+      { path: '/loading', element: <LoadingPage /> },  
+      { path: '/start', element: <StartPage /> },
+      { path: '/games', element: <GamesPage /> },
       {
         path: 'settings',
         element: <SettingsLayout />,

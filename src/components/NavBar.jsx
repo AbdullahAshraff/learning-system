@@ -3,7 +3,7 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { PiNetworkFill } from "react-icons/pi"; 
 import { RiAccountPinCircleFill } from "react-icons/ri";
-import Logo from '../assets/nlogo.png';
+import logo from '../assets/nlogo.png';
 
 
 const NavBar = () => {
@@ -11,16 +11,16 @@ const NavBar = () => {
     <header className="bg-gradient-to-r from-[#DEB041] via-[#998443] to-[#0f0f0f] shadow-md">
       <nav className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
-        <div className="flex items-center">
-          <img
-            src={Logo}
-            alt="Logo"
-            className="h-20 transition-transform transform hover:scale-110 duration-300"
-          />
-          <span className="text-white text-3xl font-bold ml-2 hover:text-[#fabf2f] transition-colors duration-300">
-            Basatha
-          </span>
-        </div>
+        <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-16 md:h-20 transition-transform transform hover:scale-110 duration-300"
+            />
+            <span className="text-white text-2xl md:text-3xl font-bold ml-2 hover:text-[#0f0f0f] transition-colors duration-300">
+              Basatha
+            </span>
+          </Link>
         {/* Nav Links */}
         <ul className="flex space-x-6 text-white">
           <li>
