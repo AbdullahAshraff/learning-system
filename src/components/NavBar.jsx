@@ -4,6 +4,8 @@ import { MdConnectWithoutContact } from "react-icons/md";
 import { PiNetworkFill } from "react-icons/pi"; 
 import { RiAccountPinCircleFill } from "react-icons/ri";
 import logo from '../assets/nlogo.png';
+import { Link } from "react-router-dom";
+
 
 
 const NavBar = () => {
