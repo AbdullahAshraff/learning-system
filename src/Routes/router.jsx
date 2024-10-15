@@ -14,12 +14,14 @@ import ResetPassword from '../pages/auth/ResetPassword';
 import VerifyEmail from '../pages/auth/VerifyEmail';
 import TracksList from '../pages/tracks-list/Page';
 import TrackDetails from '../pages/track-details/Page';
+import AdminDashboard from '../pages/Admin/AdminDashboard';
 
 const routes = [
   {
     path: '/',
     children: [
       { index: true, element: <Home /> },
+      { path: 'admin', element: <AdminDashboard /> },
       { path: 'landing', element: <Landing /> },
       { path: 'about', element: <About /> },
       { path: 'profile/:username', element: <Profile /> },
