@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
+import { toast } from 'react-hot-toast'; // استيراد React Hot Toast
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -10,9 +11,10 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       await axios.post('https://basatha-khaki.vercel.app/api/v1/auth/forgotpassword', { email });
-      console.log('Password reset link sent!');
+      toast.success('Password reset link sent!'); // عرض رسالة نجاح
       navigate('/login'); 
     } catch (error) {
+      toast.error(`Failed to send reset link: ${error.response ? error.response.data.message : error.message}`); // عرض رسالة خطأ
       console.error('Failed to send reset link:', error.response ? error.response.data : error.message);
     }
   };

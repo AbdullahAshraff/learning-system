@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'; 
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { toast } from 'react-hot-toast'; // استيراد مكتبة React Hot Toast
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,9 +15,10 @@ const Login = () => {
       const response = await axios.post('https://basatha-khaki.vercel.app/api/v1/auth/login', { email, password });
       const token = response.data.token;
       Cookies.set('token', token, { expires: 7 });
-      console.log('Login successful!', response.data);
+      toast.success('Login successful!'); // إظهار رسالة نجاح
       navigate('/'); 
     } catch (error) {
+      toast.error(`Login failed: ${error.response ? error.response.data.message : error.message}`); // إظهار رسالة خطأ
       console.error('Login failed:', error.response ? error.response.data : error.message);
     }
   };
