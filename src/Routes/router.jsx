@@ -1,6 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Landing from '../pages/landing';
-import About from '../pages/About';
 import Profile from '../pages/profile';
 import NotFound from '../pages/Notfound';
 import Learn from '../pages/learn';
@@ -29,7 +28,6 @@ const routes = [
     children: [
       { index: true, element: <Landing />},
       { path: 'landing', element: <Landing /> },
-      { path: 'about', element: <About /> },
       { path: 'profile/:username', element: <Profile /> },
       { path: 'learn', element: <Learn /> },
       { path: 'tracks_list', element: <TracksList /> },
