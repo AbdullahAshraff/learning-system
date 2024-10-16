@@ -1,17 +1,16 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import coursesList from '../../constants/courses.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import CoursesNavbar from '../../components/LearnNavBar.jsx';
 import VideoPlayer from '../../components/LearnVideoPlayer.jsx';
 import useVideoCourse from '../../hooks/useCourses.js';
 import './learn.css';
+import '../tracks-list/page.css'
 
 function Learn() {
   const {
     videoUrl,
-    notFound,
     username,
     videoIndex,
     handleVideoClick,
@@ -22,70 +21,107 @@ function Learn() {
   } = useVideoCourse();
 
   const [URLSearchParams, setURLsearch] = useSearchParams();
+  const [loading, setLoading] = useState(true);
+  const [courses, setCourses] = useState([]);
+  const [tracks, setTracks] = useState([]);
+  const [lessons, setLessons] = useState([]);
   const [isNotFound, setIsNotFound] = useState(false);
+
   const courseId = URLSearchParams.get('courseId');
   const lessonId = URLSearchParams.get('lessonId');
 
-  const currentCourse = coursesList.find(c => c.id === courseId);
-  const currentLesson = currentCourse?.lessons.find(
-    lesson => lesson.lessonId === lessonId
-  );
-
+  // Fetch course and lesson data
   useEffect(() => {
-    if (currentLesson) {
-      setVideoUrl(currentLesson.url); // Set the video URL
-      setVideoIndex(currentCourse.lessons.indexOf(currentLesson)); // Set the current video index
-    } else {
-      setIsNotFound(true); // Set not found if lesson doesn't exist
-    }
-  }, [currentLesson, currentCourse, setVideoUrl, setVideoIndex]);
-  const onLessonSelect = (course, index) => {
-    handleVideoClick(course, index); // Handles video click
-    markVideoAsWatched(course, index); // Marks video as watched
-    URLSearchParams.set('courseId', course.id); // Update URL search params
-    URLSearchParams.set('lessonId', course.lessons[index].lessonId); // Update lesson ID
-  };
-  // Assuming currentCourseVideos is derived from your course's lessons
-  const currentCourseVideos =
-    coursesList.find(course => course.id === courseId)?.lessons || [];
+    const fetchData = async () => {
+      try {
+        const courseResponse = await fetch('https://basatha-khaki.vercel.app/api/v1/courses');
+        const lessonResponse = await fetch('https://basatha-khaki.vercel.app/api/v1/lessions');
+        const trackResponse = await fetch('https://basatha-khaki.vercel.app/api/v1/trackes');
 
-  // Handle the Next video functionality
+        if (!courseResponse.ok || !lessonResponse.ok || !trackResponse.ok) {
+          throw new Error('Failed to fetch data.');
+        }
+
+        const { data: coursesData } = await courseResponse.json();
+        const { data: lessonsData } = await lessonResponse.json();
+        const { data: tracksData } = await trackResponse.json();
+
+        setCourses(coursesData);
+        setLessons(lessonsData);
+        setTracks(tracksData);
+
+        const currentCourse = coursesData.find(c => c._id === courseId);
+        const currentLesson = currentCourse?.lessons.find(lesson => lesson._id === lessonId);
+
+        if (currentLesson) {
+          setVideoUrl(currentLesson.videoUrl);
+          setVideoIndex(currentCourse.lessons.indexOf(currentLesson));
+        } else {
+          setIsNotFound(true);
+        }
+      } catch (err) {
+        console.error(err);
+        setIsNotFound(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [courseId, lessonId, setVideoUrl, setVideoIndex]);
+
+  const onLessonSelect = (course, index) => {
+    handleVideoClick(course, index);
+    markVideoAsWatched(course, index);
+    URLSearchParams.set('courseId', course._id);
+    URLSearchParams.set('lessonId', course.lessons[index]._id);
+  };
+
+  // Current course videos
+  const currentCourseVideos = courses.find(course => course._id === courseId)?.lessons || [];
+
+  // Handle next video functionality
   const handleNext = () => {
     if (videoIndex < currentCourseVideos.length - 1) {
       const newIndex = videoIndex + 1;
       const nextVideo = currentCourseVideos[newIndex];
 
       if (nextVideo) {
-        setVideoUrl(nextVideo.url);
+        setVideoUrl(nextVideo.videoUrl);
         setVideoIndex(newIndex);
         markVideoAsWatched(newIndex);
-        setURLsearch({ courseId: courseId, lessonId: nextVideo.lessonId });
+        setURLsearch({ courseId, lessonId: nextVideo._id });
       }
-    } else {
-      console.warn('No more videos to navigate to.');
     }
   };
 
-  // Handle the Previous video functionality
+  // Handle previous video functionality
   const handlePrev = () => {
     if (videoIndex > 0) {
       const newIndex = videoIndex - 1;
       const prevVideo = currentCourseVideos[newIndex];
 
       if (prevVideo) {
-        setVideoUrl(prevVideo.url);
+        setVideoUrl(prevVideo.videoUrl);
         setVideoIndex(newIndex);
         markVideoAsWatched(newIndex);
-        setURLsearch({ courseId: courseId, lessonId: prevVideo.lessonId });
+        setURLsearch({ courseId, lessonId: prevVideo._id });
       }
-    } else {
-      console.warn('You are already at the first video.');
     }
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
+  if (isNotFound) return <p>Video not found.</p>;
+
   return (
     <div className="flex header-course">
-      {/* Top Navbar for next, prev, and user info */}
+      {/* Top Navbar */}
       <CoursesNavbar
         username={username}
         handlePrevVideo={handlePrev}
@@ -95,21 +131,20 @@ function Learn() {
       <div className="h-screen bg-white text-gray-600 w-68 flex flex-col mt-16">
         <div className="flex items-center justify-center h-16 bg-white border-b-2 border-t-2">
           <h1 className="text-xl text-customBronze p-4">
-            {currentCourse?.title}
+            {courses.find(c => c._id === courseId)?.title}
           </h1>
         </div>
-        {/* Sidebar showing only the lessons for the selected course */}
         <nav className="flex-1 px-4 py-6">
           <ul className="space-y-2">
-            {currentCourse?.lessons.map((lesson, index) => (
-              <li key={index} className="flex">
+            {currentCourseVideos.map((lesson, index) => (
+              <li key={lesson._id} className="flex">
                 <button
-                  onClick={() => onLessonSelect(currentCourse, index)}
+                  onClick={() => onLessonSelect(courses.find(c => c._id === courseId), index)}
                   className="block w-full text-gray-400 text-left px-4 py-2 hover:bg-gray-200 rounded"
                 >
-                  {lesson.title}
+                  {lesson.videoTitle}
                 </button>
-                {watchedVideos.includes(index) && ( // Check if video is watched
+                {watchedVideos.includes(index) && (
                   <span className="text-customGold flex items-center">
                     <FontAwesomeIcon icon={faSquareCheck} />
                   </span>
@@ -122,7 +157,7 @@ function Learn() {
       {/* Main Content */}
       <div className="main flex-1 bg-gray-100 p-6 mt-16 justify-center">
         <h2 className="text-2xl font-bold mb-4 text-center text-customBronze pt-2">
-          {currentLesson?.title || 'No video selected'}
+          {currentCourseVideos[videoIndex]?.videoTitle || 'No video selected'}
         </h2>
         <VideoPlayer videoUrl={videoUrl} />
       </div>
