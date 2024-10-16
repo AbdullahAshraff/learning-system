@@ -17,6 +17,8 @@ import AccountSettings from '../pages/settings/account';
 import LoadingPage from  '../pages/loading/LoadingPage'
 import StartPage from '../pages/start/StartPage'
 import GamesPage from '../pages/games-page/Page'
+import BeginnerCourses from '../pages/beginner-list/BeginnerCourses'
+import BeginnerInfo from '../pages/course-details/BeginnerInfo';
 
 const routes = [
   {
@@ -34,6 +36,8 @@ const routes = [
       { path: 'verify', element: <VerifyEmail /> },
       { path: 'tracks_list', element: <TracksList/> },
       { path: 'track', element: <TrackDetails /> },
+      { path: '/Beginner', element: <BeginnerCourses /> },
+      { path: '/course', element: <BeginnerInfo /> },
       { path: '*', element: <NotFound /> },
       { path: '/loading', element: <LoadingPage /> },  
       { path: '/start', element: <StartPage /> },

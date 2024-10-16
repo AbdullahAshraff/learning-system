@@ -3,6 +3,7 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { PiNetworkFill } from "react-icons/pi"; 
 import { RiAccountPinCircleFill } from "react-icons/ri";
+import {  FaArrowRight, FaEnvelope, FaGamepad } from 'react-icons/fa';
 import logo from '../assets/nlogo.png';
 import { Link } from "react-router-dom";
 
@@ -57,6 +58,15 @@ const NavBar = () => {
               <MdConnectWithoutContact className="mr-2 text-lg" /> Contact
             </a>
           </li>
+                     {/* New Games Link */}
+                     <li>
+              <Link
+                to="/games"
+                className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
+              >
+                <FaGamepad className="mr-2 text-lg" /> Games
+              </Link>
+            </li>
         </ul>
         {/* Call to Action Button */}
         <button className="bg-[#b89748] hover:bg-[#0f0f0f] text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center transition-transform transform hover:scale-105 duration-300">

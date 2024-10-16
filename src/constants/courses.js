@@ -1,3 +1,5 @@
+import image1 from '../assets/coding.png'
+
 const coursesList = [
   //frontend*
   //[0]
@@ -5,6 +7,7 @@ const coursesList = [
     id: 'welcome-001',
     title: 'Frontend Introduction',
     description:"A warm welcome to the world of frontend development. Learn the basics of creating the user interface of web applications and explore why frontend development is a crucial skill.",
+    image:image1,
     lessons: [
       {
         lessonId: 'welcome-001-001',
@@ -33,6 +36,7 @@ const coursesList = [
     id: 'html-001',
     title: 'HTML Course',
     description:"Understand the building blocks of the web: HTML. Learn how to structure content with HTML elements and attributes, and build the foundation for every website.",
+    image:image1,
     lessons: [
       {
         lessonId: 'html-001-001',
@@ -61,6 +65,7 @@ const coursesList = [
     id: 'css-001',
     title: 'CSS Course',
     description:"Master the art of styling websites. Learn CSS fundamentals, including selectors, box model, flexbox, and grid, and make your websites visually stunning and responsive.",
+    image:image1,
     lessons: [
       {
         lessonId: 'css-001-001',
@@ -94,6 +99,7 @@ const coursesList = [
     id: 'js-001',
     title: 'JS Course',
     description:"Dive into JavaScript, the programming language of the web. Learn how to add interactivity to websites, manipulate the DOM, and create dynamic user experiences.",
+    image:image1,
     lessons: [
       {
         lessonId: 'js-001-001',
@@ -158,6 +164,7 @@ const coursesList = [
     id: 'welcomeback-004',
     title: 'Backend Introduction',
     description:"Introduction to server-side programming and databases. Learn about backend architecture and how the backend supports frontend applications.",
+    image:image1,
     lessons: [
       {
         lessonId: 'welcomeback-004-001',
@@ -181,6 +188,7 @@ const coursesList = [
     id: 'node-001',
     title: 'Node Course',
     description:"Learn the basics of Node.js, a powerful JavaScript runtime for building fast and scalable server-side applications.",
+    image:image1,
     lessons: [
       {
         lessonId: 'node-001-001',
@@ -199,6 +207,7 @@ const coursesList = [
     id: 'nodejs-001',
     title: 'NodeJS Course',
     description:"Dive deeper into Node.js by exploring topics like file handling, event-driven architecture, and creating REST APIs.",
+    image:image1,
     lessons: [
       {
         lessonId: 'nodejs-001-001',
@@ -227,6 +236,7 @@ const coursesList = [
     id: 'express-001',
     title: 'Express Course',
     description:"Learn Express.js, the popular Node.js framework for building web servers. Understand how to set up routing, middleware, and handle requests and responses.",
+    image:image1,
     lessons: [
       {
         lessonId: 'node-001-001',
@@ -245,6 +255,7 @@ const coursesList = [
     id: 'mongo-001',
     title: 'Mongodb Course',
     description:"Get started with MongoDB, a NoSQL database. Learn how to store, query, and manage data using MongoDB with your backend applications.",
+    image:image1,
     lessons: [
       {
         lessonId: 'mongo-001-001',
@@ -268,6 +279,7 @@ const coursesList = [
     id: 'auth-001',
     title: 'Authntication Course',
     description:"Explore different authentication methods like JWT and OAuth. Learn how to secure your backend applications with proper authentication and authorization.",
+    image:image1,
     lessons: [
       {
         lessonId: 'auth-001-001',
@@ -286,6 +298,7 @@ const coursesList = [
     id: 'deploy-001',
     title: 'Deployment Course',
     description:"Learn how to deploy your Node.js backend applications to cloud platforms like Heroku and AWS. Understand the process of scaling and maintaining applications in production.",
+    image:image1,
     lessons: [
       {
         lessonId: 'deploy-001-001',
@@ -305,6 +318,7 @@ const coursesList = [
     id: 'welcomemobile-003',
     title: 'Mobile Introduction',
     description:"Introduction to mobile app development for Android and iOS. Learn the basics of building mobile applications and the key differences between platforms.",
+    image:image1,
     lessons: [
       {
         lessonId: 'welcomemobile-003-001',
@@ -328,6 +342,7 @@ const coursesList = [
     id: 'kotlin-001',
     title: 'Kotlin Course',
     description:"Learn Kotlin, the modern programming language for Android app development. Build your first Android app and understand key Kotlin syntax and features.",
+    image:image1,
     lessons: [
       {
         lessonId: 'kotlin-001-001',
@@ -351,6 +366,7 @@ const coursesList = [
     id: 'swift-001',
     title: 'Swift Course',
     description:"Get started with Swift, the powerful programming language for iOS development. Learn the basics of building apps for iPhones and iPads.",
+    image:image1,
     lessons: [
       {
         lessonId: 'swift-001-003',
@@ -379,6 +395,7 @@ const coursesList = [
     id: 'firebase-001',
     title: 'Firebase Course',
     description:"Explore how to integrate Firebase into your mobile applications. Learn about authentication, real-time databases, and cloud functions to build powerful mobile backends.",
+    image:image1,
     lessons: [
       {
         lessonId: 'firebase-001-001',
@@ -397,6 +414,7 @@ const coursesList = [
     id: 'test-001',
     title: 'Testing Course',
     description:"Understand the importance of testing in mobile app development. Learn how to write and execute unit and integration tests to ensure app reliability and quality.",
+    image:image1,
     lessons: [
       {
         lessonId: 'test-001-002',
@@ -415,6 +433,7 @@ const coursesList = [
     id: 'git-001',
     title: 'Git Course',
     description:"Master version control using Git for mobile app development. Learn how to manage your codebase, collaborate with others, and deploy updates seamlessly.",
+    image:image1,
     lessons: [
       {
         lessonId: 'git-001-002',
@@ -432,8 +451,9 @@ const coursesList = [
   //[17]
   {
     id: 'welcomejava-005',
-    title: 'jAVA Introduction',
+    title: 'Java Introduction',
     description:"A warm introduction to Java, one of the most widely used programming languages in the world. Get to know the Java ecosystem and why it's important.",
+    image:image1,
     lessons: [
       {
         lessonId: 'welcomejava-005-001',
@@ -457,6 +477,7 @@ const coursesList = [
     id: 'java-001',
     title: 'Java Course',
     description:"Learn the basics of Java programming, including syntax, data types, control structures, and object-oriented programming.",
+    image:image1,
     lessons: [
       {
         lessonId: 'java-001-001',
@@ -475,6 +496,7 @@ const coursesList = [
     id: 'javaoop-001',
     title: 'OOP Course',
     description:"Master the principles of object-oriented programming (OOP) in Java. Learn about classes, objects, inheritance, polymorphism, and encapsulation.",
+    image:image1,
     lessons: [
       {
         lessonId: 'javaoop-001-001',
@@ -493,6 +515,7 @@ const coursesList = [
     id: 'javads-001',
     title: 'DataStructure Course',
     description:"Understand important data structures like arrays, linked lists, stacks, and queues. Learn how to implement algorithms like sorting and searching in Java.",
+    image:image1,
     lessons: [
       {
         lessonId: 'javads-001-001',
@@ -516,6 +539,7 @@ const coursesList = [
     id: 'javaprj-001',
     title: 'Projects using java',
     description:"Apply your knowledge of Java by building practical projects. Learn how to structure a Java project, work with files, and build scalable applications.",
+    image:image1,
     lessons: [
       {
         lessonId: 'javaprj-001-001',
@@ -540,6 +564,7 @@ const coursesList = [
     id: 'welcomereact-002',
     title: 'React Introduction',
     description:"An overview of React, the popular JavaScript library for building dynamic web applications. Learn the importance of React in modern web development.",
+    image:image1,
     lessons: [
       {
         lessonId: 'welcomereact-002-001',
@@ -568,6 +593,7 @@ const coursesList = [
     id: 'es6-001',
     title: 'ES6 Course',
     description:"Learn the essential ES6+ features, such as arrow functions, destructuring, and modules, to write cleaner and more efficient JavaScript for your React applications.",
+    image:image1,
     lessons: [
       {
         lessonId: 'es6-001-001',
@@ -581,6 +607,7 @@ const coursesList = [
     id: 'react-001',
     title: 'React Course',
     description:"Gain an understanding of the core concepts of React. Learn about components, JSX, state, and props, and how to build interactive user interfaces.",
+    image:image1,
     lessons: [
       {
         lessonId: 'react-001-001',
@@ -614,6 +641,7 @@ const coursesList = [
     id: 'hooks-001',
     title: 'Hooks Course',
     description:"Explore the power of React hooks like useState, useEffect, and useContext. Understand how hooks simplify state management and side-effects in functional components.",
+    image:image1,
     lessons: [
       {
         lessonId: 'hooks-001-001',
@@ -657,6 +685,7 @@ const coursesList = [
     id: 'routing-001',
     title: 'Routing Course',
     description:"Learn how to manage navigation in React apps with React Router. Build multi-page applications with client-side routing and dynamic URL parameters.",
+    image:image1,
     lessons: [
       {
         lessonId: 'routing-001-001',
@@ -680,6 +709,7 @@ const coursesList = [
     id: 'formvalidation-001',
     title: 'Formvalidation Course',
     description:"Master form handling and validation in React applications. Learn best practices for building user-friendly forms with real-time validation and error handling.",
+    image:image1,
     lessons: [
       {
         lessonId: 'formvalidation-001-001',
@@ -703,6 +733,7 @@ const coursesList = [
     id: 'redux-001',
     title: 'Redux Course',
     description:"Explore Redux, the popular state management tool for React. Learn how to manage complex application state in a scalable and predictable way.",
+    image:image1,
     lessons: [
       {
         lessonId: 'redux-001-001',
@@ -732,6 +763,7 @@ const coursesList = [
     id: 'welcomebeginner-006',
     title: 'Introduction',
     description:"A welcoming guide to start your journey into programming. Learn the fundamentals of how software works and where to begin your learning process.",
+    image:image1,
     lessons: [
       {
         lessonId: 'welcomebeginner-006-001',
@@ -760,6 +792,7 @@ const coursesList = [
     id: 'programming-001',
     title: 'Programming Course',
     description:"Learn the essential concepts of programming, including variables, loops, conditionals, and functions. Get hands-on experience with coding simple algorithms.",
+    image:image1,
     lessons: [
       {
         lessonId: 'programming-001-001',
@@ -778,6 +811,7 @@ const coursesList = [
     id: 'coding-001',
     title: 'Coding Course',
     description:"Develop good coding habits by learning best practices for writing clean and efficient code. This course will cover debugging techniques and code organization.",
+    image:image1,
     lessons: [
       {
         lessonId: 'proglang-001-001',
@@ -801,6 +835,7 @@ const coursesList = [
     id: 'python-001',
     title: 'Python Course',
     description:"A comprehensive introduction to Python, one of the most beginner-friendly programming languages. Learn to write simple programs and understand core Python concepts.",
+    image:image1,
     lessons: [
       {
         lessonId: 'proglang-001-002',
@@ -829,6 +864,7 @@ const coursesList = [
     id: 'career-001',
     title: 'It tracks',
     description:"Learn about the career opportunities in the tech industry. Explore different roles, skills in demand, and how to build a successful career in software development.",
+    image:image1,
     lessons: [
       {
         lessonId: 'career-001-001',
@@ -845,8 +881,9 @@ const coursesList = [
   //[35]
   {
     id: 'problems-001',
-    title: 'Problem Solving tracks',
+    title: 'Problem Solving',
     description:"Develop problem-solving skills by tackling real-world coding challenges. Learn how to approach programming problems and write algorithms to solve them efficiently.",
+    image:image1,
     lessons: [
       {
         lessonId: 'problems-001-001',
