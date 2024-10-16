@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const NotLoggedRoute = ({ children }) => {
-  const { userLogged } = useContext(AuthContext);
+  const { userLogged } = useContext(AuthContext).authData;
   if (!userLogged) {
     toast.error('You need to login first!', {
       duration: 3000,

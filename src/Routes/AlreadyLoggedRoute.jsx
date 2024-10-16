@@ -4,10 +4,10 @@ import { Navigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const AlreadyLoggedRoute = ({ children }) => {
-  const { userLogged } = useContext(AuthContext);
+  const { userLogged } = useContext(AuthContext).authData;
   if (userLogged) {
-    toast.info('You are already logged in!');
-    return <Navigate to="/" />;
+    toast.success('You are already logged in!');
+    return <Navigate to="/" replace={true} />;
   }
 
   return children;

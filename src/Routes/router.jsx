@@ -62,7 +62,7 @@ const routes = [
           </NotLoggedRoute>
         ),
         children: [
-          { index: true, element: <Navigate to="profile" /> },
+          { index: true, element: <Navigate to="profile" replace={true} /> },
           { path: 'profile', element: <ProfileSettings /> },
           { path: 'account', element: <AccountSettings /> },
         ],
@@ -75,7 +75,7 @@ const routes = [
           </AdminRoute>
         ),
         children: [
-          { index: true, element: <Navigate to="dashboard" /> },
+          { index: true, element: <Navigate to="dashboard" replace={true} /> },
           { path: 'dashboard', element: <Dashboard /> },
           { path: 'users', element: <Users /> },
           { path: 'tracks', element: <Tracks /> },
@@ -90,7 +90,7 @@ const routes = [
           </AlreadyLoggedRoute>
         ),
         children: [
-          { index: true, element: <Navigate to="login" /> },
+          { index: true, element: <Navigate to="login" replace={true} /> },
           { path: 'login', element: <Login /> },
           { path: 'signup', element: <Signup /> },
           { path: 'forgot-password', element: <ForgotPassword /> },

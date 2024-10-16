@@ -9,15 +9,15 @@ const LinksSection = ({ user }) => {
         <div className="field-link-value">
           {/* <div className="break-words max-w-full">{user.links.github.url}</div>
           <EditIconButton /> */}
-          <LinkEasyEdit text={user.links.github.url}/>
+          <LinkEasyEdit text={user.links.github}/>
         </div>
         <div className="field-link-name">LinkedIn</div>
         <div className="field-link-value">
-          <LinkEasyEdit text={user.links.linkedin.url}/>
+          <LinkEasyEdit text={user.links.linkedin}/>
         </div>
         <div className="field-link-name">Website</div>
         <div className="field-link-value">
-          <LinkEasyEdit text={user.links.website.url}/>
+          <LinkEasyEdit text={user.links.website}/>
         </div>
       </div>
     </>
