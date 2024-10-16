@@ -10,6 +10,7 @@ function UserProvider({ children }) {
     username: '',
     email: '',
     phone: '',
+    role: '',
     bio: '',
     picture: '',
     links: {
