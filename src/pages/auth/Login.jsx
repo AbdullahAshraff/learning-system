@@ -1,31 +1,41 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
 import Cookies from 'js-cookie';
-import { toast } from 'react-hot-toast'; // استيراد مكتبة React Hot Toast
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../contexts/AuthContext';
+import axiosInstance from '../../lib/axiosInstance';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async e => {
+  // for authorization
+  const { setAuthData } = useContext(AuthContext);
+
+  // for form
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = async e => {
     e.preventDefault();
+
     try {
-      const response = await axios.post(
-        'https://basatha-khaki.vercel.app/api/v1/auth/login',
-        { email, password }
-      );
-      const token = response.data.token;
-      Cookies.set('token', token, { expires: 7 });
-      toast.success('Login successful!'); // إظهار رسالة نجاح
+      const response = await axiosInstance.post('auth/login', {
+        email,
+        password,
+      });
+
+      const { token } = response.data;
+      setAuthData({token, userLogged: true}); // store token in context
+      Cookies.set('token', token, { expires: 7 }); // store it in cookies
+
+      toast.success('Login successful!');
       navigate('/');
     } catch (error) {
       toast.error(
         `Login failed: ${
           error.response ? error.response.data.message : error.message
         }`
-      ); // إظهار رسالة خطأ
+      );
       console.error(
         'Login failed:',
         error.response ? error.response.data : error.message
@@ -35,18 +45,14 @@ const Login = () => {
 
   return (
     <section className="flex justify-center items-center min-h-screen bg-[#8B7500]">
-      {' '}
-      {/* ذهبي داكن */}
       <div className="max-w-lg mx-auto p-10 bg-white rounded-lg shadow-md">
-        {' '}
-        {/* زيادة حجم النموذج */}
         <div className="text-center mb-12">
           <h1 className="text-4xl mr-5 font-extrabold text-gray-800 drop-shadow-lg transition duration-300">
             Welcome Back!
           </h1>
           <p className="text-gray-600">Please login to continue.</p>
         </div>
-        <form onSubmit={handleLogin} className="mt-4">
+        <form onSubmit={handleSubmit} className="mt-4">
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -96,7 +102,7 @@ const Login = () => {
         </div>
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600">
-            If you don't have an account,{' '}
+            If you don&apos;t have an account,{' '}
             <Link to="/auth/signup" className="text-blue-600 hover:underline">
               Sign Up
             </Link>

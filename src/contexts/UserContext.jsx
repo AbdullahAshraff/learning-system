@@ -1,45 +1,43 @@
-import { createContext, useState } from "react";
-import { profilePic } from '../assets';
-
-function getUserInfo(){
-  const user = {
-    name: 'Abdullah Ashraf',
-    username: 'abdullahashraf',
-    email: 'xg8Iz@example.com',
-    phone: '0123456789',
-    bio: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-          assumenda rerum reiciendis quia vero reprehenderit, nostrum, velit
-          ea exercitationem quibusdam esse? Itaque, fugit sapiente esse
-          voluptate enim labore laboriosam ipsa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti assumenda rerum reiciendis quia vero reprehenderit, nostrum, velit
-          ea exercitationem quibusdam esse? Itaque, fugit sapiente esse
-          voluptate enim labore laboriosam ipsa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti assumenda rerum reiciendis quia vero reprehenderit, nostrum, velit
-          ea exercitationem quibusdam esse? Itaque, fugit sapiente esse
-          voluptate enim labore laboriosam ipsa.`,
-    picture: profilePic,
-    links: {
-      github: {
-        username: 'abdullahashraf',
-        url: 'https://github.com/abdullahashraf',
-      },
-      linkedin: {
-        username: 'abdullahashraf',
-        url: 'https://www.linkedin.com/in/abdullahashraf/',
-      },
-      website: {
-        username: 'mywebsite.com',
-        url: 'https://abdullahashraf.web.app',
-      },
-    },
-  };
-  return user;
-}
-
-
+import { createContext, useContext, useEffect, useState } from 'react';
+import axiosInstance from '../lib/axiosInstance';
+import { AuthContext } from './AuthContext';
 
 const UserContext = createContext();
 
 function UserProvider({ children }) {
-  const [user, setUser] = useState(getUserInfo());
+  const initialUser = {
+    name: '',
+    username: '',
+    email: '',
+    phone: '',
+    bio: '',
+    picture: '',
+    links: {
+      github: {
+        username: '',
+        url: '',
+      },
+      linkedin: {
+        username: '',
+        url: '',
+      },
+      website: {
+        username: '',
+        url: '',
+      },
+    },
+  };
+  const [user, setUser] = useState(initialUser);
+  const { authData } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!authData.userLogged) return;
+    const fetchInfo = async () => {
+      const res = await axiosInstance.get('users/getLoggedUserData');
+      setUser({ ...initialUser, ...res.data });
+    };
+    fetchInfo();
+  }, [authData]);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
