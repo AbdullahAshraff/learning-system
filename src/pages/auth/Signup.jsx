@@ -19,7 +19,7 @@ const Signup = () => {
     try {
       await axios.post('https://basatha-khaki.vercel.app/api/v1/auth/signup', { name, email, password, passwordConfirm: confirmPassword });
       toast.success('Registration successful!'); // رسالة نجاح عند التسجيل الناجح
-      navigate('/login'); // الانتقال إلى صفحة تسجيل الدخول بعد النجاح
+      navigate('/auth/login'); // الانتقال إلى صفحة تسجيل الدخول بعد النجاح
     } catch (error) {
       toast.error(`Registration failed: ${error.response ? error.response.data.message : error.message}`); // رسالة خطأ توضح سبب الفشل
       console.error('Registration failed:', error.response ? error.response.data : error.message);

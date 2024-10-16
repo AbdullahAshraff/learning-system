@@ -12,7 +12,7 @@ const ForgotPassword = () => {
     try {
       await axios.post('https://basatha-khaki.vercel.app/api/v1/auth/forgotpassword', { email });
       toast.success('Password reset link sent!'); // عرض رسالة نجاح
-      navigate('/login'); 
+      navigate('/auth/login'); 
     } catch (error) {
       toast.error(`Failed to send reset link: ${error.response ? error.response.data.message : error.message}`); // عرض رسالة خطأ
       console.error('Failed to send reset link:', error.response ? error.response.data : error.message);

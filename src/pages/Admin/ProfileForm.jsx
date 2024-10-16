@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaPen } from 'react-icons/fa'; // استيراد أيقونة القلم
 
 const ProfileForm = ({ photo, setPhoto }) => {

@@ -14,24 +14,22 @@ import ResetPassword from '../pages/auth/ResetPassword';
 import VerifyEmail from '../pages/auth/VerifyEmail';
 import TracksList from '../pages/tracks-list/Page';
 import TrackDetails from '../pages/track-details/Page';
-import AdminDashboard from '../pages/Admin/AdminDashboard';
+import AdminLayout from '../pages/admin/Layout';
+import Dashboard from '../pages/admin/Dashboard';
+import Users from '../pages/admin/Users';
+import Tracks from '../pages/admin/Tracks';
+import ProfileForm from '../pages/admin/ProfileForm';
 
 const routes = [
   {
     path: '/',
     children: [
       { index: true, element: <Home /> },
-      { path: 'admin', element: <AdminDashboard /> },
       { path: 'landing', element: <Landing /> },
       { path: 'about', element: <About /> },
       { path: 'profile/:username', element: <Profile /> },
       { path: 'learn', element: <Learn /> },
-      { path: 'login', element: <Login /> },
-      { path: 'signup', element: <Signup /> },
-      { path: 'forgot-password', element: <ForgotPassword /> },
-      { path: 'reset-password', element: <ResetPassword /> },
-      { path: 'verify', element: <VerifyEmail /> },
-      { path: 'tracks_list', element: <TracksList/> },
+      { path: 'tracks_list', element: <TracksList /> },
       { path: 'track', element: <TrackDetails /> },
       { path: '*', element: <NotFound /> },
       {
@@ -40,6 +38,28 @@ const routes = [
         children: [
           { index: true, element: <div>Settings</div> },
           { path: 'profile', element: <ProfileSettings /> },
+        ],
+      },
+      {
+        path: 'admin',
+        element: <AdminLayout />,
+        children: [
+          { index: true, element: <Dashboard /> },
+          { path: 'dashboard', element: <Dashboard /> },
+          { path: 'users', element: <Users /> },
+          { path: 'tracks', element: <Tracks /> },
+          { path: 'profile', element: <ProfileForm /> },
+        ],
+      },
+      {
+        path: 'auth',
+        children: [
+          { index: true, element: <Login /> },
+          { path: 'login', element: <Login /> },
+          { path: 'signup', element: <Signup /> },
+          { path: 'forgot-password', element: <ForgotPassword /> },
+          { path: 'reset-password', element: <ResetPassword /> },
+          { path: 'verify', element: <VerifyEmail /> },
         ],
       },
     ],

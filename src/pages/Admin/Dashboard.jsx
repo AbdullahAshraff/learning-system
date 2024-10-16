@@ -1,5 +1,3 @@
-// src/components/Dashboard.js
-import React from 'react';
 import { PieChart, Pie, Cell } from 'recharts';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 

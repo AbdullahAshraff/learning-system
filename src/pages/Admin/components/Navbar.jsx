@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaUserCircle } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
-const NavBar = ({ photo, setActiveComponent }) => {
+const NavBar = ({ photo }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false); // حالة لفتح القائمة المنسدلة
 
   return (
     <nav className="bg-white shadow-md w-[calc(100%-16rem)] h-16 flex items-center justify-between px-6 fixed top-0 left-64 z-50 transition-all duration-300">
-        {/* Search Box */}
-        <div className="relative flex items-center w-1/3">
+      {/* Search Box */}
+      <div className="relative flex items-center w-1/3">
         <input
-            type="text"
-            placeholder="Search..."
-            className="pl-4 pr-10 py-2 w-full rounded-full border border-gray-300 bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
+          type="text"
+          placeholder="Search..."
+          className="pl-4 pr-10 py-2 w-full rounded-full border border-gray-300 bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
         />
         <AiOutlineSearch className="absolute right-3 text-gray-500" />
-        </div>
-
+      </div>
 
       <div className="relative flex items-center space-x-4">
         {/* Admin Profile Picture */}
@@ -38,16 +38,15 @@ const NavBar = ({ photo, setActiveComponent }) => {
           {/* Dropdown Menu */}
           {dropdownOpen && ( // عرض القائمة إذا كانت مفتوحة
             <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 z-10">
-              <a
-                href="#"
+              <NavLink
+                to="profile"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 onClick={() => {
-                  setActiveComponent('profile'); // تغيير المكون عند الضغط
                   setDropdownOpen(false); // إغلاق القائمة بعد النقر
                 }}
               >
                 My Profile
-              </a>
+              </NavLink>
               <a
                 href="#"
                 className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100"

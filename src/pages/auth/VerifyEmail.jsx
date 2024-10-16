@@ -12,7 +12,7 @@ const VerifyEmail = () => {
     try {
       await axios.post('https://basatha-khaki.vercel.app/api/v1/auth/verifyResetCode', { verificationCode });
       toast.success('Verification successful!'); // رسالة نجاح
-      navigate('/reset-password'); // الانتقال إلى صفحة إعادة تعيين كلمة المرور بعد التحقق الناجح
+      navigate('/auth/reset-password'); // الانتقال إلى صفحة إعادة تعيين كلمة المرور بعد التحقق الناجح
     } catch (error) {
       toast.error(`Verification failed: ${error.response ? error.response.data.message : error.message}`); // رسالة خطأ
       console.error('Verification failed:', error.response ? error.response.data : error.message);
@@ -50,7 +50,7 @@ const VerifyEmail = () => {
           </button>
         </form>
         <div className="mt-6 text-center">
-          <a href="/login" className="text-[#DEB041] hover:underline">Back to Login</a>
+          <a href="login" className="text-[#DEB041] hover:underline">Back to Login</a>
         </div>
       </div>
     </section>
