@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-hot-toast'; // استيراد React Hot Toast
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
@@ -8,14 +9,15 @@ const ResetPassword = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     if (newPassword !== confirmNewPassword) {
-      console.error('Passwords do not match!');
+      toast.error('Passwords do not match!'); // رسالة خطأ عند عدم تطابق كلمات المرور
       return;
     }
     try {
       await axios.patch('https://basatha-khaki.vercel.app/api/v1/auth/resetpassword', { password: newPassword });
-      console.log('Password reset successful!');
+      toast.success('Password reset successful!'); // رسالة نجاح عند تغيير كلمة المرور بنجاح
       // يمكنك إضافة إعادة التوجيه هنا إذا كنت تريد
     } catch (error) {
+      toast.error(`Password reset failed: ${error.response ? error.response.data.message : error.message}`); // رسالة خطأ عند الفشل
       console.error('Password reset failed:', error.response ? error.response.data : error.message);
     }
   };

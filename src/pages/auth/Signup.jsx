@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast'; // استيراد مكتبة React Hot Toast
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -12,14 +13,15 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      console.error('Passwords do not match!');
+      toast.error('Passwords do not match!'); // رسالة خطأ عند عدم تطابق كلمتي المرور
       return;
     }
     try {
       await axios.post('https://basatha-khaki.vercel.app/api/v1/auth/signup', { name, email, password, passwordConfirm: confirmPassword });
-      console.log('Registration successful!');
-      navigate('/login'); // الانتقال إلى صفحة تسجيل الدخول بعد التسجيل الناجح
+      toast.success('Registration successful!'); // رسالة نجاح عند التسجيل الناجح
+      navigate('/auth/login'); // الانتقال إلى صفحة تسجيل الدخول بعد النجاح
     } catch (error) {
+      toast.error(`Registration failed: ${error.response ? error.response.data.message : error.message}`); // رسالة خطأ توضح سبب الفشل
       console.error('Registration failed:', error.response ? error.response.data : error.message);
     }
   };
