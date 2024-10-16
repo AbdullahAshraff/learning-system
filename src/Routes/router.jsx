@@ -36,7 +36,7 @@ const routes = [
       { path: 'verify', element: <VerifyEmail /> },
       { path: 'tracks_list', element: <TracksList/> },
       { path: 'track', element: <TrackDetails /> },
-      { path: '/Beginner', element: <BeginnerCourses /> },
+      { path: '/beginner', element: <BeginnerCourses /> },
       { path: '/course', element: <BeginnerInfo /> },
       { path: '*', element: <NotFound /> },
       { path: '/loading', element: <LoadingPage /> },  
