@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import courses from '../../constants/courses.js';
 import NavBar from '../../components/TracksHeader.jsx';
 import Footer from '../../components/Footer.jsx';
-import ProfileData from '../../Constants/Instractors.js';
+import ProfileData from '../../constants/instructors.js';
 import Profile from '../../components/Beginner/Profile.jsx';
 import { FaBook } from 'react-icons/fa';
 
