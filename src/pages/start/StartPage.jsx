@@ -7,9 +7,10 @@ import {
   FaLaptopCode,
 } from 'react-icons/fa';
 import { IoRocketSharp } from 'react-icons/io5';
-
+import { useNavigate } from 'react-router-dom'; 
 import { learning } from '../../assets';
 function StartPage() {
+  const navigate = useNavigate();
   return (
     <div
       id="start"
@@ -50,6 +51,7 @@ function StartPage() {
           <button
             style={{ backgroundColor: 'black' }}
             className=" relative flex w-[200px] h-[60px] items-center px-6 py-3 overflow-hidden font-semibold transition-all rounded-lg group shadow-lg hover:bg-gray-800 animate__animated animate__bounceIn"
+            onClick={() => navigate('/beginner')}
           >
             <span className="absolute inset-0 w-full h-full transition-transform bg-indigo-600 rounded-lg group-hover:translate-x-full group-hover:animate-pulse"></span>
             <span className="relative z-10 text-white text-lg flex items-center gap-2 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3">
@@ -65,6 +67,7 @@ function StartPage() {
           <button
             style={{ backgroundColor: '#DEB041' }}
             className=" relative flex w-[200px] h-[60px] items-center px-6 py-3 overflow-hidden font-semibold transition-all rounded-lg group shadow-lg hover:bg-[#CDAA30] animate__animated animate__bounceIn"
+            onClick={() => navigate('/tracks_list')}
           >
             <span className="absolute inset-0 w-full h-full transition-transform bg-green-600 rounded-lg group-hover:translate-x-full group-hover:animate-pulse"></span>
             <span className="relative z-10 text-white text-lg flex items-center gap-2 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3">

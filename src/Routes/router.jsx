@@ -25,6 +25,8 @@ import AdminRoute from './AdminRoute';
 import NotLoggedRoute from './NotLoggedRoute';
 import AlreadyLoggedRoute from './AlreadyLoggedRoute';
 import AuthLayout from '../pages/auth/Layout';
+import BeginnerCourses from '../pages/beginner-courses/Page'
+import CourseDetails from '../pages/course-details/Page';
 
 const routes = [
   {
@@ -43,6 +45,8 @@ const routes = [
       },
       { path: 'tracks_list', element: <TracksList /> },
       { path: 'track', element: <TrackDetails /> },
+      { path: '/beginner', element: <BeginnerCourses /> },
+      { path: '/course', element: <CourseDetails /> },
       { path: '*', element: <NotFound /> },
       { path: '/loading', element: <LoadingPage /> },
       { path: '/start', element: <StartPage /> },

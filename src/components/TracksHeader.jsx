@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBook, FaEnvelope, FaArrowRight } from "react-icons/fa";
+import { FaBook, FaEnvelope, FaArrowRight,FaGamepad } from "react-icons/fa";
 import { MdSchool, MdComputer, MdConnectWithoutContact } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { BsFillInfoCircleFill } from "react-icons/bs";
@@ -99,6 +99,15 @@ function TracksHeader() {
                 className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
               >
                 <MdConnectWithoutContact className="mr-2 text-lg" /> Contact
+              </Link>
+            </li>
+                       {/* New Games Link */}
+                       <li>
+              <Link
+                to="/games"
+                className="hover:text-[#fabf2f] transition-colors duration-300 flex items-center"
+              >
+                <FaGamepad className="mr-2 text-lg" /> Games
               </Link>
             </li>
           </ul>
