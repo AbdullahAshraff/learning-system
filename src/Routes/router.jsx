@@ -22,10 +22,10 @@ import Users from '../pages/admin/Users';
 import Tracks from '../pages/admin/Tracks';
 import AdminProfileForm from '../pages/admin/ProfileForm';
 import AdminRoute from './AdminRoute';
-import NotLoggedRoute from './NotLoggedRoute';
-import AlreadyLoggedRoute from './AlreadyLoggedRoute';
+import MustBeLoggedRoute from './MustBeLoggedRoute';
+import NotForLoggedRoute from './NotForLoggedRoute';
 import AuthLayout from '../pages/auth/Layout';
-import BeginnerCourses from '../pages/beginner-courses/Page'
+import BeginnerCourses from '../pages/beginner-courses/Page';
 import CourseDetails from '../pages/course-details/Page';
 
 const routes = [
@@ -38,9 +38,9 @@ const routes = [
       {
         path: 'learn',
         element: (
-          <NotLoggedRoute>
+          <MustBeLoggedRoute>
             <Learn />
-          </NotLoggedRoute>
+          </MustBeLoggedRoute>
         ),
       },
       { path: 'tracks_list', element: <TracksList /> },
@@ -53,17 +53,17 @@ const routes = [
       {
         path: '/games',
         element: (
-          <NotLoggedRoute>
+          <MustBeLoggedRoute>
             <GamesPage />
-          </NotLoggedRoute>
+          </MustBeLoggedRoute>
         ),
       },
       {
         path: 'settings',
         element: (
-          <NotLoggedRoute>
+          <MustBeLoggedRoute>
             <SettingsLayout />
-          </NotLoggedRoute>
+          </MustBeLoggedRoute>
         ),
         children: [
           { index: true, element: <Navigate to="profile" replace={true} /> },
@@ -89,9 +89,9 @@ const routes = [
       {
         path: 'auth',
         element: (
-          <AlreadyLoggedRoute>
+          <NotForLoggedRoute>
             <AuthLayout />
-          </AlreadyLoggedRoute>
+          </NotForLoggedRoute>
         ),
         children: [
           { index: true, element: <Navigate to="login" replace={true} /> },

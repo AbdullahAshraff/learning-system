@@ -3,17 +3,14 @@ import { AuthContext } from '../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
-const NotLoggedRoute = ({ children }) => {
+const NotForLoggedRoute = ({ children }) => {
   const { userLogged } = useContext(AuthContext).authData;
-  if (!userLogged) {
-    toast.error('You need to login first!', {
-      duration: 3000,
-      position: 'top-center',
-    });
-    return <Navigate to="/auth/login" />;
+  if (userLogged) {
+    toast.success('You are already logged in!');
+    return <Navigate to="/" replace={true} />;
   }
 
   return children;
 };
 
-export default NotLoggedRoute;
+export default NotForLoggedRoute;
