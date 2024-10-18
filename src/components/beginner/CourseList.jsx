@@ -1,4 +1,3 @@
-// Import necessary components and data
 import CourseCard from './CourseCard';
 import courses from './../../constants/courses.js';
 import tracksList from './../../constants/tracks.js'; // Import the tracks list
@@ -13,7 +12,7 @@ const CourseList = () => {
     );
 
     return (
-        <div className="container mx-auto py-8 mt-8 lg:mb-16 px-4">
+        <div className="container py-8 mt-8 lg:mb-16 px-4 max-w-7xl mx-auto">
             {/* Title with Animation */}
             <h1 className="text-5xl font-mono text-center mb-8 
                            bg-gradient-to-r from-[#e8b847] via-[#a79049] to-[#000000] 
