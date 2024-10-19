@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { toast } from 'react-hot-toast'; // استيراد React Hot Toast
+import axiosInstance from '../../lib/axiosInstance';
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
@@ -13,7 +13,7 @@ const ResetPassword = () => {
       return;
     }
     try {
-      await axios.patch('https://basatha-khaki.vercel.app/api/v1/auth/resetpassword', { password: newPassword });
+      await axiosInstance.patch('auth/resetpassword', { password: newPassword });
       toast.success('Password reset successful!'); // رسالة نجاح عند تغيير كلمة المرور بنجاح
       // يمكنك إضافة إعادة التوجيه هنا إذا كنت تريد
     } catch (error) {

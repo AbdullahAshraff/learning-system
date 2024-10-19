@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
 import { toast } from 'react-hot-toast'; // استيراد React Hot Toast
+import axiosInstance from '../../lib/axiosInstance';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -10,7 +10,7 @@ const ForgotPassword = () => {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://basatha-khaki.vercel.app/api/v1/auth/forgotpassword', { email });
+      await axiosInstance.post('auth/forgotpassword', { email });
       toast.success('Password reset link sent!'); // عرض رسالة نجاح
       navigate('/auth/login'); 
     } catch (error) {

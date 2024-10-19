@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast'; // إضافة مكتبة الإشعارات
+import axiosInstance from '../../lib/axiosInstance';
 
 const VerifyEmail = () => {
   const [verificationCode, setVerificationCode] = useState('');
@@ -10,7 +10,7 @@ const VerifyEmail = () => {
   const handleVerifyCode = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://basatha-khaki.vercel.app/api/v1/auth/verifyResetCode', { verificationCode });
+      await axiosInstance.post('auth/verifyResetCode', { verificationCode });
       toast.success('Verification successful!'); // رسالة نجاح
       navigate('/auth/reset-password'); // الانتقال إلى صفحة إعادة تعيين كلمة المرور بعد التحقق الناجح
     } catch (error) {
