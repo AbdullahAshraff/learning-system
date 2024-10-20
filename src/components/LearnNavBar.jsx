@@ -1,20 +1,50 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   UserIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   HomeIcon,
+  UsersIcon,
 } from '@heroicons/react/24/solid';
+import { useContext } from 'react';
+import { UserContext } from '../contexts/UserContext'; // Adjust the import path as necessary
+import { AuthContext } from '../contexts/AuthContext';
 
 const CoursesNavbar = ({ handlePrevVideo, handleNextVideo }) => {
-  const username = 'Arwa Zakria';
+  const { user } = useContext(UserContext); // Ensure UserContext is accessed correctly
+  const { authData } = useContext(AuthContext);
+  const { userLogged } = authData || {};
+  const navigate = useNavigate();
+
+  const handleUserAction = () => {
+    if (user?.role === 'admin') {
+      navigate('/admin/dashboard');
+    } else if (user?.username) {
+      navigate(`/profile/${user.username}`);
+    } else if (user?.name) {
+      const profileName = user.name.replace(/\s+/g, '-').toLowerCase(); // Fallback to name
+      navigate(`/profile/${profileName}`);
+    } else {
+      console.error('No valid username or name for navigation');
+    }
+  };
+
+  console.log('Auth Data:', authData); // Check if userLogged is true
+  console.log('User from Context:', user);
+  
   return (
     <div className="fixed top-0 left-0 w-full bg-white text-customBronze h-16 flex items-center justify-between px-4 z-50">
       {/* User Info Section */}
-      <div className="flex items-center space-x-2 lg:space-x-4 text-xs lg:text-base">
-        <UserIcon className="w-4 h-4 lg:w-6 lg:h-6" />
-        <span className="font-bold">{username}</span>
-      </div>
+      {userLogged && user ? (
+        <div onClick={handleUserAction} className="cursor-pointer flex items-center space-x-2">
+          <img src={user.profileImage || '/default-profile.png'} alt="User Profile" className="h-8 w-8 rounded-full" />
+          <span className="text-customBronze font-bold">
+            {user.username || user.name || 'User'} {/* Display username or name or fallback to 'User' */}
+          </span>
+        </div>
+      ) : (
+        <UsersIcon className="text-black text-3xl" /> // Change icon color to black for visibility
+      )}
 
       {/* Navigation Buttons */}
       <div className="flex items-center space-x-2 lg:space-x-4">
