@@ -146,18 +146,11 @@ const NavBar = () => {
 };
 
 const navLinks = [
-<<<<<<< HEAD
   { href: '#course', text: 'Courses', icon: <FaBook className="mr-2 text-lg" /> },
   { href: '#about', text: 'About', icon: <BsFillInfoCircleFill className="mr-2 text-lg" /> },
   { href: '#services', text: 'Services', icon: <PiNetworkFill className="mr-2 text-lg" /> },
   { href: '#footer', text: 'Contact', icon: <MdConnectWithoutContact className="mr-2 text-lg" /> },
   { href: '/games', text: 'Games', icon: <FaGamepad className="mr-2 text-lg" /> },
-=======
-  { to: '/', text: 'Home', icon: <FaHome className="mr-2 text-lg" /> },
-  { to: '/tracks_list', text: 'Tracks', icon: <FaBook className="mr-2 text-lg" /> },
-  { to: '#footer', text: 'Contact', icon: <MdConnectWithoutContact className="mr-2 text-lg" /> },
-  { to: '/games', text: 'Games', icon: <FaGamepad className="mr-2 text-lg" /> },
->>>>>>> e3f35c203d0ed50e24c824862a0b2c0d84066517
 ];
 
 export default NavBar;

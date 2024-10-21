@@ -42,8 +42,6 @@ const routes = [
       { path: 'beginner', element: <BeginnerCourses /> },
       { path: 'course', element: <CourseDetails /> },
       { path: '*', element: <NotFound /> },
-      { path: 'loading', element: <LoadingPage /> },
-      { path: 'start', element: <StartPage /> },
       {
         path: 'games',
         element: (
@@ -52,6 +50,7 @@ const routes = [
           </MustBeLoggedRoute>
         ),
       },
+
       {
         path: 'settings',
         element: (
@@ -66,6 +65,18 @@ const routes = [
         ],
       },
     ],
+  },
+  {
+    path: 'loading',
+    element: (
+        <LoadingPage />
+    ),
+  },
+  {
+    path: 'start',
+    element: (
+        <StartPage />
+    ),
   },
   {
     path: 'learn',
