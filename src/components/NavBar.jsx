@@ -79,8 +79,7 @@ function TracksHeader() {
                 </span>
               </div>
             ) : (
-              // <RiAccountPinCircleFill className="text-white text-3xl" />
-              <p>arwa</p>
+              <RiAccountPinCircleFill className="text-white text-3xl" />
             )}
           </button>
 
