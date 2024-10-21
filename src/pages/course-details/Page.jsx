@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import courses from '../../constants/courses.js';
-import NavBar from '../../components/TracksHeader.jsx';
+import NavBar from '../../components/NavBar.jsx';
 import Footer from '../../components/Footer.jsx';
 import ProfileData from '../../constants/instructors.js';
 import Profile from '../../components/Beginner/Profile.jsx';
@@ -24,7 +24,7 @@ function CourseDetails() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="container px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {/* Course Details - 3/4 of the page */}
         <div className="md:col-span-3 bg-white p-6 shadow-lg rounded-lg">
@@ -65,7 +65,7 @@ function CourseDetails() {
           <Profile profileData={ProfileData[0]} />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

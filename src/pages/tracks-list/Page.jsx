@@ -1,7 +1,7 @@
-import TracksHeader from '../../components/TracksHeader.jsx';
-import TracksFooter from '../../components/TracksFooter.jsx';
 import { useNavigate } from 'react-router-dom';
 import tracks from '../../constants/tracks.js';
+import Footer from '../../components/Footer.jsx';
+import NavBar from '../../components/NavBar.jsx';
 
 function Page() {
   const navigate = useNavigate(); // Hook to navigate to different routes
@@ -13,7 +13,7 @@ function Page() {
 
   return (
     <div>
-      <TracksHeader />
+      {/* <NavBar /> */}
       {/* Tracks Section */}
       <section id="track" className="my-12 mt-[100px] ml-[50px] mr-[50px]">
         <h2 className="text-3xl font-semibold text-[#DEB041] text-center mb-[20px]">
@@ -47,7 +47,7 @@ function Page() {
           })}
         </div>
       </section>
-      <TracksFooter />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,15 +1,15 @@
 import Footer from '../../components/Footer.jsx'
-import NavBar from '../../components/TracksHeader.jsx';
+import NavBar from '../../components/NavBar.jsx';
 import CourseList from '../../components/beginner/CourseList.jsx';
 import CourseSection from '../../components/beginner/CoursesSection.jsx';
 
 function BeginnerCourses() {
   return (
       <div className="App">
-        <NavBar />
+        {/* <NavBar /> */}
         <CourseSection />
         <CourseList />
-        <Footer />
+        {/* <Footer /> */}
       </div>
   );
 }

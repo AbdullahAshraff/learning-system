@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 relative z-10">
         
         {/* About Section */}
-        <div className="space-y-4 sm:space-y-6" data-aos="fade-right" data-aos-duration="1000">
+        <div className="space-y-4 sm:space-y-6">
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">About Us</h3>
           <p className="text-xs sm:text-sm lg:text-base text-[#E5E7EB] leading-relaxed">
             We provide cutting-edge programming courses designed to empower individuals to thrive in today’s fast-paced tech world. From beginner to advanced, we tailor learning paths to suit your goals.
@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
 
         {/* Contact Info */}
-        <div className="space-y-4 sm:space-y-6" data-aos="fade-up" data-aos-duration="1000">
+        <div className="space-y-4 sm:space-y-6" >
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">Contact Information</h3>
           <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm lg:text-base">
             <li className="flex items-center space-x-2"><FaMapMarkerAlt /><span>Bani-Swief, Egypt</span></li>
@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media */}
-        <div className="space-y-4 sm:space-y-6" data-aos="fade-up" data-aos-duration="1000">
+        <div className="space-y-4 sm:space-y-6" >
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">Follow Us</h3>
           <div className="flex space-x-3 sm:space-x-4">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="group hover:text-[#000] transition duration-300 transform hover:scale-110">
@@ -53,7 +53,7 @@ const Footer = () => {
         </div>
 
         {/* Logo Section */}
-        <div className="space-y-4 sm:space-y-6 text-center lg:text-left" data-aos="fade-up" data-aos-duration="1000">
+        <div className="space-y-4 sm:space-y-6 text-center lg:text-left" >
           <img src={nlogo} className="w-24 sm:w-32 lg:w-40 mx-auto lg:mx-0 transition-transform duration-300 hover:scale-110" alt="Logo" />
         </div>
       </div>

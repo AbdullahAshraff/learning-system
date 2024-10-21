@@ -2,8 +2,8 @@ import { useLocation } from 'react-router-dom';
 import tracks from '../../constants/tracks.js'; // Import your tracks data
 import ProfileTabs from './ProfileTabs';
 import CourseList from './CourseList';
-import TracksFooter from '../../components/TracksFooter.jsx';
-import TracksHeader from '../../components/TracksHeader.jsx';
+import Footer from '../../components/Footer.jsx';
+import NavBar from '../../components/NavBar.jsx';
 
 const Page = () => {
   const location = useLocation();
@@ -19,7 +19,7 @@ const Page = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <TracksHeader />
+      {/* <NavBar /> */}
       <div className="flex-grow flex justify-center items-start pt-4">
         <div className="w-full p-4">
           {track ? <ProfileTabs track={track} /> : <p>Track not found</p>}{' '}
@@ -27,7 +27,7 @@ const Page = () => {
         </div>
       </div>
       <CourseList className="mt-8 lg:mb-16" />
-      <TracksFooter className="mt-15" />
+      {/* <Footer className="mt-15" /> */}
     </div>
   );
 };

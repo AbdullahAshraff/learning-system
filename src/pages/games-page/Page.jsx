@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import NavBar from '../../components/Navbar';
-import Footer from '../landing/Footer';
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 import { learn } from "../../assets";
 
 const Page = () => {
@@ -92,7 +92,7 @@ const Page = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <NavBar />
+      {/* <NavBar /> */}
 
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-center text-[#0f0f0f] mb-6">Language Learning Games</h1>
@@ -112,7 +112,7 @@ const Page = () => {
       {selectedGame && (
         <GameModal game={selectedGame} onClose={closeModal} />
       )}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
