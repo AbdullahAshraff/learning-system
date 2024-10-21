@@ -1,32 +1,32 @@
-.relative iframe{
-    height:70vh;
-    width: 85%;
-    margin-left: 5.6rem;
-    margin-top: 2rem;
+#learn-page .relative iframe {
+  height: 70vh;
+  width: 85%;
+  margin-left: 5.6rem;
+  margin-top: 2rem;
 }
-.relative{
-text-align: center;
-position: relative;
+#learn-page .relative {
+  text-align: center;
+  position: relative;
 }
-.main{
-    /* height: 130vh; */
-    background-color: #efefef;
+#learn-page .main {
+  /* height: 130vh; */
+  background-color: #efefef;
 }
-.content-ins{
-    transform: translateY(700px);
+#learn-page .content-ins {
+  transform: translateY(700px);
 }
-.absolute .logoimg{
+#learn-page .absolute .logoimg {
   transform: translateX(140px);
   opacity: 1;
 }
-.logo {
+#learn-page .logo {
   opacity: 0;
   transition: opacity 1s ease;
-  position: absolute; 
-  top: 20px; 
-  left: 20px; 
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
-.animate-fade-in {
+#learn-page .animate-fade-in {
   opacity: 1;
   animation: fade-in 0.5s ease-in-out forwards;
 }
@@ -43,97 +43,95 @@ position: relative;
 }
 /* ////////////////////////////////// */
 @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .animate-fade-in {
-    animation: fade-in 1s ease-in-out forwards;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-.header-course{
-    z-index: 1000;
+}
+
+#learn-page .animate-fade-in {
+  animation: fade-in 1s ease-in-out forwards;
+}
+#learn-page .header-course {
+  z-index: 1000;
 }
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .sidebar {
-      width: 100%; 
-      position: relative; 
-    }
-  
-    .top-navbar {
-      flex-direction: column; 
-      align-items: flex-start; 
-    }
-  
-    .top-navbar button {
-      margin-bottom: 0.5rem; 
-      width: 100%; 
-    }
-    /* .main{
-        height: 140vh;
-    } */
-  
-    h2 {
-      font-size: 2rem; 
-    }
-    .logo{
-      top: 0;
-      left: 0;
-    }
-    .absolute .logoimg{
-      transform: none;
-    }
-    .sidebar{
-      transform: translateY(260px);
-    }
-    .absolute .logoimg{
-      transform: translateX(0);
-      transform: translateY(30px);
-    }
-    .relative iframe{
-      height:55vh;
-      width: 80%;
-      margin-left: 2rem;
-      margin-top: 4rem;
-  }
-  .relative{
-  /* text-align: left; */
-  font-size: 18px;
+  #learn-page .sidebar {
+    width: 100%;
+    position: relative;
   }
 
-  
+  #learn-page .top-navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  @media (max-width: 640px) {
-    body{
-        font-size: 70%;
-    }
-    h2 {
-      font-size: 1.5rem; 
-      text-align: center; 
-    }
-    .relative iframe{
-      height:45vh;
-      width: 70%;
-      margin-left: 2rem;
-      margin-top: 3rem;
+
+  #learn-page .top-navbar button {
+    margin-bottom: 0.5rem;
+    width: 100%;
   }
-  .relative{
+  /* .main{
+        height: 140vh;
+    } */
+
+  #learn-page h2 {
+    font-size: 2rem;
+  }
+  #learn-page .logo {
+    top: 0;
+    left: 0;
+  }
+  #learn-page .absolute .logoimg {
+    transform: none;
+  }
+  #learn-page .sidebar {
+    transform: translateY(260px);
+  }
+  #learn-page .absolute .logoimg {
+    transform: translateX(0);
+    transform: translateY(30px);
+  }
+  #learn-page .relative iframe {
+    height: 55vh;
+    width: 80%;
+    margin-left: 2rem;
+    margin-top: 4rem;
+  }
+  #learn-page .relative {
+    /* text-align: left; */
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  #learn-page body {
+    font-size: 70%;
+  }
+  #learn-page h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  #learn-page .relative iframe {
+    height: 45vh;
+    width: 70%;
+    margin-left: 2rem;
+    margin-top: 3rem;
+  }
+  #learn-page .relative {
     /* text-align: left; */
     font-size: 16px;
-    }
-    .absolute .logoimg{
-      transform: translateX(-50px);
-      transform: translateY(30px);
-    }
-    .logo {
-      top: 20px; 
-      left: 60px; 
-    }
   }
+  #learn-page .absolute .logoimg {
+    transform: translateX(-50px);
+    transform: translateY(30px);
+  }
+  #learn-page .logo {
+    top: 20px;
+    left: 60px;
+  }
+}

@@ -84,7 +84,7 @@ function Learn() {
   };
 
   return (
-    <div className="flex header-course">
+    <div className="flex header-course" id='learn-page'>
       {/* Top Navbar for next, prev, and user info */}
       <CoursesNavbar
         username={username}
