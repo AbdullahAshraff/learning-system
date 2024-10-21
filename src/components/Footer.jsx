@@ -61,7 +61,6 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="mt-8 sm:mt-10 lg:mt-12 border-t border-gray-600 pt-4 sm:pt-6 text-center text-xs sm:text-sm lg:text-base text-[#fff]">
         <p>&copy; 2024 Basatha. All rights reserved.</p>
-        <p className="mt-1 sm:mt-2">Built with ❤️ using Tailwind CSS</p>
       </div>
     </footer>
   );

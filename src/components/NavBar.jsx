@@ -61,9 +61,9 @@ function TracksHeader() {
         <ul className="hidden md:flex space-x-6 text-white">
           {navLinks.map((link) => (
             <li key={link.text}>
-              <a href={link.href} className="flex items-center hover:text-[#fabf2f] transition-colors duration-300">
+              <Link to={link.to} className="flex items-center hover:text-[#fabf2f] transition-colors duration-300">
                 {link.icon} {link.text}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -105,9 +105,9 @@ function TracksHeader() {
         <ul className="flex flex-col space-y-4 py-6 px-4">
           {navLinks.map((link) => (
             <li key={link.text}>
-              <a href={link.href} className="text-white flex items-center hover:text-[#fabf2f] transition-colors duration-300">
+              <Link to={link.to} className="text-white flex items-center hover:text-[#fabf2f] transition-colors duration-300">
                 {link.icon} {link.text}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -116,9 +116,9 @@ function TracksHeader() {
   );
 };
 const navLinks = [
-  { href: '/', text: 'Home', icon: <FaHome className="mr-2 text-lg" /> },
-  { href: '/tracks_list', text: 'Tracks', icon: <FaBook className="mr-2 text-lg" /> },
-  { href: '#footer', text: 'Contact', icon: <MdConnectWithoutContact className="mr-2 text-lg" /> },
-  { href: '/games', text: 'Games', icon: <FaGamepad className="mr-2 text-lg" /> },
+  { to: '/', text: 'Home', icon: <FaHome className="mr-2 text-lg" /> },
+  { to: '/tracks_list', text: 'Tracks', icon: <FaBook className="mr-2 text-lg" /> },
+  { to: '#footer', text: 'Contact', icon: <MdConnectWithoutContact className="mr-2 text-lg" /> },
+  { to: '/games', text: 'Games', icon: <FaGamepad className="mr-2 text-lg" /> },
 ];
 export default TracksHeader;
