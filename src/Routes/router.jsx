@@ -27,31 +27,25 @@ import NotForLoggedRoute from './NotForLoggedRoute';
 import AuthLayout from '../pages/auth/Layout';
 import BeginnerCourses from '../pages/beginner-courses/Page';
 import CourseDetails from '../pages/course-details/Page';
+import MainLayout from '../pages/MainLayout';
 
 const routes = [
   {
     path: '/',
+    element: <MainLayout />,
     children: [
       { index: true, element: <Landing /> },
       { path: 'landing', element: <Landing /> },
       { path: 'profile/:username', element: <Profile /> },
-      {
-        path: 'learn',
-        element: (
-          <MustBeLoggedRoute>
-            <Learn />
-          </MustBeLoggedRoute>
-        ),
-      },
       { path: 'tracks_list', element: <TracksList /> },
       { path: 'track', element: <TrackDetails /> },
-      { path: '/beginner', element: <BeginnerCourses /> },
-      { path: '/course', element: <CourseDetails /> },
+      { path: 'beginner', element: <BeginnerCourses /> },
+      { path: 'course', element: <CourseDetails /> },
       { path: '*', element: <NotFound /> },
-      { path: '/loading', element: <LoadingPage /> },
-      { path: '/start', element: <StartPage /> },
+      { path: 'loading', element: <LoadingPage /> },
+      { path: 'start', element: <StartPage /> },
       {
-        path: '/games',
+        path: 'games',
         element: (
           <MustBeLoggedRoute>
             <GamesPage />
@@ -71,37 +65,45 @@ const routes = [
           { path: 'account', element: <AccountSettings /> },
         ],
       },
-      {
-        path: 'admin',
-        element: (
-          <AdminRoute>
-            <AdminLayout />
-          </AdminRoute>
-        ),
-        children: [
-          { index: true, element: <Navigate to="dashboard" replace={true} /> },
-          { path: 'dashboard', element: <Dashboard /> },
-          { path: 'users', element: <Users /> },
-          { path: 'tracks', element: <Tracks /> },
-          { path: 'profile', element: <AdminProfileForm /> },
-        ],
-      },
-      {
-        path: 'auth',
-        element: (
-          <NotForLoggedRoute>
-            <AuthLayout />
-          </NotForLoggedRoute>
-        ),
-        children: [
-          { index: true, element: <Navigate to="login" replace={true} /> },
-          { path: 'login', element: <Login /> },
-          { path: 'signup', element: <Signup /> },
-          { path: 'forgot-password', element: <ForgotPassword /> },
-          { path: 'reset-password', element: <ResetPassword /> },
-          { path: 'verify', element: <VerifyEmail /> },
-        ],
-      },
+    ],
+  },
+  {
+    path: 'learn',
+    element: (
+      <MustBeLoggedRoute>
+        <Learn />
+      </MustBeLoggedRoute>
+    ),
+  },
+  {
+    path: 'admin',
+    element: (
+      <AdminRoute>
+        <AdminLayout />
+      </AdminRoute>
+    ),
+    children: [
+      { index: true, element: <Navigate to="dashboard" replace={true} /> },
+      { path: 'dashboard', element: <Dashboard /> },
+      { path: 'users', element: <Users /> },
+      { path: 'tracks', element: <Tracks /> },
+      { path: 'profile', element: <AdminProfileForm /> },
+    ],
+  },
+  {
+    path: 'auth',
+    element: (
+      <NotForLoggedRoute>
+        <AuthLayout />
+      </NotForLoggedRoute>
+    ),
+    children: [
+      { index: true, element: <Navigate to="login" replace={true} /> },
+      { path: 'login', element: <Login /> },
+      { path: 'signup', element: <Signup /> },
+      { path: 'forgot-password', element: <ForgotPassword /> },
+      { path: 'reset-password', element: <ResetPassword /> },
+      { path: 'verify', element: <VerifyEmail /> },
     ],
   },
 ];
