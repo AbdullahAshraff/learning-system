@@ -36,7 +36,14 @@ const routes = [
     children: [
       { index: true, element: <Landing /> },
       { path: 'landing', element: <Landing /> },
-      { path: 'profile/:username', element: <Profile /> },
+      {
+        path: 'profile/:username',
+        element: (
+          <MustBeLoggedRoute>
+            <Profile />
+          </MustBeLoggedRoute>
+        ),
+      },
       { path: 'tracks_list', element: <TracksList /> },
       { path: 'track', element: <TrackDetails /> },
       { path: 'beginner', element: <BeginnerCourses /> },
@@ -68,15 +75,11 @@ const routes = [
   },
   {
     path: 'loading',
-    element: (
-        <LoadingPage />
-    ),
+    element: <LoadingPage />,
   },
   {
     path: 'start',
-    element: (
-        <StartPage />
-    ),
+    element: <StartPage />,
   },
   {
     path: 'learn',
