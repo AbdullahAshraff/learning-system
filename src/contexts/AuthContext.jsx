@@ -10,12 +10,16 @@ function AuthProvider({ children }) {
   if (token) {
     initAuthData = { userLogged: true, token };
   }
-  console.log('the auth data is', initAuthData);
 
   const [authData, setAuthData] = useState(initAuthData);
 
+  const handleLogout = () => {
+    setAuthData({ userLogged: false, token: '' }); // Reset auth data
+    Cookies.remove('token');
+  };
+
   return (
-    <AuthContext.Provider value={{ authData, setAuthData }}>
+    <AuthContext.Provider value={{ authData, setAuthData, handleLogout }}>
       {children}
     </AuthContext.Provider>
   );
