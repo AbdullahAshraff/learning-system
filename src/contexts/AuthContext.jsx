@@ -23,19 +23,29 @@ function AuthProvider({ children }) {
 
   const [authData, setAuthData] = useState(initAuthData);
 
-  
-  const handleLogin = (data) => {
+  const handleLogin = data => {
     setAuthData({ userLogged: true, token: data.token, data: data.data });
     Cookies.set('token', data.token, { expires: 7 });
   };
 
   const handleLogout = () => {
-    setAuthData({ userLogged: false, token: '' }); // Reset auth data
+    setAuthData({
+      userLogged: false,
+      token: '',
+      data: {
+        id: '',
+        email: '',
+        name: '',
+        role: '',
+      },
+    }); // Reset auth data
     Cookies.remove('token');
   };
 
   return (
-    <AuthContext.Provider value={{ authData, setAuthData, handleLogout, handleLogin }}>
+    <AuthContext.Provider
+      value={{ authData, setAuthData, handleLogout, handleLogin }}
+    >
       {children}
     </AuthContext.Provider>
   );

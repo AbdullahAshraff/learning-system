@@ -6,11 +6,13 @@ import Loading from '../components/LoadingCircularProgress';
 const UserContext = createContext();
 
 function UserProvider({ children }) {
+  const { authData } = useContext(AuthContext);
+
   const initialUser = {
-    name: '',
+    name: authData.data.name,
     username: '',
-    email: '',
-    role: '',
+    email: authData.data.email,
+    role: authData.data.role,
     bio: '',
     picture: '',
     links: {
@@ -20,7 +22,6 @@ function UserProvider({ children }) {
     },
   };
   const [user, setUser] = useState(initialUser);
-  const { authData } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
