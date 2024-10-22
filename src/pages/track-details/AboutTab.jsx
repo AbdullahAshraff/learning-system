@@ -28,8 +28,8 @@ const AboutTab = ({ track, handleEnroll }) => {
           whileTap={{ scale: 0.98 }} // Slightly shrink on tap/click
         >
           <motion.img
-            src={track?.image}
-            alt={track?.title}
+            src={track?.trackImage}
+            alt={track?.trackTitle}
             className="w-full h-auto rounded-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -44,7 +44,7 @@ const AboutTab = ({ track, handleEnroll }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          From Zero To Hero in {track?.title} With Us!
+          From Zero To Hero in {track?.trackTitle} With Us!
         </motion.h2>
 
         {/* Description with Subtle Entrance Animation */}

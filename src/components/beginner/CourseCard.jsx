@@ -4,16 +4,16 @@ import PropTypes from 'prop-types'; // Import PropTypes
 const CourseCard = ({ course }) => {
     const navigate = useNavigate(); // Hook to navigate to different routes
 
-    const handleTrackClick = (courseId) => {
+    const handleTrackClick = () => {
       if (navigate) {
-        navigate(`/course?id=${courseId}`); // Navigate to the track details page if navigate exists
+        navigate(`/course?id=${course._id}`); // Navigate to the track details page if navigate exists
       }
     };
 
     return (
         <div className="border rounded-lg p-6 shadow-lg transition-transform transform hover:scale-100 hover:shadow-amber-700 relative bg-white overflow-hidden mx-5 max-w-xs group">
             <img 
-                src={course.image} 
+                src={course.courseImg} 
                 alt={course.title} 
                 className="w-full h-48 object-cover mb-4 rounded-md transition-transform duration-500 transform group-hover:scale-110" 
             />

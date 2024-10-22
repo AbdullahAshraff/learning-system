@@ -8,12 +8,12 @@ const CourseCard = ({ track }) => {
   return (
     <div className="border rounded-lg p-6 shadow-lg transition-transform transform hover:scale-100 hover:shadow-amber-700 relative bg-white overflow-hidden mx-5 max-w-xs group">
       <img
-        src={track.image}
-        alt={track.title}
+        src={track.trackImage}
+        alt={track.trackTitle}
         className="w-full h-48 object-cover mb-4 rounded-md transition-transform duration-500 transform group-hover:scale-110"
       />
       <h2 className="text-xl font-semibold text-gray-800 hover:text-[#DEB041] transition-colors duration-300">
-        {track.title}
+        {track.trackTitle}
       </h2>
       <p className="text-gray-600 text-sm mb-2">{track.description}</p>
       <div className="mt-2 flex justify-between items-center text-sm"></div>

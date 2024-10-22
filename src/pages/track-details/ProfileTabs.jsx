@@ -24,12 +24,12 @@ const ProfileTabs = ({ track }) => {
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow-lg text-black">
-        {activeTab === 'about' && <AboutTab track={track} />}{' '}
         {/* Pass track data */}
+        {activeTab === 'about' && <AboutTab track={track} />}
+
         {activeTab === 'course Content' && (
-          <CoursesTab courseData={track?.courseIds} />
-        )}{' '}
-        {/* Pass course IDs */}
+        <CoursesTab track={track} />  
+)}
       </div>
     </div>
   );
