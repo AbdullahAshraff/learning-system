@@ -19,9 +19,7 @@ const CoursesNavbar = ({ handlePrevVideo, handleNextVideo }) => {
   const handleUserAction = () => {
     if (user?.role === 'admin') {
       navigate('/admin/dashboard');
-    } else if (user?.username) {
-      navigate(`/profile`);
-    } else if (user?.name) {
+    } else if (user) {
       navigate(`/profile`);
     } else {
       console.error('No valid username or name for navigation');
@@ -38,7 +36,7 @@ const CoursesNavbar = ({ handlePrevVideo, handleNextVideo }) => {
         <div onClick={handleUserAction} className="cursor-pointer flex items-center space-x-2">
           <img src={user.profileImage || '/default-profile.png'} alt="User Profile" className="h-8 w-8 rounded-full" />
           <span className="text-customBronze font-bold">
-            {user.username || user.name || 'User'} {/* Display username or name or fallback to 'User' */}
+            {user.name || 'User'} {/* Display name or fallback to 'User' */}
           </span>
         </div>
       ) : (

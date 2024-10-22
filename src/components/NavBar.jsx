@@ -90,7 +90,7 @@ const NavBar = () => {
                   className="h-8 w-8 rounded-full shadow-md border-2 border-white"
                 />
                 <span className="text-white font-bold">
-                  {user.username || user.name}
+                  {user.name}
                 </span>
               </>
             ) : (
@@ -114,7 +114,7 @@ const NavBar = () => {
                 />
                 <div>
                   <p className="font-bold text-gray-800">
-                    {user.name || user.username}
+                    {user.name}
                   </p>
                   <p className="text-sm text-gray-500">{user.email}</p>
                 </div>
