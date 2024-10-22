@@ -8,6 +8,7 @@ const Tracks = () => {
   const [trackAlt, setTrackAlt] = useState('');
   const [activeTrack, setActiveTrack] = useState(null);
   const [activeCourse, setActiveCourse] = useState('');
+  const [activeVideo, setActiveVideo] = useState(null);
   const [courseTitle, setCourseTitle] = useState('');
   const [courseDescription, setCourseDescription] = useState('');
   const [courseImage, setCourseImage] = useState(null);
@@ -33,6 +34,31 @@ const Tracks = () => {
       setTrackAlt('');
     }
   };
+
+  const handleUpdateTrack=()=>{
+    const newTracks = [...tracks];
+    newTracks[activeTrack].name = trackName;
+    newTracks[activeTrack].image = URL.createObjectURL(trackImage);
+    newTracks[activeTrack].description = trackDescription;
+    newTracks[activeTrack].alt = trackAlt;
+    setTracks(newTracks);
+    setTrackName('');
+    setTrackImage(null);
+    setTrackDescription('');
+    setTrackAlt('');
+    setIsEditing(false);
+  }
+
+  const handleUpdateCourse=()=>{
+    const newTracks = [...tracks];
+    newTracks[activeTrack].courses = newTracks[activeTrack].courses.filter(course => course.title!== activeCourse);
+    setTracks(newTracks);
+    setCourseTitle('');
+    setCourseDescription('');
+    setCourseImage(null);
+    setCourseAlt('');
+    setActiveCourse('');
+  }
 
   const handleAddCourse = () => {
     if (activeTrack !== null && courseTitle && courseImage) {
@@ -136,6 +162,8 @@ const Tracks = () => {
         </div>
       </div>
 
+      
+
       {/* Track Selection */}
       <div className="mb-6">
         <label htmlFor="track-select" className="block mb-2 text-gray-700 font-medium">
@@ -157,6 +185,60 @@ const Tracks = () => {
           ))}
         </select>
       </div>
+
+      {/* Delete tracks  */}
+      <div className="mb-6">
+        <button
+          onClick={() => {
+            if (window.confirm('Are you sure you want to delete this track?')) {
+              const newTracks = [...tracks];
+              newTracks.splice(activeTrack, 1);
+              setTracks(newTracks);
+              setActiveTrack(null);
+            }
+          }}
+          className="bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition duration-200"
+        >
+          Delete Track
+        </button>
+      </div>
+
+      {/* Edit track */}
+
+      {activeTrack!== null && (
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-4">Edit Track</h3>
+          <div className="flex flex-col space-y-4">
+            <input
+              type="text"
+              placeholder="New Track Name"
+              value={trackName}
+              onChange={(e) => setTrackName(e.target.value)}
+              className="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <textarea
+              placeholder="New Track Description"
+              value={trackDescription}
+              onChange={(e) => setTrackDescription(e.target.value)}
+              className="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              rows="3"
+            />
+            <input
+              type=" Button" 
+              value="Update Track"
+              onClick={handleUpdateTrack}
+              className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-200"
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setTrackImage(e.target.files[0])}
+              className="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
+      )}
+          
 {/* Add Course */}
 {activeTrack !== null && (
   <div className="mb-6">
@@ -232,6 +314,68 @@ const Tracks = () => {
   </div>
 )}
 
+
+
+     {/* Edit course */}
+
+     {activeCourse!== null && (
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-4">Edit Course</h3>
+          <div className="flex flex-col space-y-4">
+            <input
+              type="text"
+              placeholder="New Course Name"
+              value={courseTitle}
+              onChange={(e) => courseTitle(e.target.value)}
+              className="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <textarea
+              placeholder="New Course Description"
+              value={courseDescription}
+              onChange={(e) => setCourseDescription(e.target.value)}
+              className="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              rows="3"
+            />
+            <input
+              type=" Button" 
+              value="Update course"
+              onClick={handleUpdateCourse}
+              className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-200"
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setCourseImage(e.target.files[0])}
+              className="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
+      )}
+
+
+
+      {/* Delete courses  */}
+
+      {activeTrack!== null && (
+        <div className="mb-6">
+          <button
+            onClick={() => {
+              if (window.confirm('Are you sure you want to delete this course?')) {
+                const newCourses = [...tracks[activeTrack].courses];
+                newCourses.splice(activeCourse, 1);
+                tracks[activeTrack].courses = newCourses;
+                setTracks([...tracks]);
+              }
+            }}
+            className="bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition duration-200"
+          >
+            Delete Course
+          </button>
+        </div>
+      )}
+
+ 
+
       {/* Course Selection for Video Upload */}
       {activeTrack !== null && (
         <div className="mb-6">
@@ -280,6 +424,32 @@ const Tracks = () => {
           </button>
         </form>
       )}
+
+      {/* Delete video  */}
+      {activeTrack !== null && activeCourse && activeVideo !== null && (
+         <div className="mb-6">
+           <button
+             onClick={() => {
+               if (window.confirm('Are you sure you want to delete this video?')) {
+                 const courseIndex = tracks[activeTrack].courses.findIndex(course => course.title === activeCourse);
+                 const newVideos = [...tracks[activeTrack].courses[courseIndex].videos];
+                 newVideos.splice(activeVideo, 1);
+                 tracks[activeTrack].courses[courseIndex].videos = newVideos;
+                 setTracks([...tracks]);
+                 setActiveVideo(null); 
+               }
+             }}
+             className="bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition duration-200"
+           >
+             Delete Video
+           </button>
+         </div>
+       )}
+
+
+
+
+
 
       {/* Display Tracks */}
       <div className="mt-6">
