@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   // for authorization
-  const { setAuthData } = useContext(AuthContext);
+  const { handleLogin } = useContext(AuthContext);
 
   // for form
   const [email, setEmail] = useState('');
@@ -24,9 +24,7 @@ const Login = () => {
         password,
       });
 
-      const { token } = response.data;
-      setAuthData({token, userLogged: true}); // store token in context
-      Cookies.set('token', token, { expires: 7 }); // store it in cookies
+      handleLogin(response.data);
 
       toast.success('Login successful!');
       navigate('/');

@@ -12,7 +12,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
-  const { setAuthData } = useContext(AuthContext); // for authorization
+  const { handleLogin } = useContext(AuthContext); // for authorization
 
   const handleSignup = async e => {
     e.preventDefault();
@@ -28,9 +28,7 @@ const Signup = () => {
         passwordConfirm: confirmPassword,
       });
 
-      const { token } = response.data;
-      setAuthData({ token, userLogged: true }); // store token in context
-      Cookies.set('token', token, { expires: 7 }); // store it in cookies
+      handleLogin(response.data);
 
       toast.success('Account created successfully!');
       navigate('/');
