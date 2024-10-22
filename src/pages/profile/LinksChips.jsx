@@ -6,27 +6,27 @@ import { Link } from 'react-router-dom';
 
 function LinksChips({ links }) {
   return (
-    <div direction="row" className="flex flex-row flex-wrap mt-5 gap-2">
-      {links.map((link, index) => {
-        let icon;
-        switch (link.platform) {
-          case 'github':
-            icon = <GitHubIcon />;
-            break;
-          case 'linkedin':
-            icon = <LinkedInIcon />;
-            break;
-          case 'website':
-            icon = <LanguageIcon />;
-            break;
-        }
-        return (
-          <Link to={link.url} key={index} target='_blank'>
-            <Chip label={link.platform} icon={icon} />{' '}
-          </Link>
-        );
-      })}
-    </div>
+    <>
+      {links && (links.github || links.linkedin || links.website) ? (
+        <div direction="row" className="flex flex-row flex-wrap mt-5 gap-2">
+          {links.github && (
+            <Link to={links.github} key="github" target="_blank">
+              <Chip label="github" icon={<GitHubIcon />} />{' '}
+            </Link>
+          )}
+          {links.linkedin && (
+            <Link to={links.linkedin} key="linkedin" target="_blank">
+              <Chip label="linkedin" icon={<LinkedInIcon />} />{' '}
+            </Link>
+          )}
+          {links.website && (
+            <Link to={links.website} key="website" target="_blank">
+              <Chip label="website" icon={<LanguageIcon />} />{' '}
+            </Link>
+          )}
+        </div>
+      ) : null}
+    </>
   );
 }
 

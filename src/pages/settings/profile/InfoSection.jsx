@@ -4,7 +4,6 @@ import './index.css';
 
 const InfoSection = ({ user }) => {
   let name = user.name;
-  let username = user.username;
   let bio = user.bio;
 
   return (
@@ -13,11 +12,6 @@ const InfoSection = ({ user }) => {
         <div className="field-name">Name</div>
         <div className="field-value text-lg md:text-xl font-bold flex flex-wrap items-center">
           <TextEasyEdit text={name} />
-        </div>
-
-        <div className="field-name">Username</div>
-        <div className="field-value text-lg md:text-xl font-bold flex flex-wrap items-center">
-          @<TextEasyEdit text={username} />
         </div>
 
         <div className="field-name">Biography</div>

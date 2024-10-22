@@ -10,7 +10,6 @@ function UserProvider({ children }) {
 
   const initialUser = {
     name: authData.data.name,
-    username: '',
     email: authData.data.email,
     role: authData.data.role,
     bio: '',
