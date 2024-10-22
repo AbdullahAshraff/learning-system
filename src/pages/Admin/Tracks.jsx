@@ -227,7 +227,7 @@ const Tracks = () => {
               type=" Button" 
               value="Update Track"
               onClick={handleUpdateTrack}
-              className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-200"
+              className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-200 cursor-pointer text-center"
             />
             <input
               type="file"
