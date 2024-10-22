@@ -22,7 +22,7 @@ function LinksChips({ links }) {
         }
         return (
           <Link to={link.url} key={index} target='_blank'>
-            <Chip label={link.username} icon={icon} />{' '}
+            <Chip label={link.platform} icon={icon} />{' '}
           </Link>
         );
       })}

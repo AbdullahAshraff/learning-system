@@ -20,9 +20,7 @@ const NavBar = () => {
   const handleMenuToggle = () => setMenuOpen(prev => !prev);
 
   const handleProfileNavigation = () => {
-    const profileUsername =
-      user.username || user.name.replace(/\s+/g, '-').toLowerCase();
-    navigate(`/profile/${profileUsername}`);
+    navigate(`/profile`);
   };
 
   return (

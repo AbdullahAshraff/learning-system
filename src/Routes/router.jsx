@@ -37,7 +37,7 @@ const routes = [
       { index: true, element: <Landing /> },
       { path: 'landing', element: <Landing /> },
       {
-        path: 'profile/:username',
+        path: 'profile',
         element: (
           <MustBeLoggedRoute>
             <Profile />

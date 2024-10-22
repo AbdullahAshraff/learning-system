@@ -4,7 +4,7 @@ const SettingsNav = () => {
   const navItems = [
     { name: 'Profile', id: 1, to: 'profile' },
     { name: 'Account', id: 4, to: 'account' },
-    { name: 'Support', id: 6, to: 'Support' },
+    // { name: 'Support', id: 6, to: 'Support' },
   ];
 
   const renderMenuItems = () => {

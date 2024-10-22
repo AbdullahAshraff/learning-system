@@ -39,7 +39,7 @@ const NavBar = ({ photo }) => {
           {dropdownOpen && ( // عرض القائمة إذا كانت مفتوحة
             <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 z-10">
               <NavLink
-                to="profile"
+                to="/profile"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 onClick={() => {
                   setDropdownOpen(false); // إغلاق القائمة بعد النقر

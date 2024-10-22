@@ -26,7 +26,7 @@ These are the routes of the website. Feel free to add routes as you need
 
 #### Profile
 
-- `/profile/{username}`
+- `/profile`
 
 #### Settings
 

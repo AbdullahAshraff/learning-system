@@ -20,10 +20,9 @@ const CoursesNavbar = ({ handlePrevVideo, handleNextVideo }) => {
     if (user?.role === 'admin') {
       navigate('/admin/dashboard');
     } else if (user?.username) {
-      navigate(`/profile/${user.username}`);
+      navigate(`/profile`);
     } else if (user?.name) {
-      const profileName = user.name.replace(/\s+/g, '-').toLowerCase(); // Fallback to name
-      navigate(`/profile/${profileName}`);
+      navigate(`/profile`);
     } else {
       console.error('No valid username or name for navigation');
     }
