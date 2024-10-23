@@ -6,12 +6,33 @@ import Loading from '../../components/LoadingCircularProgress';
 import { UserContext } from '../../contexts/UserContext';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { useConfirm } from 'material-ui-confirm';
 
 function CoursesGrid() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { user, userDataLoading } = useContext(UserContext);
   const [enrolledCourses, setEnrolledCourses] = useState(user.enrolled || []);
+
+  const confirm = useConfirm();
+  const handleUnenroll = courseInfo => {
+    const unenrollFromCourse = async id => {
+      try {
+        await axiosInstance.put(`enrolled/${id}`);
+        setEnrolledCourses(enrolledCourses.filter(course => course._id !== id));
+      } catch (error) {
+        toast.error(
+          `Something went wrong while unenrolling ${courseInfo.title}`
+        );
+      }
+    };
+
+    confirm({
+      title: `Unenroll from ${courseInfo.title}?`,
+      description: `Are you sure you want to unenroll from ${courseInfo.title}?`,
+    }).then(() => unenrollFromCourse(courseInfo._id));
+  };
 
   useEffect(() => {
     const fetchEnrolledCourses = async () => {
@@ -53,6 +74,7 @@ function CoursesGrid() {
           <CourseCard
             courseInfo={courseInfo}
             key={courseInfo._id}
+            handleUnenroll={handleUnenroll}
           />
         );
       })}
