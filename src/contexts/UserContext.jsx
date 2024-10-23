@@ -40,7 +40,6 @@ function UserProvider({ children }) {
   }, [authData]);
 
   console.log('rendered initial user data');
-  
   return (
     <UserContext.Provider value={{ user, setUser, userDataLoading }}>
       {children}

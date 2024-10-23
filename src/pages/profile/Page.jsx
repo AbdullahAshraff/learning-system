@@ -84,7 +84,7 @@ const Page = () => {
         <span className="divider">&nbsp;</span>
 
         <h1 className="text-2xl font-bold mb-6 ">Enrolled Courses</h1>
-        <CoursesGrid enrolledCourses={user.enrolled} />
+        <CoursesGrid />
       </div>
     </div>
   );
