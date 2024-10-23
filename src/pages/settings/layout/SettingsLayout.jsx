@@ -8,7 +8,7 @@ const SettingsLayout = () => {
   const { userDataLoading } = useContext(UserContext);
   return (
     <div
-      className="flex flex-col justify-center lg:flex-row m-4 gap-5"
+      className="flex flex-col justify-center lg:flex-row m-4 gap-5 mx-auto px-3 "
       style={{
         gridTemplateColumns: 'auto 3fr',
       }}
@@ -16,7 +16,7 @@ const SettingsLayout = () => {
       <div>
         <SettingsNav />
       </div>
-      <div className="sm:px-8 md:px-16 px-6 sm:py-8 md:py-16 py-10 max-w-[840px] mx-auto relative w-screen h-full bg-yellow-50 min-h-full text-start">
+      <div className="sm:px-8 md:px-16 px-6 sm:py-8 md:py-16 py-10 max-w-[840px] relative w-full h-full bg-yellow-50 min-h-full text-start">
         <div className="flex flex-col">
           {userDataLoading ? <Loading /> : <Outlet />}
         </div>
