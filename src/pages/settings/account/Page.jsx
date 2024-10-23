@@ -23,7 +23,7 @@ const Page = () => {
           </div>
         </div>
       </Section>
-      <Divider sx={{ marginTop: '20px', marginBottom: '20px' }} />
+      {/* <Divider sx={{ marginTop: '20px', marginBottom: '20px' }} />
       <Section title="Delete Account">
         <div className="text-sm md:text-base mb-6">
           By deleting your account, all of your data will be removed from our
@@ -43,7 +43,7 @@ const Page = () => {
             Delete My Account
           </Button>
         </div>
-      </Section>
+      </Section> */}
     </>
   );
 };

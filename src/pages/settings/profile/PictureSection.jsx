@@ -16,7 +16,7 @@ const PictureSection = ({ user }) => {
         </div>
 
         <div className="flex flex-row items-center ml-3">
-          <ChangePicDialog />
+          <ChangePicDialog buttonLabel={user.profileImg? "Change Profile Picture" : "Add a Profile Picture"} />
         </div>
       </div>
     </>

@@ -22,25 +22,28 @@ function UserProvider({ children }) {
   const [user, setUser] = useState(initialUser);
   const [userDataLoading, setUserDataLoading] = useState(true);
 
+  const fetchInfo = async () => {
+    const res = await axiosInstance.get('users/getLoggedUserData');
+    setUser({ ...initialUser, ...res.data.data });
+    console.log('we fetched user data');
+    setUserDataLoading(false);
+  };
+
   useEffect(() => {
     if (!authData.userLogged) {
       setUserDataLoading(false);
       return;
     }
-
-    const fetchInfo = async () => {
-      const res = await axiosInstance.get('users/getLoggedUserData');
-      setUser({ ...initialUser, ...res.data.data });
-      console.log('we fetched user data');
-      setUserDataLoading(false);
-    };
-
     fetchInfo();
   }, [authData]);
 
+  const handleUpdateData = fetchInfo;
+
   console.log('rendered initial user data');
   return (
-    <UserContext.Provider value={{ user, setUser, userDataLoading }}>
+    <UserContext.Provider
+      value={{ user, setUser, userDataLoading, handleUpdateData }}
+    >
       {children}
     </UserContext.Provider>
   );
