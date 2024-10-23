@@ -22,6 +22,7 @@ const NavBar = () => {
 
   const handleProfileNavigation = () => {
     navigate(`/profile`);
+    setShowDropdown(false);
   };
 
   return (
@@ -70,6 +71,7 @@ const NavBar = () => {
               <Link
                 to={link.to}
                 className="flex items-center hover:text-[#fabf2f] transition-colors duration-300"
+                onClick={() => setMenuOpen(false)}
               >
                 {link.icon} {link.text}
               </Link>
@@ -116,9 +118,22 @@ const NavBar = () => {
                   <p className="text-sm text-gray-500">{user.email}</p>
                 </div>
               </button>
+
+              {user.role === 'admin' && <button
+                className="mt-3 w-full text-left px-4 py-2 bg-gradient-to-r from-red-300 to-red-500 hover:from-red-400 hover:to-red-600 text-white rounded-md shadow-md transition-all duration-300"
+                onClick={() => {
+                  navigate('/admin');
+                  setShowDropdown(false);
+                }}
+              >
+                Admin Dashboard
+              </button>}
               <button
                 className="mt-3 w-full text-left px-4 py-2 bg-gradient-to-r from-yellow-300 to-yellow-500 hover:from-yellow-400 hover:to-yellow-600 text-white rounded-md shadow-md transition-all duration-300"
-                onClick={() => navigate('/settings')}
+                onClick={() => {
+                  navigate('/settings');
+                  setShowDropdown(false);
+                }}
               >
                 Settings
               </button>
@@ -127,6 +142,7 @@ const NavBar = () => {
                 onClick={() => {
                   handleLogout();
                   navigate('/');
+                  setShowDropdown(false);
                 }}
               >
                 Logout
@@ -142,13 +158,19 @@ const NavBar = () => {
             >
               <button
                 className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition"
-                onClick={() => navigate('/auth/login')}
+                onClick={() => {
+                  navigate('/auth/login');
+                  setShowDropdown(false);
+                }}
               >
                 Login
               </button>
               <button
                 className="mt-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition"
-                onClick={() => navigate('/auth/signup')}
+                onClick={() => {
+                  navigate('/auth/signup');
+                  setShowDropdown(false);
+                }}
               >
                 Signup
               </button>
@@ -169,6 +191,7 @@ const NavBar = () => {
               <Link
                 to={link.to}
                 className="text-white flex items-center hover:text-[#fabf2f] transition-colors duration-300"
+                onClick={() => setMenuOpen(false)}
               >
                 {link.icon} {link.text}
               </Link>
