@@ -8,6 +8,7 @@ import { AuthContext } from '../contexts/AuthContext';
 import { UserContext } from '../contexts/UserContext';
 import { nlogo } from '../assets';
 import { PiNetworkFill } from 'react-icons/pi';
+import { Avatar } from '@mui/material';
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -84,14 +85,12 @@ const NavBar = () => {
           >
             {userLogged && user ? (
               <>
-                <img
-                  src={user.profileImage || '/default-profile.png'}
-                  alt="User Profile"
-                  className="h-8 w-8 rounded-full shadow-md border-2 border-white"
+                <Avatar
+                  alt={`${user.name} profile picture`}
+                  src={user.profileImage || '/'}
+                  sx={{ height: '2rem', width: '2rem' }}
                 />
-                <span className="text-white font-bold">
-                  {user.name}
-                </span>
+                <span className="text-white font-bold">{user.name}</span>
               </>
             ) : (
               <RiAccountPinCircleFill className="text-white text-3xl" />
@@ -107,15 +106,13 @@ const NavBar = () => {
                 className="w-full flex items-center space-x-4 py-4 hover:text-customgold rounded-md transition duration-200"
                 onClick={handleProfileNavigation}
               >
-                <img
-                  src={user.profileImage || '/default-profile.png'}
-                  alt="User"
-                  className="h-10 w-10 rounded-full"
+                <Avatar
+                  alt={`${user.name} profile picture`}
+                  src={user.profileImage || '/'}
+                  sx={{ height: '2.5rem', width: '2.5rem' }}
                 />
                 <div>
-                  <p className="font-bold text-gray-800">
-                    {user.name}
-                  </p>
+                  <p className="font-bold text-gray-800">{user.name}</p>
                   <p className="text-sm text-gray-500">{user.email}</p>
                 </div>
               </button>
