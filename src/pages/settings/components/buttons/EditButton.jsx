@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 
-function EditButton({ label, props }) {
+function EditButton({ label, ...props }) {
   return (
     <Button
       variant="outlined"

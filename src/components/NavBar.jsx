@@ -87,7 +87,7 @@ const NavBar = () => {
               <>
                 <Avatar
                   alt={`${user.name} profile picture`}
-                  src={user.profileImage || '/'}
+                  src={user.profileImg || '/'}
                   sx={{ height: '2rem', width: '2rem' }}
                 />
                 <span className="text-white font-bold">{user.name}</span>
@@ -108,7 +108,7 @@ const NavBar = () => {
               >
                 <Avatar
                   alt={`${user.name} profile picture`}
-                  src={user.profileImage || '/'}
+                  src={user.profileImg || '/'}
                   sx={{ height: '2.5rem', width: '2.5rem' }}
                 />
                 <div>

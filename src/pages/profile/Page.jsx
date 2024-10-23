@@ -21,7 +21,7 @@ const Page = () => {
           <div className="sided-element flex md:justify-center">
             <Avatar
               alt={`${user.name} profile picture`}
-              src={user.picture}
+              src={user.profileImg}
               sx={{ height: 200, width: 200 }}
             />
           </div>

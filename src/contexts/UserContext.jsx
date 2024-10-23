@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import axiosInstance from '../lib/axiosInstance';
 import { AuthContext } from './AuthContext';
-import Loading from '../components/LoadingCircularProgress';
 
 const UserContext = createContext();
 
@@ -13,7 +12,7 @@ function UserProvider({ children }) {
     email: authData.data.email,
     role: authData.data.role,
     bio: '',
-    picture: '',
+    profileImg: '',
     links: {
       github: '',
       linkedin: '',
