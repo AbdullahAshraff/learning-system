@@ -6,13 +6,12 @@ import './index.css';
 import Section from './../hoc/Section';
 import { useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
-import PageWrapper from '../hoc/PageWrapper';
 
 const Page = () => {
   const { user, setUser } = useContext(UserContext);
 
   return (
-    <PageWrapper>
+    <>
       <Section title="Personal Picture">
         <PictureSection user={user} />
       </Section>
@@ -24,7 +23,7 @@ const Page = () => {
       <Section title="Links">
         <LinksSection user={user} />
       </Section>
-    </PageWrapper>
+    </>
   );
 };
 

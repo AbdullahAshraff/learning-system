@@ -16,7 +16,11 @@ const SettingsLayout = () => {
       <div>
         <SettingsNav />
       </div>
-      <div>{userDataLoading ? <Loading /> : <Outlet />}</div>
+      <div className="sm:px-8 md:px-16 px-6 sm:py-8 md:py-16 py-10 max-w-[840px] mx-auto relative w-screen h-full bg-yellow-50 min-h-full text-start">
+        <div className="flex flex-col">
+          {userDataLoading ? <Loading /> : <Outlet />}
+        </div>
+      </div>
     </div>
   );
 };

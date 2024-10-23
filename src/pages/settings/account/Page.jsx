@@ -4,14 +4,13 @@ import { useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
 import './index.css';
 import TextEasyEdit from '../components/TextEasyEdit';
-import PageWrapper from '../hoc/PageWrapper';
 
 const Page = () => {
   const { user, setUser } = useContext(UserContext);
   let email = user.email;
 
   return (
-    <PageWrapper>
+    <>
       <Section title="Login Credintials">
         <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] max-w-[800px] gap-2 md:gap-5 items-baseline">
           <div className="field-name">Email</div>
@@ -45,7 +44,7 @@ const Page = () => {
           </Button>
         </div>
       </Section>
-    </PageWrapper>
+    </>
   );
 };
 
