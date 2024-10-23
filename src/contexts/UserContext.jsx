@@ -21,11 +21,11 @@ function UserProvider({ children }) {
     },
   };
   const [user, setUser] = useState(initialUser);
-  const [loading, setLoading] = useState(true);
+  const [userDataLoading, setUserDataLoading] = useState(true);
 
   useEffect(() => {
     if (!authData.userLogged) {
-      setLoading(false);
+      setUserDataLoading(false);
       return;
     }
 
@@ -33,17 +33,16 @@ function UserProvider({ children }) {
       const res = await axiosInstance.get('users/getLoggedUserData');
       setUser({ ...initialUser, ...res.data.data });
       console.log('we fetched user data');
-      setLoading(false);
+      setUserDataLoading(false);
     };
 
     fetchInfo();
   }, [authData]);
 
   console.log('rendered initial user data');
-
-  if (loading) return <Loading />;
+  
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, userDataLoading }}>
       {children}
     </UserContext.Provider>
   );
