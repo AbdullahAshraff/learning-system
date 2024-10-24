@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 
 
-export default function SaveButton() {
+export default function SaveButton(props) {
   return (
     <Button
       variant="contained"
@@ -12,6 +12,7 @@ export default function SaveButton() {
         fontWeight: 'bold',
         textTransform: 'capitalize',
       }}
+      { ...props }
     >
       Save
     </Button>

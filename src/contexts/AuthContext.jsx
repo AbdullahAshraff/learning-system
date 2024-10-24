@@ -1,5 +1,6 @@
 import { createContext, useState } from 'react';
 import Cookies from 'js-cookie';
+import toast from 'react-hot-toast';
 
 const AuthContext = createContext();
 
@@ -40,6 +41,7 @@ function AuthProvider({ children }) {
       },
     }); // Reset auth data
     Cookies.remove('token');
+    toast.success('Logged out successfully!');
   };
 
   return (

@@ -11,17 +11,17 @@ function LinksChips({ links }) {
         <div direction="row" className="flex flex-row flex-wrap mt-5 gap-2">
           {links.github && (
             <Link to={links.github} key="github" target="_blank">
-              <Chip label="github" icon={<GitHubIcon />} />{' '}
+              <Chip label="Github" icon={<GitHubIcon />} />{' '}
             </Link>
           )}
           {links.linkedin && (
             <Link to={links.linkedin} key="linkedin" target="_blank">
-              <Chip label="linkedin" icon={<LinkedInIcon />} />{' '}
+              <Chip label="Linkedin" icon={<LinkedInIcon />} />{' '}
             </Link>
           )}
           {links.website && (
             <Link to={links.website} key="website" target="_blank">
-              <Chip label="website" icon={<LanguageIcon />} />{' '}
+              <Chip label="Website" icon={<LanguageIcon />} />{' '}
             </Link>
           )}
         </div>

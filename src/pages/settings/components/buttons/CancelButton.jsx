@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 
-export default function CancelButton() {
+export default function CancelButton(props) {
   return (
     <Button
       variant="outlined"
@@ -11,6 +11,7 @@ export default function CancelButton() {
         fontWeight: 'bold',
         textTransform: 'capitalize',
       }}
+      { ...props }
     >
       Cancel
     </Button>
