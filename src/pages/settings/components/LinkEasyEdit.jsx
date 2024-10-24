@@ -39,7 +39,7 @@ export default function LinkEasyEdit({ text, formKey }) {
       editButtonLabel={<EditIconButton label={text === '' ? 'add' : 'edit'} />}
       saveButtonLabel={<SaveButton />}
       cancelButtonLabel={<CancelButton />}
-      placeholder={text}
+      placeholder={text || "Not added"}
       value={text}
       hideEditButton={false}
       // cancelOnBlur
