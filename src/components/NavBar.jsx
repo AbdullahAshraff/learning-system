@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaBook, FaGamepad, FaEnvelope } from 'react-icons/fa';
+import { useState, useContext, useMemo } from 'react';
+import { Link, useLocation, useNavigate, NavLink } from 'react-router-dom';
+import { FaBook, FaGamepad, FaEnvelope, FaListUl } from 'react-icons/fa';
 import { MdConnectWithoutContact } from 'react-icons/md';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
 import { RiAccountPinCircleFill } from 'react-icons/ri';
@@ -17,6 +17,20 @@ const NavBar = () => {
   const { user } = useContext(UserContext);
   const { userLogged } = authData || {};
   const navigate = useNavigate();
+  
+  const location = useLocation();
+  const isLandingPage = location.pathname === '/landing' || location.pathname === '/';
+  const navLinks = useMemo(() => [
+    ...(isLandingPage ? [
+      { to: '#course', text: 'Courses', icon: <FaBook className="mr-2 text-lg" /> },
+      { to: '#about', text: 'About', icon: <BsFillInfoCircleFill className="mr-2 text-lg" /> },
+      { to: '#services', text: 'Services', icon: <PiNetworkFill className="mr-2 text-lg" /> },
+      { to: '#footer', text: 'Contact', icon: <MdConnectWithoutContact className="mr-2 text-lg" /> },
+    ] : []),
+    { to: '/tracks_list', text: 'Tracks List', icon: <FaListUl className="mr-2 text-lg" /> },
+    { to: '/games', text: 'Games', icon: <FaGamepad className="mr-2 text-lg" /> },
+  ], [location]);
+  
 
   const handleMenuToggle = () => setMenuOpen(prev => !prev);
 
@@ -40,7 +54,7 @@ const NavBar = () => {
           </span>
         </Link>
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={handleMenuToggle}
             className="text-white focus:outline-none"
@@ -65,16 +79,16 @@ const NavBar = () => {
         </div>
 
         {/* Desktop Nav Links */}
-        <ul className="hidden md:flex space-x-6 text-white">
+        <ul className="hidden lg:flex space-x-6 text-white">
           {navLinks.map(link => (
             <li key={link.text}>
-              <Link
+              <NavLink
                 to={link.to}
                 className="flex items-center hover:text-[#fabf2f] transition-colors duration-300"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.icon} {link.text}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -188,13 +202,13 @@ const NavBar = () => {
         <ul className="flex flex-col space-y-4 py-6 px-4">
           {navLinks.map(link => (
             <li key={link.text}>
-              <Link
+              <NavLink
                 to={link.to}
                 className="text-white flex items-center hover:text-[#fabf2f] transition-colors duration-300"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.icon} {link.text}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -202,25 +216,5 @@ const NavBar = () => {
     </header>
   );
 };
-
-const navLinks = [
-  { to: '#course', text: 'Courses', icon: <FaBook className="mr-2 text-lg" /> },
-  {
-    to: '#about',
-    text: 'About',
-    icon: <BsFillInfoCircleFill className="mr-2 text-lg" />,
-  },
-  {
-    to: '#services',
-    text: 'Services',
-    icon: <PiNetworkFill className="mr-2 text-lg" />,
-  },
-  {
-    to: '#footer',
-    text: 'Contact',
-    icon: <MdConnectWithoutContact className="mr-2 text-lg" />,
-  },
-  { to: '/games', text: 'Games', icon: <FaGamepad className="mr-2 text-lg" /> },
-];
 
 export default NavBar;
