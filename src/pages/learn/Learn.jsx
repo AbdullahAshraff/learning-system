@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams,useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import coursesList from '../../constants/courses.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,6 +23,7 @@ function Learn() {
 
   const [URLSearchParams, setURLsearch] = useSearchParams();
   const [isNotFound, setIsNotFound] = useState(false);
+  const navigate = useNavigate();
   const courseId = URLSearchParams.get('courseId');
   const lessonId = URLSearchParams.get('lessonId');
 
@@ -82,6 +83,9 @@ function Learn() {
       console.warn('You are already at the first video.');
     }
   };
+  const goToQuiz = () => {
+    navigate('/quizes'); // Navigate to the quiz page
+  };
 
   return (
     <div className="flex header-course" id='learn-page'>
@@ -118,6 +122,11 @@ function Learn() {
             ))}
           </ul>
         </nav>
+        <button
+          onClick={goToQuiz}
+          className="m-4 mt-auto bg-customGold hover:bg-customBronze text-white py-2 px-4 rounded-lg shadow-md transition-all duration-300 ease-in-out">
+          Go to Quiz
+        </button>
       </div>
       {/* Main Content */}
       <div className="main flex-1 bg-gray-100 p-6 mt-16 justify-center">

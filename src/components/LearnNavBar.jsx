@@ -9,6 +9,8 @@ import {
 import { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext'; // Adjust the import path as necessary
 import { AuthContext } from '../contexts/AuthContext';
+import { Avatar } from '@mui/material';
+import { RiAccountPinCircleFill } from 'react-icons/ri';
 
 const CoursesNavbar = ({ handlePrevVideo, handleNextVideo }) => {
   const { user } = useContext(UserContext); // Ensure UserContext is accessed correctly
@@ -34,7 +36,7 @@ const CoursesNavbar = ({ handlePrevVideo, handleNextVideo }) => {
       {/* User Info Section */}
       {userLogged && user ? (
         <div onClick={handleUserAction} className="cursor-pointer flex items-center space-x-2">
-          <img src={user.profileImage || '/default-profile.png'} alt="User Profile" className="h-8 w-8 rounded-full" />
+          <Avatar src={user.profileImg || '/'} alt="User Profile" className="h-20 w-12 rounded-full" />
           <span className="text-customBronze font-bold">
             {user.name || 'User'} {/* Display name or fallback to 'User' */}
           </span>
