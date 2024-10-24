@@ -1,5 +1,6 @@
 import { useState, useContext, useMemo } from 'react';
-import { Link, useLocation, useNavigate, NavLink } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { FaBook, FaGamepad, FaEnvelope, FaListUl } from 'react-icons/fa';
 import { MdConnectWithoutContact } from 'react-icons/md';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
@@ -17,20 +18,55 @@ const NavBar = () => {
   const { user } = useContext(UserContext);
   const { userLogged } = authData || {};
   const navigate = useNavigate();
-  
+
   const location = useLocation();
-  const isLandingPage = location.pathname === '/landing' || location.pathname === '/';
-  const navLinks = useMemo(() => [
-    ...(isLandingPage ? [
-      { to: '#course', text: 'Courses', icon: <FaBook className="mr-2 text-lg" /> },
-      { to: '#about', text: 'About', icon: <BsFillInfoCircleFill className="mr-2 text-lg" /> },
-      { to: '#services', text: 'Services', icon: <PiNetworkFill className="mr-2 text-lg" /> },
-      { to: '#footer', text: 'Contact', icon: <MdConnectWithoutContact className="mr-2 text-lg" /> },
-    ] : []),
-    { to: '/tracks_list', text: 'Tracks List', icon: <FaListUl className="mr-2 text-lg" /> },
-    { to: '/games', text: 'Games', icon: <FaGamepad className="mr-2 text-lg" /> },
-  ], [location]);
-  
+  const isLandingPage =
+    location.pathname === '/landing' || location.pathname === '/';
+  const navLinks = useMemo(
+    () => [
+      ...(isLandingPage
+        ? [
+            {
+              to: '#course',
+              text: 'Courses',
+              icon: <FaBook className="mr-2 text-lg" />,
+            },
+            {
+              to: '#about',
+              text: 'About',
+              icon: <BsFillInfoCircleFill className="mr-2 text-lg" />,
+            },
+            {
+              to: '#services',
+              text: 'Services',
+              icon: <PiNetworkFill className="mr-2 text-lg" />,
+            },
+            {
+              to: '#footer',
+              text: 'Contact',
+              icon: <MdConnectWithoutContact className="mr-2 text-lg" />,
+            },
+          ]
+        : [
+            {
+              to: '/beginner',
+              text: 'Beginner Courses',
+              icon: <FaBook className="mr-2 text-lg" />,
+            },
+            {
+              to: '/tracks_list',
+              text: 'Tracks List',
+              icon: <FaListUl className="mr-2 text-lg" />,
+            },
+          ]),
+      {
+        to: '/games',
+        text: 'Games',
+        icon: <FaGamepad className="mr-2 text-lg" />,
+      },
+    ],
+    [location]
+  );
 
   const handleMenuToggle = () => setMenuOpen(prev => !prev);
 
@@ -82,13 +118,13 @@ const NavBar = () => {
         <ul className="hidden lg:flex space-x-6 text-white">
           {navLinks.map(link => (
             <li key={link.text}>
-              <NavLink
+              <HashLink
                 to={link.to}
                 className="flex items-center hover:text-[#fabf2f] transition-colors duration-300"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.icon} {link.text}
-              </NavLink>
+              </HashLink>
             </li>
           ))}
         </ul>
@@ -133,15 +169,17 @@ const NavBar = () => {
                 </div>
               </button>
 
-              {user.role === 'admin' && <button
-                className="mt-3 w-full text-left px-4 py-2 bg-gradient-to-r from-red-300 to-red-500 hover:from-red-400 hover:to-red-600 text-white rounded-md shadow-md transition-all duration-300"
-                onClick={() => {
-                  navigate('/admin');
-                  setShowDropdown(false);
-                }}
-              >
-                Admin Dashboard
-              </button>}
+              {user.role === 'admin' && (
+                <button
+                  className="mt-3 w-full text-left px-4 py-2 bg-gradient-to-r from-red-300 to-red-500 hover:from-red-400 hover:to-red-600 text-white rounded-md shadow-md transition-all duration-300"
+                  onClick={() => {
+                    navigate('/admin');
+                    setShowDropdown(false);
+                  }}
+                >
+                  Admin Dashboard
+                </button>
+              )}
               <button
                 className="mt-3 w-full text-left px-4 py-2 bg-gradient-to-r from-yellow-300 to-yellow-500 hover:from-yellow-400 hover:to-yellow-600 text-white rounded-md shadow-md transition-all duration-300"
                 onClick={() => {
@@ -202,13 +240,13 @@ const NavBar = () => {
         <ul className="flex flex-col space-y-4 py-6 px-4">
           {navLinks.map(link => (
             <li key={link.text}>
-              <NavLink
+              <HashLink
                 to={link.to}
                 className="text-white flex items-center hover:text-[#fabf2f] transition-colors duration-300"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.icon} {link.text}
-              </NavLink>
+              </HashLink>
             </li>
           ))}
         </ul>
