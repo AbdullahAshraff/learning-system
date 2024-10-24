@@ -9,6 +9,7 @@ import {
 import { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext'; // Adjust the import path as necessary
 import { AuthContext } from '../contexts/AuthContext';
+import { RiAccountPinCircleFill } from 'react-icons/ri';
 
 const CoursesNavbar = ({ handlePrevVideo, handleNextVideo }) => {
   const { user } = useContext(UserContext); // Ensure UserContext is accessed correctly
@@ -36,15 +37,19 @@ const CoursesNavbar = ({ handlePrevVideo, handleNextVideo }) => {
     <div className="fixed top-0 left-0 w-full bg-white text-customBronze h-16 flex items-center justify-between px-4 z-50">
       {/* User Info Section */}
       {userLogged && user ? (
-        <div onClick={handleUserAction} className="cursor-pointer flex items-center space-x-2">
-          <img src={user.profileImage || '/default-profile.png'} alt="User Profile" className="h-8 w-8 rounded-full" />
-          <span className="text-customBronze font-bold">
-            {user.username || user.name || 'User'} {/* Display username or name or fallback to 'User' */}
-          </span>
-        </div>
-      ) : (
-        <UsersIcon className="text-black text-3xl" /> // Change icon color to black for visibility
-      )}
+              <>
+                <img
+                  src={user.profileImage || '/default-profile.png'}
+                  alt="User Profile"
+                  className="h-8 w-8 rounded-full shadow-md border-2 border-white"
+                />
+                <span className="text-white font-bold">
+                  {user.username || user.name}
+                </span>
+              </>
+            ) : (
+              <RiAccountPinCircleFill className="text-white text-3xl" />
+            )}
 
       {/* Navigation Buttons */}
       <div className="flex items-center space-x-2 lg:space-x-4">

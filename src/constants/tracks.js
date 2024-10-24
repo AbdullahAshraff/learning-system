@@ -7,7 +7,7 @@ import backendImage from './../assets/Backend.png';
 export const tracksList = [
   {
     //front
-    id: 'frontend-001',
+    id: '671a4d42a26a7bb2af76d821',
     title: 'Frontend Track',
     courseIds: ['welcome-001', 'html-001', 'css-001', 'js-001'],
     image: frontendImage,
@@ -15,7 +15,7 @@ export const tracksList = [
   },
   {
     //react
-    id: 'react-001',
+    id: '671a4e2664e3da50e85fc3e5',
     title: 'React Track',
     courseIds: [
       'welcomereact-002',
@@ -31,7 +31,7 @@ export const tracksList = [
   },
   {
     //mobile
-    id: 'mobile-001',
+    id: '671a4e98e48df7a7ecaca3de',
     title: 'Mobile-App Track',
     courseIds: [
       'welcomemobile-003',
@@ -46,7 +46,7 @@ export const tracksList = [
   },
   {
     //beginner
-    id: 'beginner-001',
+    id: '671a4ef4df06cad45b4a4600',
     title: 'Beginner Track',
     courseIds: [
       'welcomebeginner-006',
@@ -61,7 +61,7 @@ export const tracksList = [
   },
   {
     //java
-    id: 'java-001',
+    id: '671a4f3a560f0ca10064babd',
     title: 'Java Track',
     courseIds: [
       'welcomejava-005',
@@ -75,7 +75,7 @@ export const tracksList = [
   },
   {
     //back
-    id: 'backend-001',
+    id: '671a4f5edf06cad45b4a4615',
     title: 'Backend Track',
     courseIds: [
       'welcomeback-004',

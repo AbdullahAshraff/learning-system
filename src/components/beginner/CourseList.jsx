@@ -4,7 +4,7 @@ import tracksList from './../../constants/tracks.js'; // Import the tracks list
 
 const CourseList = () => {
     // Find the Beginner Track in the tracksList
-    const beginnerTrack = tracksList.find(track => track.id === 'beginner-001');
+    const beginnerTrack = tracksList.find(track => track.id === '671a4ef4df06cad45b4a4600');
 
     // Filter courses that belong to the Beginner Track
     const filteredCourses = courses.filter(course =>
