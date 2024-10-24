@@ -1,7 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import process from 'process';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  esbuild: {
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+  },
   plugins: [react()],
-})
+});
