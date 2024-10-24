@@ -1,36 +1,45 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 
-const Landing = lazy(() => import('../pages/landing'));
 const Profile = lazy(() => import('../pages/profile'));
 const NotFound = lazy(() => import('../pages/error-pages/Notfound'));
-const Learn = lazy(() => import('../pages/learn'));
-const SettingsLayout = lazy(() => import('../pages/settings/layout/settingsLayout'));
 const ProfileSettings = lazy(() => import('../pages/settings/profile'));
 const AccountSettings = lazy(() => import('../pages/settings/account'));
+const TracksList = lazy(() => import('../pages/tracks-list/Page'));
+const TrackDetails = lazy(() => import('../pages/track-details/Page'));
+const GamesPage = lazy(() => import('../pages/games-page/Page'));
+const BeginnerCourses = lazy(() => import('../pages/beginner-courses/Page'));
+const CourseDetails = lazy(() => import('../pages/course-details/Page'));
+const MainLayout = lazy(() => import('../pages/MainLayout'));
+const Aiquiz = lazy(() => import('../pages/AI-quiz/Aiquiz'));
+const Learn = lazy(() => import('../pages/learn'));
+
+// Auth Pages
 const Login = lazy(() => import('../pages/auth/Login'));
 const Signup = lazy(() => import('../pages/auth/Signup'));
 const ForgotPassword = lazy(() => import('../pages/auth/ForgotPassword'));
 const ResetPassword = lazy(() => import('../pages/auth/ResetPassword'));
 const VerifyEmail = lazy(() => import('../pages/auth/VerifyEmail'));
-const TracksList = lazy(() => import('../pages/tracks-list/Page'));
-const TrackDetails = lazy(() => import('../pages/track-details/Page'));
-const LoadingPage = lazy(() => import('../pages/loading/LoadingPage'));
-const StartPage = lazy(() => import('../pages/start/StartPage'));
-const GamesPage = lazy(() => import('../pages/games-page/Page'));
-const AdminLayout = lazy(() => import('../pages/admin/Layout'));
+
+import Landing from '../pages/landing';
+import LoadingPage from '../pages/loading/LoadingPage';
+import StartPage from '../pages/start/StartPage';
+
+// Admin Pages
 const Dashboard = lazy(() => import('../pages/admin/Dashboard'));
 const Users = lazy(() => import('../pages/admin/Users'));
 const Tracks = lazy(() => import('../pages/admin/Tracks'));
 const AdminProfileForm = lazy(() => import('../pages/admin/ProfileForm'));
-const AdminRoute = lazy(() => import('./AdminRoute'));
-const MustBeLoggedRoute = lazy(() => import('./MustBeLoggedRoute'));
-const NotForLoggedRoute = lazy(() => import('./NotForLoggedRoute'));
-const AuthLayout = lazy(() => import('../pages/auth/Layout'));
-const BeginnerCourses = lazy(() => import('../pages/beginner-courses/Page'));
-const CourseDetails = lazy(() => import('../pages/course-details/Page'));
-const MainLayout = lazy(() => import('../pages/MainLayout'));
-const Aiquiz = lazy(() => import('../pages/AI-quiz/Aiquiz'));
+
+// Layouts
+import SettingsLayout from '../pages/settings/layout/settingsLayout';
+import AdminLayout from '../pages/admin/Layout';
+import AuthLayout from '../pages/auth/Layout';
+
+// Protected Routes
+import AdminRoute from './AdminRoute';
+import MustBeLoggedRoute from './MustBeLoggedRoute';
+import NotForLoggedRoute from './NotForLoggedRoute';
 
 const routes = [
   {
