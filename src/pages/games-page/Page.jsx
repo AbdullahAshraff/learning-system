@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import { learn } from "../../assets";
+import { learn ,Flex_froggy,grid_garden,Javascript_30,code_cambat,checkio,css_diner,robocode,Euler,saga,codewars,py_challenges,codin_game} from "../../assets";
 
 const Page = () => {
   const [selectedGame, setSelectedGame] = useState(null);
@@ -10,73 +10,73 @@ const Page = () => {
     {
         title: 'Flexbox Froggy',
         src: 'https://flexboxfroggy.com/',
-        img: learn,
+        img: Flex_froggy,
         description: 'A fun game to learn CSS Flexbox by helping froggies reach their lilypads.'
     },
     {
         title: 'Grid Garden',
         src: 'https://cssgridgarden.com/',
-        img: learn,
+        img: grid_garden,
         description: 'A game to learn CSS Grid by watering your garden with grid properties.'
     },
     {
         title: 'JavaScript 30',
         src: 'https://javascript30.com/',
-        img: learn,
+        img: Javascript_30,
         description: '30-day vanilla JS coding challenge to build 30 things in 30 days with 30 tutorials.'
     },
     {
         title: 'CodeCombat',
         src: 'https://codecombat.com/',
-        img: learn,
+        img: code_cambat,
         description: 'Learn coding through a game where you control your character using code.'
     },
     {
         title: 'CheckiO',
         src: 'https://checkio.org/',
-        img: learn,
+        img: checkio,
         description: 'A coding game that helps you improve your Python skills through fun challenges.'
     },
     {
         title: 'CSS Diner',
         src: 'https://flukeout.github.io/',
-        img: learn,
+        img: css_diner,
         description: 'Learn CSS selectors by serving delicious dishes to hungry diners.'
     },
     {
         title: 'Robocode',
         src: 'https://robocode.sourceforge.io/',
-        img: learn,
+        img: robocode,
         description: 'A game to teach programming where you program battling robots.'
     },
     {
         title: 'Project Euler',
         src: 'https://projecteuler.net/',
-        img: learn,
+        img: Euler,
         description: 'A collection of challenging mathematical/computer programming problems.'
     },
     {
         title: 'Elevator Saga',
         src: 'https://play.elevatorsaga.com/',
-        img: learn,
+        img: saga,
         description: 'Learn programming by optimizing the movement of elevators.'
     },
     {
         title: 'Codewars',
         src: 'https://www.codewars.com/',
-        img: learn,
+        img: codewars,
         description: 'A platform for coding challenges to improve your Python skills.'
     },
     {
         title: 'Python Challenge',
         src: 'http://www.pythonchallenge.com/',
-        img: learn,
+        img: py_challenges,
         description: 'A series of challenges that require Python skills to solve.'
     },
     {
         title: 'Codingame',
         src: 'https://www.codingame.com/start',
-        img: learn,
+        img: codin_game,
         description: 'An interactive platform where you learn programming through games.'
     },
 ];
