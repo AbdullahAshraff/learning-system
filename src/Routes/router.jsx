@@ -28,6 +28,7 @@ import AuthLayout from '../pages/auth/Layout';
 import BeginnerCourses from '../pages/beginner-courses/Page';
 import CourseDetails from '../pages/course-details/Page';
 import MainLayout from '../pages/MainLayout';
+import Aiquiz from '../pages/AI-quiz/Aiquiz';
 
 const routes = [
   {
@@ -48,6 +49,7 @@ const routes = [
       { path: 'track', element: <TrackDetails /> },
       { path: 'beginner', element: <BeginnerCourses /> },
       { path: 'course', element: <CourseDetails /> },
+      { path: 'quizes', element: <Aiquiz /> },
       { path: '*', element: <NotFound /> },
       {
         path: 'games',
