@@ -44,5 +44,4 @@ const SidebarItem = ({ title, icon, to }) => (
   </NavLink>
 );
 
-// تأكد من تصدير Sidebar بشكل صحيح
 export default Sidebar;
