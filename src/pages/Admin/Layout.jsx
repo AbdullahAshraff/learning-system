@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Sidebar from './components/Sidebar';
 import NavBar from './components/Navbar';
 import { Outlet } from 'react-router-dom';
+import Loading from '../../components/LoadingCircularProgress';
 
 const AdminDashboard = () => {
   const [photo, setPhoto] = useState('');
@@ -20,7 +21,15 @@ const AdminDashboard = () => {
       <div className="flex-1 flex flex-col">
         <NavBar photo={photo} name={name} />
         <div className="flex-1 p-4 overflow-y-auto mt-8">
-          <Outlet />
+          <Suspense
+            fallback={
+              <div className="h-screen">
+                <Loading />
+              </div>
+            }
+          >
+            <Outlet />
+          </Suspense>
         </div>
       </div>
     </div>

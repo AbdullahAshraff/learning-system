@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthContext';
 import axiosInstance from '../../lib/axiosInstance';
+import Loading from '../../components/LoadingCircularProgress';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,9 +15,11 @@ const Login = () => {
   // for form
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [btnActive, setBtnActive] = useState(true);
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setBtnActive(false);
 
     try {
       const response = await axiosInstance.post('auth/login', {
@@ -29,15 +32,10 @@ const Login = () => {
       toast.success('Login successful!');
       navigate('/');
     } catch (error) {
-      toast.error(
-        `Login failed: ${
-          error.response ? error.response.data.message : error.message
-        }`
-      );
-      console.error(
-        'Login failed:',
-        error.response ? error.response.data : error.message
-      );
+      toast.error(`${error.response.data.errors[0].msg}`);
+      console.error('', error.response.data.errors[0].msg);
+    } finally {
+      setBtnActive(true);
     }
   };
 
@@ -85,9 +83,10 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700
+            disabled:text-white/60 disabled:bg-blue-600/60"
           >
-            Login
+            {btnActive ? 'Login' : <Loading size={25} />}
           </button>
         </form>
         <div className="mt-4 text-center">

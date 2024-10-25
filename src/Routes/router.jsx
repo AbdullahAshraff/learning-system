@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 
 const Profile = lazy(() => import('../pages/profile'));
 const NotFound = lazy(() => import('../pages/error-pages/Notfound'));
@@ -21,9 +21,9 @@ const ForgotPassword = lazy(() => import('../pages/auth/ForgotPassword'));
 const ResetPassword = lazy(() => import('../pages/auth/ResetPassword'));
 const VerifyEmail = lazy(() => import('../pages/auth/VerifyEmail'));
 
-import Landing from '../pages/landing';
+const Landing = lazy(() => import('../pages/landing'));
 import LoadingPage from '../pages/loading/LoadingPage';
-import StartPage from '../pages/start/StartPage';
+const StartPage = lazy(() => import('../pages/start/StartPage'));
 
 // Admin Pages
 const Dashboard = lazy(() => import('../pages/admin/Dashboard'));
@@ -40,6 +40,7 @@ import AuthLayout from '../pages/auth/Layout';
 import AdminRoute from './AdminRoute';
 import MustBeLoggedRoute from './MustBeLoggedRoute';
 import NotForLoggedRoute from './NotForLoggedRoute';
+import Loading from '../components/LoadingCircularProgress';
 
 const routes = [
   {
@@ -48,6 +49,10 @@ const routes = [
     children: [
       { index: true, element: <Landing /> },
       { path: 'landing', element: <Landing /> },
+      {
+        path: 'start',
+        element: <StartPage />,
+      },
       {
         path: 'profile',
         element: (
@@ -91,14 +96,18 @@ const routes = [
     element: <LoadingPage />,
   },
   {
-    path: 'start',
-    element: <StartPage />,
-  },
-  {
     path: 'learn',
     element: (
       <MustBeLoggedRoute>
-        <Learn />
+        <Suspense
+          fallback={
+            <div className="h-screen">
+              <Loading />
+            </div>
+          }
+        >
+          <Learn />
+        </Suspense>
       </MustBeLoggedRoute>
     ),
   },

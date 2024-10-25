@@ -4,18 +4,22 @@ import { toast } from 'react-hot-toast';
 import Cookies from 'js-cookie';
 import axiosInstance from '../../lib/axiosInstance';
 import { AuthContext } from '../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
+import Loading from '../../components/LoadingCircularProgress';
 
 const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [btnActive, setBtnActive] = useState(true);
   const navigate = useNavigate();
 
   const { handleLogin } = useContext(AuthContext); // for authorization
 
   const handleSignup = async e => {
     e.preventDefault();
+    setBtnActive(false);
     if (password !== confirmPassword) {
       toast.error('Passwords do not match!'); // رسالة خطأ عند عدم تطابق كلمتي المرور
       return;
@@ -33,15 +37,10 @@ const Signup = () => {
       toast.success('Account created successfully!');
       navigate('/');
     } catch (error) {
-      toast.error(
-        `Registration failed: ${
-          error.response ? error.response.data.message : error.message
-        }`
-      );
-      console.error(
-        'Registration failed:',
-        error.response ? error.response.data : error.message
-      );
+      toast.error(`${error.response.data.errors[0].msg}`);
+      console.error('', error.response.data.errors[0].msg);
+    } finally {
+      setBtnActive(true);
     }
   };
 
@@ -121,11 +120,20 @@ const Signup = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:text-white/60 disabled:bg-blue-600/60"
+            disabled={!btnActive}
           >
-            Sign Up
+            {btnActive ? 'Sign Up' : <Loading size={25} />}
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <Link
+            to="/auth/login"
+            className="text-sm text-blue-600 hover:underline"
+          >
+            Return back to login!
+          </Link>
+        </div>
       </div>
     </section>
   );

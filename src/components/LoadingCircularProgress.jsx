@@ -1,6 +1,6 @@
 import CircularProgress from '@mui/material/CircularProgress';
 
-const Loading = () => {
+const Loading = (props) => {
   console.log('Loading render');
   return (
     <div className="w-full h-full flex justify-center items-center">
@@ -19,6 +19,7 @@ const Loading = () => {
         size={50}
         thickness={5}
         style={{ animationDuration: '0.5s' }}
+        {...props}
       />
     </div>
   );
