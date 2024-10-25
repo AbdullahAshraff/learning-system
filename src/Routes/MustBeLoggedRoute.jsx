@@ -10,7 +10,7 @@ const MustBeLoggedRoute = ({ children }) => {
       duration: 3000,
       position: 'top-center',
     });
-    return <Navigate to="/auth/login" />;
+    return <Navigate to="/auth/login" replace={true} />;
   }
 
   return children;
